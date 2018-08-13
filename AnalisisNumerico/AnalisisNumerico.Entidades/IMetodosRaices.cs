@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnalisisNumerico.Entidades
 {
-    public class Class1
+    public interface IMetodosRaices
     {
     }
 }
