@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AnalisisNumerico.Entidades;
 
 namespace AnalisisNumerico.UI
 {
@@ -33,5 +34,9 @@ namespace AnalisisNumerico.UI
             }
         }
 
+        private void Frm_Inicio_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

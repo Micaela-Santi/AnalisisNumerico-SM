@@ -33,6 +33,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.uNIDAD1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cERRADOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.metodoDeLaBiseccionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,6 @@
             this.simpleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.multipleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.simpson38ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,6 +109,13 @@
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "Menu";
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(207, 22);
+            this.toolStripMenuItem1.Text = "CRITERIOS DE PARO";
+            // 
             // uNIDAD1ToolStripMenuItem
             // 
             this.uNIDAD1ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -127,7 +134,7 @@
             this.reglaFalsaToolStripMenuItem});
             this.cERRADOSToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cERRADOSToolStripMenuItem.Name = "cERRADOSToolStripMenuItem";
-            this.cERRADOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cERRADOSToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.cERRADOSToolStripMenuItem.Text = "CERRADOS";
             // 
             // metodoDeLaBiseccionToolStripMenuItem
@@ -151,7 +158,7 @@
             this.secanteToolStripMenuItem});
             this.aBIERTOSToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aBIERTOSToolStripMenuItem.Name = "aBIERTOSToolStripMenuItem";
-            this.aBIERTOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aBIERTOSToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.aBIERTOSToolStripMenuItem.Text = "ABIERTOS";
             // 
             // newtonRapshonToolStripMenuItem
@@ -297,13 +304,6 @@
             this.simpson38ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.simpson38ToolStripMenuItem.Text = "Simpson 3/8";
             // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(207, 22);
-            this.toolStripMenuItem1.Text = "CRITERIOS DE PARO";
-            // 
             // Frm_Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,6 +318,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Inicio";
             this.Text = "Analisis Numerico";
+            this.Load += new System.EventHandler(this.Frm_Inicio_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_Inicio_MouseMove);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

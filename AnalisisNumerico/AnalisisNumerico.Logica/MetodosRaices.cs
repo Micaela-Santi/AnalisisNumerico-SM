@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 using AnalisisNumerico.Entidades;
 namespace AnalisisNumerico.Logica
 {
-    public class MetodosRaices: IMetodosRaices
+    public class MetodosRaices : IMetodosRaices
     {
+        public Resultado MetodoBiseccion(ParametrosBiseccion parametos)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
