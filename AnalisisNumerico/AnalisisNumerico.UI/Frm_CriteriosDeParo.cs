@@ -7,21 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AnalisisNumerico.Entidades;
 
 namespace AnalisisNumerico.UI
 {
-    public partial class Frm_Inicio : Form
+    public partial class Frm_CriteriosDeParo : Form
     {
-        public Frm_Inicio()
+        public Frm_CriteriosDeParo()
         {
             InitializeComponent();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         int posX = 0;
         int posY = 0;
 
-        private void Frm_Inicio_MouseMove(object sender, MouseEventArgs e)
+        private void Frm_CriteriosDeParo_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
             {
@@ -33,23 +37,6 @@ namespace AnalisisNumerico.UI
                 Left = Left + (e.X - posX);
                 Top = Top + (e.Y - posY);
             }
-        }
-
-        private void Frm_Inicio_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Frm_CriteriosDeParo Abrir = new Frm_CriteriosDeParo();
-
-            Abrir.Show();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

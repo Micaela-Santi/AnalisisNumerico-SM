@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Inicio));
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -57,12 +58,15 @@
             this.simpleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.multipleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.simpson38ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.LightBlue;
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Location = new System.Drawing.Point(0, 425);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 26);
@@ -70,7 +74,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.LightBlue;
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel3.Location = new System.Drawing.Point(-1, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(26, 450);
@@ -78,7 +82,8 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.LightBlue;
+            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Location = new System.Drawing.Point(775, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(26, 450);
@@ -86,15 +91,15 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightBlue;
-            this.panel1.Location = new System.Drawing.Point(0, -1);
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Location = new System.Drawing.Point(-6, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 26);
             this.panel1.TabIndex = 1;
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.LightBlue;
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
@@ -102,7 +107,7 @@
             this.uNIDAD2ToolStripMenuItem,
             this.uNIDAD3ToolStripMenuItem,
             this.uNIDAD4ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(14, -2);
+            this.menuStrip1.Location = new System.Drawing.Point(14, -1);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuStrip1.Size = new System.Drawing.Size(657, 26);
@@ -115,6 +120,7 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(207, 22);
             this.toolStripMenuItem1.Text = "CRITERIOS DE PARO";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // uNIDAD1ToolStripMenuItem
             // 
@@ -258,21 +264,21 @@
             this.multipleToolStripMenuItem});
             this.trapeciosToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trapeciosToolStripMenuItem.Name = "trapeciosToolStripMenuItem";
-            this.trapeciosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.trapeciosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.trapeciosToolStripMenuItem.Text = "Trapecios";
             // 
             // simpleToolStripMenuItem
             // 
             this.simpleToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleToolStripMenuItem.Name = "simpleToolStripMenuItem";
-            this.simpleToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.simpleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.simpleToolStripMenuItem.Text = "Simple ";
             // 
             // multipleToolStripMenuItem
             // 
             this.multipleToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.multipleToolStripMenuItem.Name = "multipleToolStripMenuItem";
-            this.multipleToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.multipleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.multipleToolStripMenuItem.Text = "Multiple";
             // 
             // simpson13ToolStripMenuItem
@@ -282,7 +288,7 @@
             this.multipleToolStripMenuItem1});
             this.simpson13ToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpson13ToolStripMenuItem.Name = "simpson13ToolStripMenuItem";
-            this.simpson13ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.simpson13ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.simpson13ToolStripMenuItem.Text = "Simpson 1/3";
             // 
             // simpleToolStripMenuItem1
@@ -301,8 +307,19 @@
             // 
             this.simpson38ToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpson38ToolStripMenuItem.Name = "simpson38ToolStripMenuItem";
-            this.simpson38ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.simpson38ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.simpson38ToolStripMenuItem.Text = "Simpson 3/8";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(22, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Frm_Inicio
             // 
@@ -317,11 +334,14 @@
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Inicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Analisis Numerico";
             this.Load += new System.EventHandler(this.Frm_Inicio_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_Inicio_MouseMove);
+            this.panel4.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,6 +377,7 @@
         private System.Windows.Forms.ToolStripMenuItem multipleToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem simpson38ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
