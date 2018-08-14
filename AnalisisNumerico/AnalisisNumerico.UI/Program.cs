@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,7 +12,7 @@ namespace AnalisisNumerico.UI
 {
     static class Program
     {
-        private static SimpleInjector.Container container;
+        internal static Container container;
 
         /// <summary>
         /// The main entry point for the application.
@@ -25,13 +24,15 @@ namespace AnalisisNumerico.UI
             Application.SetCompatibleTextRenderingDefault(false);
             Bootstrap();
             Application.Run(container.GetInstance<Frm_Inicio>());
+
         }
 
         private static void Bootstrap()
         {
-            container = new SimpleInjector.Container();
+            container = new Container();
             container.Register<IMetodosRaices,MetodosRaices>();
             container.Register<Frm_Inicio>();
+            container.Register<Frm_MetodoBiseccion>();
         }
         
     }

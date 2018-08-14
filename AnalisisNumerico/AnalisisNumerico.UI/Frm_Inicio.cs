@@ -41,15 +41,26 @@ namespace AnalisisNumerico.UI
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Frm_CriteriosDeParo Abrir = new Frm_CriteriosDeParo();
+        { 
 
+            Frm_MetodoBiseccion Abrir = new Frm_MetodoBiseccion();
             Abrir.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void metodoDeLaBiseccionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Program.container.GetInstance<Frm_MetodoBiseccion>();
+            form.Show();
+        }
+
+        private void metodoDeLaBiseccionToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AnalisisNumerico.UI
 {
-    public partial class Frm_CriteriosDeParo : Form
+    public partial class Frm_MetodoBiseccion : Form
     {
-        public Frm_CriteriosDeParo()
+        public Frm_MetodoBiseccion()
         {
             InitializeComponent();
         }

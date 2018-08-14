@@ -8,5 +8,10 @@ namespace AnalisisNumerico.Entidades
 {
     public class ParametrosBiseccion
     {
+        public int Iteraciones { get; set; }
+        public double Tolerancia { get;set; }
+        public double Xi { get; set; }
+        public double Xd { get; set; }
+        public string Funcion { get; set; }
     }
 }
