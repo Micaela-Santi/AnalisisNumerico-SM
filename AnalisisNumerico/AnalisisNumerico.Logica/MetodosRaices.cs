@@ -10,10 +10,7 @@ namespace AnalisisNumerico.Logica
 {
     public class MetodosRaices : IMetodosRaices
     {
-        public Resultado MetodoBiseccion(ParametrosBiseccion parametos)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         private double EvaluarFuncion(string nombrefuncion, double valor)
         {
@@ -24,7 +21,14 @@ namespace AnalisisNumerico.Logica
             return expresion.calculate();
 
         }
-        /*   public Resultado MetodoBiseccion(ParametrosBiseccion parametros)
+        private Resultado BuscarRaices(ParametrosBiseccion parametros)
+        {
+            int contador = 0;
+            double anterior = 0;
+            var xr = (parametros.Xd + parametros.Xi) / 2;
+            var errorRelativo = (xr - anterior) / xr;
+        }
+           public Resultado MetodoBiseccion(ParametrosBiseccion parametros)
            {
                Resultado resultado = new Resultado();
                var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
@@ -52,9 +56,11 @@ namespace AnalisisNumerico.Logica
                    return resultado;
                }
 
+            
+
 
 
            }
-           */
+           
     }
 }
