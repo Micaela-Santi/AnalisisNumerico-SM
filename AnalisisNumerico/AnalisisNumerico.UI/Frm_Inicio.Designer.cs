@@ -150,7 +150,7 @@
             this.metodoDeLaBiseccionToolStripMenuItem.Name = "metodoDeLaBiseccionToolStripMenuItem";
             this.metodoDeLaBiseccionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.metodoDeLaBiseccionToolStripMenuItem.Text = "Bisección";
-            this.metodoDeLaBiseccionToolStripMenuItem.Click += new System.EventHandler(this.metodoDeLaBiseccionToolStripMenuItem_Click_1);
+            this.metodoDeLaBiseccionToolStripMenuItem.Click += new System.EventHandler(this.metodoDeLaBiseccionToolStripMenuItem_Click);
             // 
             // reglaFalsaToolStripMenuItem
             // 
@@ -327,7 +327,6 @@
             this.Name = "Frm_Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Analisis Numerico";
-            this.Load += new System.EventHandler(this.Frm_Inicio_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_Inicio_MouseMove);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

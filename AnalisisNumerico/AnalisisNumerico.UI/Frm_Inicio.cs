@@ -35,18 +35,6 @@ namespace AnalisisNumerico.UI
             }
         }
 
-        private void Frm_Inicio_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        { 
-
-            Frm_MetodoBiseccion Abrir = new Frm_MetodoBiseccion();
-            Abrir.Show();
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -56,11 +44,6 @@ namespace AnalisisNumerico.UI
         {
             var form = Program.container.GetInstance<Frm_MetodoBiseccion>();
             form.Show();
-        }
-
-        private void metodoDeLaBiseccionToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

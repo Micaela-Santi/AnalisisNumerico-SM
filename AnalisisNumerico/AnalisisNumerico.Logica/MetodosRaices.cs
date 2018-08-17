@@ -10,7 +10,7 @@ namespace AnalisisNumerico.Logica
 {
     public class MetodosRaices : IMetodosRaices
     {
-        
+
 
         private double EvaluarFuncion(string nombrefuncion, double valor)
         {
@@ -32,18 +32,14 @@ namespace AnalisisNumerico.Logica
             var xr = (parametros.Xd + parametros.Xi) / 2;
             var errorRelativo = (xr - anterior) / xr;
             var resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
-            if (resultadoXR < 0)
-            {
-                resultadoXR = resultadoXR * (-1);
-            }
             if (resultadoXR < parametros.Tolerancia)
             {
                 resultado.Raiz = xr;
                 return resultado;
             }
-            while (errorRelativo < parametros.Tolerancia || contador > parametros.Iteraciones || resultadoXR < parametros.Tolerancia)
+            while (Math.Abs(errorRelativo) > parametros.Tolerancia || contador < parametros.Iteraciones || Math.Abs(resultadoXR) > parametros.Tolerancia)
             {
-                if (EvaluarFuncion(parametros.Funcion, XI)* EvaluarFuncion(parametros.Funcion,xr) > 0)
+                if (EvaluarFuncion(parametros.Funcion, XI) * EvaluarFuncion(parametros.Funcion, xr) > 0)
                 {
                     XI = xr;
                 }
@@ -56,45 +52,42 @@ namespace AnalisisNumerico.Logica
                 contador += 1;
                 errorRelativo = (xr - anterior) / xr;
                 resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
-                if (resultadoXR < 0)
-                {
-                    resultadoXR = resultadoXR * (-1);
-                }
+
             }
             resultado.Iteraciones = contador;
             resultado.ErrorRelativo = errorRelativo;
             resultado.Raiz = xr;
             return resultado;
         }
-           public Resultado MetodoBiseccion(ParametrosBiseccion parametros)
-           {
-               Resultado resultado = new Resultado();
-               var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
-               var resultadoxd = EvaluarFuncion(parametros.Funcion, parametros.Xd);
+        public Resultado MetodoBiseccion(ParametrosBiseccion parametros)
+        {
+            Resultado resultado = new Resultado();
+            var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
+            var resultadoxd = EvaluarFuncion(parametros.Funcion, parametros.Xd);
 
-               if (resultadoxi * resultadoxd > 0)
-               {
-                   throw new ArgumentException("Ingresar nuevamente los extremos", "parametros.Xi");
-               }
+            if (resultadoxi * resultadoxd > 0)
+            {
+                throw new ArgumentException("Ingresar nuevamente los extremos", "parametros.Xi");
+            }
 
-               if (resultadoxi * resultadoxd == 0)
-               {
-                   if (resultadoxi != 0)
-                   {
-                       resultado.Raiz = resultadoxi;
-                   }
-                   else
-                   {
-                       resultado.Raiz = resultadoxd;
-                   }
+            if (resultadoxi * resultadoxd == 0)
+            {
+                if (resultadoxi != 0)
+                {
+                    resultado.Raiz = resultadoxi;
+                }
+                else
+                {
+                    resultado.Raiz = resultadoxd;
+                }
 
-                   resultado.Iteraciones = 0;
-                   resultado.ErrorRelativo = 0;
-                   return resultado;
-               }
+                resultado.Iteraciones = 0;
+                resultado.ErrorRelativo = 0;
+                return resultado;
+            }
 
             return this.BuscarRaices(parametros);
-           }
-           
+        }
+
     }
 }
