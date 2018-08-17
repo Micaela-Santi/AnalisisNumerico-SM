@@ -19,7 +19,6 @@ namespace AnalisisNumerico.Logica
             var nombre = nombrefuncion.Split('=')[0].Trim();
             var expresion = new Expression(nombre, funcion, argumento);
             return expresion.calculate();
-
         }
         private Resultado BuscarRaices(ParametrosBiseccion parametros)
         {
@@ -33,6 +32,10 @@ namespace AnalisisNumerico.Logica
             var xr = (parametros.Xd + parametros.Xi) / 2;
             var errorRelativo = (xr - anterior) / xr;
             var resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
+            if (resultadoXR < 0)
+            {
+                resultadoXR = resultadoXR * (-1);
+            }
             if (resultadoXR < parametros.Tolerancia)
             {
                 resultado.Raiz = xr;
@@ -79,7 +82,6 @@ namespace AnalisisNumerico.Logica
                    if (resultadoxi != 0)
                    {
                        resultado.Raiz = resultadoxi;
-
                    }
                    else
                    {

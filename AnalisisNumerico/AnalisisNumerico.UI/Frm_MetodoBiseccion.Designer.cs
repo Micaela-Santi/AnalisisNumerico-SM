@@ -34,15 +34,16 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbl_Iteraciones = new System.Windows.Forms.Label();
-            this.txt_Iteraciones = new System.Windows.Forms.TextBox();
+            this.txt_ValorXi = new System.Windows.Forms.TextBox();
+            this.lbl_ValorInicial = new System.Windows.Forms.Label();
+            this.lbl_ValorFinal = new System.Windows.Forms.Label();
+            this.txt_ValorXd = new System.Windows.Forms.TextBox();
             this.lbl_Tolerancia = new System.Windows.Forms.Label();
             this.txt_Tolerancia = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbl_IteracionActual = new System.Windows.Forms.Label();
-            this.lbl_ToleranciaActual = new System.Windows.Forms.Label();
+            this.txt_Iteraciones = new System.Windows.Forms.TextBox();
+            this.lbl_Iteraciones = new System.Windows.Forms.Label();
+            this.lbl_Funcion = new System.Windows.Forms.Label();
+            this.txt_Funcion = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -91,114 +92,116 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // lbl_Iteraciones
+            // txt_ValorXi
             // 
-            this.lbl_Iteraciones.AutoSize = true;
-            this.lbl_Iteraciones.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Iteraciones.Location = new System.Drawing.Point(61, 195);
-            this.lbl_Iteraciones.Name = "lbl_Iteraciones";
-            this.lbl_Iteraciones.Size = new System.Drawing.Size(108, 18);
-            this.lbl_Iteraciones.TabIndex = 9;
-            this.lbl_Iteraciones.Text = "Iteraciones";
+            this.txt_ValorXi.Location = new System.Drawing.Point(187, 116);
+            this.txt_ValorXi.Name = "txt_ValorXi";
+            this.txt_ValorXi.Size = new System.Drawing.Size(100, 20);
+            this.txt_ValorXi.TabIndex = 2;
             // 
-            // txt_Iteraciones
+            // lbl_ValorInicial
             // 
-            this.txt_Iteraciones.Location = new System.Drawing.Point(251, 193);
-            this.txt_Iteraciones.Name = "txt_Iteraciones";
-            this.txt_Iteraciones.Size = new System.Drawing.Size(115, 20);
-            this.txt_Iteraciones.TabIndex = 1;
+            this.lbl_ValorInicial.AutoSize = true;
+            this.lbl_ValorInicial.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ValorInicial.Location = new System.Drawing.Point(33, 116);
+            this.lbl_ValorInicial.Name = "lbl_ValorInicial";
+            this.lbl_ValorInicial.Size = new System.Drawing.Size(131, 16);
+            this.lbl_ValorInicial.TabIndex = 10;
+            this.lbl_ValorInicial.Text = "Valor Inicial (Xi):";
+            // 
+            // lbl_ValorFinal
+            // 
+            this.lbl_ValorFinal.AutoSize = true;
+            this.lbl_ValorFinal.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ValorFinal.Location = new System.Drawing.Point(309, 116);
+            this.lbl_ValorFinal.Name = "lbl_ValorFinal";
+            this.lbl_ValorFinal.Size = new System.Drawing.Size(122, 16);
+            this.lbl_ValorFinal.TabIndex = 11;
+            this.lbl_ValorFinal.Text = "Valor Final (Xd)";
+            // 
+            // txt_ValorXd
+            // 
+            this.txt_ValorXd.Location = new System.Drawing.Point(450, 116);
+            this.txt_ValorXd.Name = "txt_ValorXd";
+            this.txt_ValorXd.Size = new System.Drawing.Size(100, 20);
+            this.txt_ValorXd.TabIndex = 3;
             // 
             // lbl_Tolerancia
             // 
             this.lbl_Tolerancia.AutoSize = true;
-            this.lbl_Tolerancia.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Tolerancia.Location = new System.Drawing.Point(61, 266);
+            this.lbl_Tolerancia.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Tolerancia.Location = new System.Drawing.Point(33, 163);
             this.lbl_Tolerancia.Name = "lbl_Tolerancia";
-            this.lbl_Tolerancia.Size = new System.Drawing.Size(100, 18);
-            this.lbl_Tolerancia.TabIndex = 2;
+            this.lbl_Tolerancia.Size = new System.Drawing.Size(83, 16);
+            this.lbl_Tolerancia.TabIndex = 12;
             this.lbl_Tolerancia.Text = "Tolerancia";
             // 
             // txt_Tolerancia
             // 
-            this.txt_Tolerancia.Location = new System.Drawing.Point(251, 264);
+            this.txt_Tolerancia.Location = new System.Drawing.Point(187, 163);
             this.txt_Tolerancia.Name = "txt_Tolerancia";
-            this.txt_Tolerancia.Size = new System.Drawing.Size(115, 20);
-            this.txt_Tolerancia.TabIndex = 2;
+            this.txt_Tolerancia.Size = new System.Drawing.Size(100, 20);
+            this.txt_Tolerancia.TabIndex = 4;
             // 
-            // button1
+            // txt_Iteraciones
             // 
-            this.button1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(424, 246);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 38);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "ACTUALIZAR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.txt_Iteraciones.Location = new System.Drawing.Point(450, 163);
+            this.txt_Iteraciones.Name = "txt_Iteraciones";
+            this.txt_Iteraciones.Size = new System.Drawing.Size(100, 20);
+            this.txt_Iteraciones.TabIndex = 5;
             // 
-            // label1
+            // lbl_Iteraciones
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(61, 67);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 18);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Iteraciones actuales";
+            this.lbl_Iteraciones.AutoSize = true;
+            this.lbl_Iteraciones.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Iteraciones.Location = new System.Drawing.Point(309, 163);
+            this.lbl_Iteraciones.Name = "lbl_Iteraciones";
+            this.lbl_Iteraciones.Size = new System.Drawing.Size(91, 16);
+            this.lbl_Iteraciones.TabIndex = 14;
+            this.lbl_Iteraciones.Text = "Iteraciones";
             // 
-            // label2
+            // lbl_Funcion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(61, 129);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 18);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Tolerancia actual";
+            this.lbl_Funcion.AutoSize = true;
+            this.lbl_Funcion.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Funcion.Location = new System.Drawing.Point(33, 62);
+            this.lbl_Funcion.Name = "lbl_Funcion";
+            this.lbl_Funcion.Size = new System.Drawing.Size(74, 16);
+            this.lbl_Funcion.TabIndex = 15;
+            this.lbl_Funcion.Text = "Funcion: ";
             // 
-            // lbl_IteracionActual
+            // txt_Funcion
             // 
-            this.lbl_IteracionActual.AutoSize = true;
-            this.lbl_IteracionActual.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_IteracionActual.Location = new System.Drawing.Point(248, 67);
-            this.lbl_IteracionActual.Name = "lbl_IteracionActual";
-            this.lbl_IteracionActual.Size = new System.Drawing.Size(13, 18);
-            this.lbl_IteracionActual.TabIndex = 13;
-            this.lbl_IteracionActual.Text = " ";
+            this.txt_Funcion.Location = new System.Drawing.Point(187, 62);
+            this.txt_Funcion.Name = "txt_Funcion";
+            this.txt_Funcion.Size = new System.Drawing.Size(100, 20);
+            this.txt_Funcion.TabIndex = 1;
             // 
-            // lbl_ToleranciaActual
-            // 
-            this.lbl_ToleranciaActual.AutoSize = true;
-            this.lbl_ToleranciaActual.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ToleranciaActual.Location = new System.Drawing.Point(248, 129);
-            this.lbl_ToleranciaActual.Name = "lbl_ToleranciaActual";
-            this.lbl_ToleranciaActual.Size = new System.Drawing.Size(13, 18);
-            this.lbl_ToleranciaActual.TabIndex = 14;
-            this.lbl_ToleranciaActual.Text = " ";
-            // 
-            // Frm_CriteriosDeParo
+            // Frm_MetodoBiseccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(600, 350);
-            this.Controls.Add(this.lbl_ToleranciaActual);
-            this.Controls.Add(this.lbl_IteracionActual);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.txt_Tolerancia);
-            this.Controls.Add(this.lbl_Tolerancia);
+            this.Controls.Add(this.txt_Funcion);
+            this.Controls.Add(this.lbl_Funcion);
             this.Controls.Add(this.txt_Iteraciones);
             this.Controls.Add(this.lbl_Iteraciones);
+            this.Controls.Add(this.txt_Tolerancia);
+            this.Controls.Add(this.lbl_Tolerancia);
+            this.Controls.Add(this.txt_ValorXd);
+            this.Controls.Add(this.lbl_ValorFinal);
+            this.Controls.Add(this.lbl_ValorInicial);
+            this.Controls.Add(this.txt_ValorXi);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Frm_CriteriosDeParo";
+            this.Name = "Frm_MetodoBiseccion";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_CriteriosDeParo_MouseMove);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MetodoBiseccion_MouseMove);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -212,15 +215,16 @@
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lbl_Iteraciones;
-        private System.Windows.Forms.TextBox txt_Iteraciones;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txt_ValorXi;
+        private System.Windows.Forms.Label lbl_ValorInicial;
+        private System.Windows.Forms.Label lbl_ValorFinal;
+        private System.Windows.Forms.TextBox txt_ValorXd;
         private System.Windows.Forms.Label lbl_Tolerancia;
         private System.Windows.Forms.TextBox txt_Tolerancia;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbl_IteracionActual;
-        private System.Windows.Forms.Label lbl_ToleranciaActual;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txt_Iteraciones;
+        private System.Windows.Forms.Label lbl_Iteraciones;
+        private System.Windows.Forms.Label lbl_Funcion;
+        private System.Windows.Forms.TextBox txt_Funcion;
     }
 }
