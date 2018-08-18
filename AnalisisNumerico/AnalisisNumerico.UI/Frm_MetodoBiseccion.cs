@@ -75,7 +75,7 @@ namespace AnalisisNumerico.UI
             txt_IteracionesActual.Text = string.Empty;
             txt_Error.Text = string.Empty;
             txt_Funcion.Text = string.Empty;
-            txt_IteracionesActual.Text = string.Empty;
+            txt_Iteraciones.Text = string.Empty;
             txt_Tolerancia.Text = string.Empty;
             txt_ValorXd.Text = string.Empty;
             txt_ValorXi.Text = string.Empty;

@@ -30,7 +30,7 @@ namespace AnalisisNumerico.Logica
             var XI = parametros.Xi;
             var XD = parametros.Xd;
             var xr = (parametros.Xd + parametros.Xi) / 2;
-            var errorRelativo = (xr - anterior) / xr;
+            var errorRelativo = (Math.Abs(xr - anterior) / xr);
             var resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
             if (resultadoXR < parametros.Tolerancia)
             {
@@ -50,7 +50,7 @@ namespace AnalisisNumerico.Logica
                 anterior = xr;
                 xr = (XI + XD) / 2;
                 contador += 1;
-                errorRelativo = (Math.Abs(xr - anterior)) / xr;
+                errorRelativo = ((Math.Abs(xr - anterior)) / xr);
                 resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
 
             }
@@ -72,13 +72,13 @@ namespace AnalisisNumerico.Logica
 
             if (resultadoxi * resultadoxd == 0)
             {
-                if (resultadoxi != 0)
+                if (resultadoxi == 0)
                 {
-                    resultado.Raiz = resultadoxi;
+                    resultado.Raiz = parametros.Xi;
                 }
                 else
                 {
-                    resultado.Raiz = resultadoxd;
+                    resultado.Raiz = parametros.Xd;
                 }
 
                 resultado.Iteraciones = 0;
