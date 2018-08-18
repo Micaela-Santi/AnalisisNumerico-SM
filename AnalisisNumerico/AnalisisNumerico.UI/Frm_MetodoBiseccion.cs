@@ -18,6 +18,7 @@ namespace AnalisisNumerico.UI
         {
             InitializeComponent();
             MetodosRaices = metodosRaices;
+            txt_Funcion.Text = "F(x)= ";
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -56,7 +57,6 @@ namespace AnalisisNumerico.UI
             try
             {
                 var Resultado = this.MetodosRaices.MetodoBiseccion(parametros);
-
                 txt_Raiz.Text = Resultado.Raiz.ToString();
                 txt_IteracionesActual.Text = Resultado.Iteraciones.ToString();
                 txt_Error.Text = Resultado.ErrorRelativo.ToString();
@@ -74,6 +74,13 @@ namespace AnalisisNumerico.UI
             txt_Raiz.Text = string.Empty;
             txt_IteracionesActual.Text = string.Empty;
             txt_Error.Text = string.Empty;
+            txt_Funcion.Text = string.Empty;
+            txt_IteracionesActual.Text = string.Empty;
+            txt_Tolerancia.Text = string.Empty;
+            txt_ValorXd.Text = string.Empty;
+            txt_ValorXi.Text = string.Empty;
+           
+
 
         }
     }

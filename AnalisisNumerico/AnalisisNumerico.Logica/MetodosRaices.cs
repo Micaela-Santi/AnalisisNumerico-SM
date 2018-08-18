@@ -37,7 +37,7 @@ namespace AnalisisNumerico.Logica
                 resultado.Raiz = xr;
                 return resultado;
             }
-            while (Math.Abs(errorRelativo) > parametros.Tolerancia || contador < parametros.Iteraciones || Math.Abs(resultadoXR) > parametros.Tolerancia)
+            while (Math.Abs(errorRelativo) > parametros.Tolerancia && contador < parametros.Iteraciones && Math.Abs(resultadoXR) > parametros.Tolerancia)
             {
                 if (EvaluarFuncion(parametros.Funcion, XI) * EvaluarFuncion(parametros.Funcion, xr) > 0)
                 {
@@ -50,7 +50,7 @@ namespace AnalisisNumerico.Logica
                 anterior = xr;
                 xr = (XI + XD) / 2;
                 contador += 1;
-                errorRelativo = (xr - anterior) / xr;
+                errorRelativo = (Math.Abs(xr - anterior)) / xr;
                 resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
 
             }
