@@ -12,11 +12,11 @@ namespace AnalisisNumerico.Logica
     {
 
 
-        private double EvaluarFuncion(string nombrefuncion, double valor)
+        private double EvaluarFuncion(string funcionparametro, double valor)
         {
-            var funcion = new Function(nombrefuncion);
+            var funcion = new Function(funcionparametro);
             var argumento = new Argument("x", valor);
-            var nombre = nombrefuncion.Split('=')[0].Trim();
+            var nombre = funcionparametro.Split('=')[0].Trim();
             var expresion = new Expression(nombre, funcion, argumento);
             return expresion.calculate();
         }
@@ -32,12 +32,12 @@ namespace AnalisisNumerico.Logica
             var xr = (parametros.Xd + parametros.Xi) / 2;
             var errorRelativo = (Math.Abs(xr - anterior) / xr);
             var resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
-            if (resultadoXR < parametros.Tolerancia)
+            if (Math.Abs(resultadoXR) < parametros.Tolerancia)
             {
                 resultado.Raiz = xr;
                 return resultado;
             }
-            while (Math.Abs(errorRelativo) > parametros.Tolerancia && contador < parametros.Iteraciones && Math.Abs(resultadoXR) > parametros.Tolerancia)
+            while (Math.Abs(errorRelativo) > parametros.Tolerancia & contador < parametros.Iteraciones & Math.Abs(resultadoXR) > parametros.Tolerancia)
             {
                 if (EvaluarFuncion(parametros.Funcion, XI) * EvaluarFuncion(parametros.Funcion, xr) > 0)
                 {
@@ -50,7 +50,7 @@ namespace AnalisisNumerico.Logica
                 anterior = xr;
                 xr = (XI + XD) / 2;
                 contador += 1;
-                errorRelativo = ((Math.Abs(xr - anterior)) / xr);
+                errorRelativo = (Math.Abs(xr - anterior) / xr);
                 resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
 
             }
