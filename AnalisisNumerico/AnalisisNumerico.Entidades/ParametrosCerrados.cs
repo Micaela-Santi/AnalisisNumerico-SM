@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnalisisNumerico.Entidades
 {
-    public class ParametrosBiseccion
+    public class ParametrosCerrados
     {
         public int Iteraciones { get; set; }
         public double Tolerancia { get;set; }

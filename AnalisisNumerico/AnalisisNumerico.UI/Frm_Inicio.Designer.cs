@@ -19,7 +19,6 @@
             }
             base.Dispose(disposing);
         }
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -34,7 +33,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.Menu = new System.Windows.Forms.MenuStrip();
             this.uNIDAD1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cERRADOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.metodoDeLaBiseccionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +59,7 @@
             this.simpson38ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -107,21 +106,21 @@
             this.panel1.Size = new System.Drawing.Size(800, 26);
             this.panel1.TabIndex = 1;
             // 
-            // menuStrip1
+            // Menu
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Menu.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Menu.Dock = System.Windows.Forms.DockStyle.None;
+            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.uNIDAD1ToolStripMenuItem,
             this.uNIDAD2ToolStripMenuItem,
             this.uNIDAD3ToolStripMenuItem,
             this.uNIDAD4ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(14, -1);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(570, 26);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "Menu";
+            this.Menu.Location = new System.Drawing.Point(14, -1);
+            this.Menu.Name = "Menu";
+            this.Menu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.Menu.Size = new System.Drawing.Size(450, 26);
+            this.Menu.TabIndex = 3;
+            this.Menu.Text = "Menu";
             // 
             // uNIDAD1ToolStripMenuItem
             // 
@@ -158,6 +157,7 @@
             this.reglaFalsaToolStripMenuItem.Name = "reglaFalsaToolStripMenuItem";
             this.reglaFalsaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reglaFalsaToolStripMenuItem.Text = "Regla Falsa";
+            this.reglaFalsaToolStripMenuItem.Click += new System.EventHandler(this.reglaFalsaToolStripMenuItem_Click);
             // 
             // aBIERTOSToolStripMenuItem
             // 
@@ -266,7 +266,7 @@
             this.multipleToolStripMenuItem});
             this.trapeciosToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trapeciosToolStripMenuItem.Name = "trapeciosToolStripMenuItem";
-            this.trapeciosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.trapeciosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.trapeciosToolStripMenuItem.Text = "Trapecios";
             // 
             // simpleToolStripMenuItem
@@ -290,7 +290,7 @@
             this.multipleToolStripMenuItem1});
             this.simpson13ToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpson13ToolStripMenuItem.Name = "simpson13ToolStripMenuItem";
-            this.simpson13ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.simpson13ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.simpson13ToolStripMenuItem.Text = "Simpson 1/3";
             // 
             // simpleToolStripMenuItem1
@@ -309,7 +309,7 @@
             // 
             this.simpson38ToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpson38ToolStripMenuItem.Name = "simpson38ToolStripMenuItem";
-            this.simpson38ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.simpson38ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.simpson38ToolStripMenuItem.Text = "Simpson 3/8";
             // 
             // Frm_Inicio
@@ -318,7 +318,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.Menu);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -330,8 +330,8 @@
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_Inicio_MouseMove);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.Menu.ResumeLayout(false);
+            this.Menu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,7 +342,7 @@
         private System.Windows.Forms.Panel panel3;
         public System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip Menu;
         private System.Windows.Forms.ToolStripMenuItem uNIDAD1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cERRADOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem metodoDeLaBiseccionToolStripMenuItem;

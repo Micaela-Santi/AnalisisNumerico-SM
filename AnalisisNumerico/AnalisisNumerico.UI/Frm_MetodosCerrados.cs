@@ -11,10 +11,10 @@ using AnalisisNumerico.Entidades;
 
 namespace AnalisisNumerico.UI
 {
-    public partial class Frm_MetodoBiseccion : Form
+    public partial class Frm_MetodosCerrados : Form
     {
         private IMetodosRaices MetodosRaices;
-        public Frm_MetodoBiseccion(IMetodosRaices metodosRaices)
+        public Frm_MetodosCerrados(IMetodosRaices metodosRaices)
         {
             InitializeComponent();
             MetodosRaices = metodosRaices;
@@ -29,7 +29,7 @@ namespace AnalisisNumerico.UI
         int posX = 0;
         int posY = 0;
 
-        private void Frm_MetodoBiseccion_MouseMove(object sender, MouseEventArgs e)
+        private void Frm_MetodosCerrados_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
             {
@@ -45,8 +45,7 @@ namespace AnalisisNumerico.UI
 
         private void btn_Calcular_Click(object sender, EventArgs e)
         {
-            ParametrosBiseccion parametros = new ParametrosBiseccion();
-
+            ParametrosCerrados parametros = new ParametrosCerrados();
             parametros.Funcion = txt_Funcion.Text;
             parametros.Iteraciones = Convert.ToInt32(txt_Iteraciones.Text);
             parametros.Tolerancia = Convert.ToDouble(txt_Tolerancia.Text);
@@ -66,7 +65,13 @@ namespace AnalisisNumerico.UI
                 MessageBox.Show("Ingrese nuevos parametros");
                 txt_ValorXd.Text = string.Empty;
                 txt_ValorXi.Text = string.Empty;
-            } 
+            }
+        }
+
+        internal void Show(string metodo)
+        {
+            lbl_NombreMetodo.Text = metodo;
+            this.Show();
         }
 
         private void btn_Limpiar_Click(object sender, EventArgs e)
@@ -79,9 +84,6 @@ namespace AnalisisNumerico.UI
             txt_Tolerancia.Text = string.Empty;
             txt_ValorXd.Text = string.Empty;
             txt_ValorXi.Text = string.Empty;
-           
-
-
         }
     }
 }

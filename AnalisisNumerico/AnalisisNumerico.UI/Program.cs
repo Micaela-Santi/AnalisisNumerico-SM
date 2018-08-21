@@ -30,10 +30,9 @@ namespace AnalisisNumerico.UI
         private static void Bootstrap()
         {
             container = new Container();
-            container.Register<IMetodosRaices,MetodosRaices>();
+            container.Register<IMetodosRaices,MetodosRaicesCerrados>();
             container.Register<Frm_Inicio>();
-            container.Register<Frm_MetodoBiseccion>();
-        }
-        
+            container.Register<Frm_MetodosCerrados>();
+        } 
     }
 }

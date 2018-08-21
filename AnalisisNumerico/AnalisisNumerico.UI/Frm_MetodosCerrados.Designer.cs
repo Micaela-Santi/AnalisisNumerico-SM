@@ -1,6 +1,6 @@
 ﻿namespace AnalisisNumerico.UI
 {
-    partial class Frm_MetodoBiseccion
+    partial class Frm_MetodosCerrados
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_MetodoBiseccion));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_MetodosCerrados));
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -52,6 +52,7 @@
             this.lbl_Error = new System.Windows.Forms.Label();
             this.btn_Calcular = new System.Windows.Forms.Button();
             this.btn_Limpiar = new System.Windows.Forms.Button();
+            this.lbl_NombreMetodo = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -261,12 +262,22 @@
             this.btn_Limpiar.UseVisualStyleBackColor = true;
             this.btn_Limpiar.Click += new System.EventHandler(this.btn_Limpiar_Click);
             // 
-            // Frm_MetodoBiseccion
+            // lbl_NombreMetodo
+            // 
+            this.lbl_NombreMetodo.AutoSize = true;
+            this.lbl_NombreMetodo.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_NombreMetodo.Location = new System.Drawing.Point(497, 52);
+            this.lbl_NombreMetodo.Name = "lbl_NombreMetodo";
+            this.lbl_NombreMetodo.Size = new System.Drawing.Size(0, 18);
+            this.lbl_NombreMetodo.TabIndex = 21;
+            // 
+            // Frm_MetodosCerrados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(700, 360);
+            this.Controls.Add(this.lbl_NombreMetodo);
             this.Controls.Add(this.btn_Limpiar);
             this.Controls.Add(this.btn_Calcular);
             this.Controls.Add(this.txt_Error);
@@ -290,11 +301,11 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Frm_MetodoBiseccion";
+            this.Name = "Frm_MetodosCerrados";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "v";
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MetodoBiseccion_MouseMove);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MetodosCerrados_MouseMove);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -327,5 +338,6 @@
         private System.Windows.Forms.Label lbl_Error;
         private System.Windows.Forms.Button btn_Calcular;
         private System.Windows.Forms.Button btn_Limpiar;
+        private System.Windows.Forms.Label lbl_NombreMetodo;
     }
 }

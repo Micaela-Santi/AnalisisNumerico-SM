@@ -16,6 +16,7 @@ namespace AnalisisNumerico.UI
         public Frm_Inicio()
         {
             InitializeComponent();
+
         }
 
         int posX = 0;
@@ -42,8 +43,16 @@ namespace AnalisisNumerico.UI
 
         private void metodoDeLaBiseccionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Program.container.GetInstance<Frm_MetodoBiseccion>();
-            form.Show();
+            var form = Program.container.GetInstance<Frm_MetodosCerrados>();
+            string metodo = "Biseccion";
+            form.Show(metodo);
+        }
+
+        private void reglaFalsaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Program.container.GetInstance<Frm_MetodosCerrados>();
+            string metodo = "Regla Falsa";
+            form.Show(metodo);
         }
     }
 }

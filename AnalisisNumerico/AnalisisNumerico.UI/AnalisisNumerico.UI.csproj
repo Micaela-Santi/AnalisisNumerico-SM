@@ -51,11 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Frm_MetodoBiseccion.cs">
+    <Compile Include="Frm_MetodosCerrados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_MetodoBiseccion.Designer.cs">
-      <DependentUpon>Frm_MetodoBiseccion.cs</DependentUpon>
+    <Compile Include="Frm_MetodosCerrados.Designer.cs">
+      <DependentUpon>Frm_MetodosCerrados.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Inicio.cs">
       <SubType>Form</SubType>
@@ -65,8 +65,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Frm_MetodoBiseccion.resx">
-      <DependentUpon>Frm_MetodoBiseccion.cs</DependentUpon>
+    <EmbeddedResource Include="Frm_MetodosCerrados.resx">
+      <DependentUpon>Frm_MetodosCerrados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Inicio.resx">
       <DependentUpon>Frm_Inicio.cs</DependentUpon>
