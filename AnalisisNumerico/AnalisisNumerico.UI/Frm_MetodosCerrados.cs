@@ -51,6 +51,14 @@ namespace AnalisisNumerico.UI
             parametros.Tolerancia = Convert.ToDouble(txt_Tolerancia.Text);
             parametros.Xi = Convert.ToDouble(txt_ValorXi.Text);
             parametros.Xd = Convert.ToDouble(txt_ValorXd.Text);
+            if (lbl_NombreMetodo.Text == "Biseccion")
+            {
+                parametros.Biseccion = true;
+            }
+            else
+            {
+                parametros.Biseccion = false;
+            }
 
             // .text para obtener valores, .tostring() para escribir sobre el txtbox
             try
@@ -58,7 +66,14 @@ namespace AnalisisNumerico.UI
                 var Resultado = this.MetodosRaices.MetodoBiseccion(parametros);
                 txt_Raiz.Text = Resultado.Raiz.ToString();
                 txt_IteracionesActual.Text = Resultado.Iteraciones.ToString();
-                txt_Error.Text = Resultado.ErrorRelativo.ToString();
+                if (Resultado.ErrorRelativo != Double.MaxValue)
+                {
+                    txt_Error.Text = Resultado.ErrorRelativo.ToString();
+                }
+                else
+                {
+                    txt_Error.Text = "No es posible calcular";
+                }
             }
             catch (ArgumentException)
             {

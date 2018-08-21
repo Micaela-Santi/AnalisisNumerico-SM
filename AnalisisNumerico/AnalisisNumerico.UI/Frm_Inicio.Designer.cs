@@ -140,14 +140,14 @@
             this.reglaFalsaToolStripMenuItem});
             this.cERRADOSToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cERRADOSToolStripMenuItem.Name = "cERRADOSToolStripMenuItem";
-            this.cERRADOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cERRADOSToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.cERRADOSToolStripMenuItem.Text = "CERRADOS";
             // 
             // metodoDeLaBiseccionToolStripMenuItem
             // 
             this.metodoDeLaBiseccionToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metodoDeLaBiseccionToolStripMenuItem.Name = "metodoDeLaBiseccionToolStripMenuItem";
-            this.metodoDeLaBiseccionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.metodoDeLaBiseccionToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.metodoDeLaBiseccionToolStripMenuItem.Text = "Bisección";
             this.metodoDeLaBiseccionToolStripMenuItem.Click += new System.EventHandler(this.metodoDeLaBiseccionToolStripMenuItem_Click);
             // 
@@ -155,7 +155,7 @@
             // 
             this.reglaFalsaToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reglaFalsaToolStripMenuItem.Name = "reglaFalsaToolStripMenuItem";
-            this.reglaFalsaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reglaFalsaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.reglaFalsaToolStripMenuItem.Text = "Regla Falsa";
             this.reglaFalsaToolStripMenuItem.Click += new System.EventHandler(this.reglaFalsaToolStripMenuItem_Click);
             // 
@@ -166,7 +166,7 @@
             this.secanteToolStripMenuItem});
             this.aBIERTOSToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aBIERTOSToolStripMenuItem.Name = "aBIERTOSToolStripMenuItem";
-            this.aBIERTOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aBIERTOSToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.aBIERTOSToolStripMenuItem.Text = "ABIERTOS";
             // 
             // newtonRapshonToolStripMenuItem
@@ -266,7 +266,7 @@
             this.multipleToolStripMenuItem});
             this.trapeciosToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trapeciosToolStripMenuItem.Name = "trapeciosToolStripMenuItem";
-            this.trapeciosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.trapeciosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.trapeciosToolStripMenuItem.Text = "Trapecios";
             // 
             // simpleToolStripMenuItem
@@ -290,7 +290,7 @@
             this.multipleToolStripMenuItem1});
             this.simpson13ToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpson13ToolStripMenuItem.Name = "simpson13ToolStripMenuItem";
-            this.simpson13ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.simpson13ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.simpson13ToolStripMenuItem.Text = "Simpson 1/3";
             // 
             // simpleToolStripMenuItem1
@@ -309,7 +309,7 @@
             // 
             this.simpson38ToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpson38ToolStripMenuItem.Name = "simpson38ToolStripMenuItem";
-            this.simpson38ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.simpson38ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.simpson38ToolStripMenuItem.Text = "Simpson 3/8";
             // 
             // Frm_Inicio
