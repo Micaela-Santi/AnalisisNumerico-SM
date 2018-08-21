@@ -11,7 +11,14 @@ namespace AnalisisNumerico.Logica
     public class MetodosRaices : IMetodosRaices
     {
 
-
+        private double CalcularXR(double Xi,double Xd)
+        {
+            return (Xi + Xd) / 2;
+        }
+        private double CalcularXR(double xi, double xd, double resultadoxi, double resultadoxd)
+        {
+            return ((resultadoxd * xi) - (resultadoxi * xd)) / (resultadoxd - resultadoxi);
+        }
         private double EvaluarFuncion(string funcionparametro, double valor)
         {
             var funcion = new Function(funcionparametro);
@@ -29,9 +36,44 @@ namespace AnalisisNumerico.Logica
             double anterior = 0;
             var XI = parametros.Xi;
             var XD = parametros.Xd;
-            var xr = (parametros.Xd + parametros.Xi) / 2;
+            double xr = 0;
+            if (parametros.Biseccion)
+            {
+                xr = this.CalcularXR(parametros.Xi,parametros.Xd);
+            }
+            else
+            {
+                var RFresultadoxi = this.EvaluarFuncion(parametros.Funcion, parametros.Xi);
+                var RFresultadoxd = this.EvaluarFuncion(parametros.Funcion, parametros.Xd);
+                xr = this.CalcularXR(parametros.Xi, parametros.Xd, RFresultadoxi, RFresultadoxd);
+            }
             var errorRelativo = (Math.Abs(xr - anterior) / xr);
             var resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
+            if (errorRelativo != 1)
+            {
+                if (EvaluarFuncion(parametros.Funcion, XI) * EvaluarFuncion(parametros.Funcion, xr) > 0)
+                {
+                    XI = xr;
+                }
+                else
+                {
+                    XD = xr;
+                }
+                anterior = xr;
+                if (parametros.Biseccion)
+                {
+                    xr = this.CalcularXR(XI, XD);
+                }
+                else
+                {
+                    var RFresultadoxi = this.EvaluarFuncion(parametros.Funcion, parametros.Xi);
+                    var RFresultadoxd = this.EvaluarFuncion(parametros.Funcion, parametros.Xd);
+                    xr = this.CalcularXR(parametros.Xi, parametros.Xd, RFresultadoxi, RFresultadoxd);
+                }
+                contador += 1;
+                errorRelativo = (Math.Abs(xr - anterior) / xr);
+                resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
+            }
             if (Math.Abs(resultadoXR) < parametros.Tolerancia)
             {
                 resultado.Raiz = xr;
@@ -48,7 +90,16 @@ namespace AnalisisNumerico.Logica
                     XD = xr;
                 }
                 anterior = xr;
-                xr = (XI + XD) / 2;
+                if (parametros.Biseccion)
+                {
+                    xr = this.CalcularXR(XI, XD);
+                }
+                else
+                {
+                    var RFresultadoxi = this.EvaluarFuncion(parametros.Funcion, parametros.Xi);
+                    var RFresultadoxd = this.EvaluarFuncion(parametros.Funcion, parametros.Xd);
+                    xr = this.CalcularXR(parametros.Xi, parametros.Xd, RFresultadoxi, RFresultadoxd);
+                }
                 contador += 1;
                 errorRelativo = (Math.Abs(xr - anterior) / xr);
                 resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);

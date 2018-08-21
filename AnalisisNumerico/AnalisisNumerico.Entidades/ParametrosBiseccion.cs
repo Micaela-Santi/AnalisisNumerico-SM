@@ -13,5 +13,6 @@ namespace AnalisisNumerico.Entidades
         public double Xi { get; set; }
         public double Xd { get; set; }
         public string Funcion { get; set; }
+        public bool Biseccion { get; set; }
     }
 }
