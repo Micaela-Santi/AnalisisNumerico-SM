@@ -40,11 +40,10 @@ namespace AnalisisNumerico.Logica
             double anterior = 0;
             var XI = parametros.Xi;
             var XD = parametros.Xd;
-            bool errorvalido = true;
             double xr = this.CalcularXR(XI, XD, parametros.Biseccion, parametros.Funcion);
             var errorRelativo = (xr - anterior) / xr;
             var resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
-            if (errorRelativo != 1)
+            if (errorRelativo != 1 & Math.Abs(resultadoXR) > parametros.Tolerancia)
             {
                 if (EvaluarFuncion(parametros.Funcion, XI) * EvaluarFuncion(parametros.Funcion, xr) > 0)
                 {
@@ -57,14 +56,7 @@ namespace AnalisisNumerico.Logica
                 anterior = xr;
                 xr = this.CalcularXR(XI, XD, parametros.Biseccion, parametros.Funcion);
                 contador += 1;
-                if (xr > ((parametros.Tolerancia) * 10))
-                {
-                    errorRelativo = (xr - anterior) / xr;
-                }
-                else
-                {
-                    errorvalido = false;
-                }
+                errorRelativo = (xr - anterior) / xr;
                 resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
             }
             if (Math.Abs(resultadoXR) < parametros.Tolerancia)
@@ -88,24 +80,12 @@ namespace AnalisisNumerico.Logica
                 if (xr > ((parametros.Tolerancia) * 10))
                 {
                     errorRelativo = (xr - anterior) / xr;
-                    errorvalido = true;
-                }
-                else
-                {
-                    errorvalido = false;
                 }
                 resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
 
             }
             resultado.Iteraciones = contador;
-            if (errorvalido)
-            {
-                resultado.ErrorRelativo = errorRelativo;
-            }
-            else
-            {
-                resultado.ErrorRelativo = double.MaxValue;
-            }
+            resultado.ErrorRelativo = errorRelativo;
             resultado.Raiz = xr;
             return resultado;
         }
