@@ -53,27 +53,20 @@ namespace AnalisisNumerico.UI
             parametros.Xd = Convert.ToDouble(txt_ValorXd.Text);
             if (lbl_NombreMetodo.Text == "Biseccion")
             {
-                parametros.Biseccion = true;
+                parametros.EsBiseccion = true;
             }
             else
             {
-                parametros.Biseccion = false;
+                parametros.EsBiseccion = false;
             }
 
             // .text para obtener valores, .tostring() para escribir sobre el txtbox
             try
             {
-                var Resultado = this.MetodosRaices.MetodoBiseccion(parametros);
+                var Resultado = this.MetodosRaices.MetodosCerrados(parametros);
                 txt_Raiz.Text = Resultado.Raiz.ToString();
                 txt_IteracionesActual.Text = Resultado.Iteraciones.ToString();
-                if (Resultado.ErrorRelativo != Double.MaxValue)
-                {
-                    txt_Error.Text = Resultado.ErrorRelativo.ToString();
-                }
-                else
-                {
-                    txt_Error.Text = "No es posible calcular";
-                }
+                txt_Error.Text = Resultado.ErrorRelativo.ToString();       
             }
             catch (ArgumentException)
             {
