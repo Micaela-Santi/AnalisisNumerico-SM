@@ -73,6 +73,7 @@
             this.btn_Calcular.TabIndex = 26;
             this.btn_Calcular.Text = "Calcular";
             this.btn_Calcular.UseVisualStyleBackColor = true;
+            this.btn_Calcular.Click += new System.EventHandler(this.btn_Calcular_Click);
             // 
             // txt_Error
             // 
@@ -269,6 +270,7 @@
             this.Name = "Frm_MetodosAbiertos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_MetodosAbiertos";
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MetodosAbiertos_MouseMove);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

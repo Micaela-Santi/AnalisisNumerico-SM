@@ -125,20 +125,43 @@ namespace AnalisisNumerico.Logica
 
         public Resultado NewtonRaphson(ParametrosAbiertos parametros)
         {
-            return new Resultado();
-        }
+            Resultado resultado = new Resultado()
+            {
+                Iteraciones = 0,
+                ErrorRelativo = 0
+            };
 
-
-        private Resultado MetodoAbierto(ParametrosAbiertos parametros)
-        {
-            Resultado resultado = new Resultado();
             if (EvaluarFuncion(parametros.Funcion, parametros.Valor) == 0)
             {
                 resultado.Raiz = parametros.Valor;
-                resultado.Iteraciones = 0;
-                resultado.ErrorRelativo = 0;
                 return resultado;
             }
+
+            double Anterior = 0;
+            int Contador = 0;
+            double ValorX = parametros.Valor;
+            double Tolerancia = parametros.Tolerancia;
+            double Derivada = (EvaluarFuncion(parametros.Funcion, (ValorX + Tolerancia)) - EvaluarFuncion(parametros.Funcion,ValorX)) / Tolerancia;
+            double xr = ValorX - (EvaluarFuncion(parametros.Funcion, ValorX) / Derivada);
+            double resultadoXr = EvaluarFuncion(parametros.Funcion, xr);
+            double errorRelativo = (xr - Anterior) / xr;
+            Contador += 1;
+
+            while (Math.Abs(resultadoXr) > Tolerancia  & Contador < parametros.Iteraciones & Math.Abs(errorRelativo) > Tolerancia)
+            {
+                Anterior = xr;
+                ValorX = xr;
+                Derivada = (EvaluarFuncion(parametros.Funcion, (ValorX + Tolerancia)) - EvaluarFuncion(parametros.Funcion, ValorX)) / Tolerancia;
+                xr = ValorX - (EvaluarFuncion(parametros.Funcion, ValorX) / Derivada);
+                resultadoXr = EvaluarFuncion(parametros.Funcion, xr);
+                errorRelativo = (xr - Anterior) / xr;
+                Contador += 1;
+            }
+
+            resultado.Raiz = xr;
+            resultado.ErrorRelativo = errorRelativo;
+            resultado.Iteraciones = Contador;
+
             return resultado;
         }
 

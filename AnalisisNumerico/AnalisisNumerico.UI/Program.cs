@@ -33,6 +33,7 @@ namespace AnalisisNumerico.UI
             container.Register<IMetodosRaices,MetodosRaices>();
             container.Register<Frm_Inicio>();
             container.Register<Frm_MetodosCerrados>();
+            container.Register<Frm_MetodosAbiertos>();
         } 
     }
 }
