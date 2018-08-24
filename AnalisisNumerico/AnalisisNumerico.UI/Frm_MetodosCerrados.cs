@@ -63,10 +63,19 @@ namespace AnalisisNumerico.UI
             // .text para obtener valores, .tostring() para escribir sobre el txtbox
             try
             {
-                var Resultado = this.MetodosRaices.MetodosCerrados(parametros);
+                Resultado Resultado = null;
+
+                if (parametros.EsBiseccion)
+                {
+                    Resultado = this.MetodosRaices.Biseccion(parametros);
+                }
+                else
+                {
+                    Resultado = this.MetodosRaices.ReglaFalsa(parametros);
+                }
                 txt_Raiz.Text = Resultado.Raiz.ToString();
                 txt_IteracionesActual.Text = Resultado.Iteraciones.ToString();
-                txt_Error.Text = Resultado.ErrorRelativo.ToString();       
+                txt_Error.Text = Resultado.ErrorRelativo.ToString();
             }
             catch (ArgumentException)
             {

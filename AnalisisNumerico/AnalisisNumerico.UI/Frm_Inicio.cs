@@ -54,5 +54,11 @@ namespace AnalisisNumerico.UI
             string metodo = "Regla Falsa";
             form.Show(metodo);
         }
+
+        private void newtonRapshonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Program.container.GetInstance<Frm_MetodosAbiertos>();
+            form.Show();
+        }
     }
 }

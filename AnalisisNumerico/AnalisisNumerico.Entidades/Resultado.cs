@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnalisisNumerico.Entidades
 {
-    public class ResultadoCerrados
+    public class Resultado
     {
         public double Raiz { get; set; }
         public int Iteraciones { get; set; }

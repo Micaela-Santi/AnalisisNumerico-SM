@@ -8,48 +8,63 @@ using AnalisisNumerico.Entidades;
 
 namespace AnalisisNumerico.Logica
 {
-    public class MetodosRaicesCerrados : IMetodosRaices
+    public class MetodosRaices : IMetodosRaices
     {
-        private double CalcularXR(double xi, double xd, bool biseccion, string funcion)
+        private delegate double MetodoCerradoDelegate(double xi, double xd, string funcion);
+
+        public Resultado Biseccion(ParametrosCerrados parametros)
         {
-            if (biseccion)
-            {
-                return (xi + xd) / 2;
-            }
-            else
-            {
-                var resultadoxi = this.EvaluarFuncion(funcion, xi);
-                var resultadoxd = this.EvaluarFuncion(funcion, xd);
-                return ((resultadoxd * xi) - (resultadoxi * xd)) / (resultadoxd - resultadoxi);
-            }
+            return this.MetodosCerrados(parametros, CalcularXrBiseccion);
         }
 
-        private double EvaluarFuncion(string funcionparametro, double valor)
+        public Resultado ReglaFalsa(ParametrosCerrados parametros)
         {
-            var funcion = new Function(funcionparametro);
+            return this.MetodosCerrados(parametros, CalcularXrReglaFalsa);
+        }
+
+        private double CalcularXrBiseccion(double xi, double xd, string funcion)
+        {
+            return (xi + xd) / 2;
+        }
+
+        private double CalcularXrReglaFalsa(double xi, double xd, string funcion)
+        {
+            var resultadoxi = this.EvaluarFuncion(funcion, xi);
+            var resultadoxd = this.EvaluarFuncion(funcion, xd);
+            return ((resultadoxd * xi) - (resultadoxi * xd)) / (resultadoxd - resultadoxi);
+        }
+
+        private double EvaluarFuncion(string funcionParametro, double valor)
+        {
+            var funcion = new Function(funcionParametro);
             var argumento = new Argument("x", valor);
-            var nombre = funcionparametro.Split('=')[0].Trim();
+            var nombre = funcionParametro.Split('=')[0].Trim();
             var expresion = new Expression(nombre, funcion, argumento);
             return expresion.calculate();
         }
 
-        private ResultadoCerrados BuscarRaices(ParametrosCerrados parametros)
+        private Resultado BuscarRaicesCerrados(ParametrosCerrados parametros, MetodoCerradoDelegate calcularXr)
         {
-            ResultadoCerrados resultado = new ResultadoCerrados();
-            resultado.ErrorRelativo = 0;
-            resultado.Iteraciones = 0;
+            Resultado resultado = new Resultado
+            {
+                ErrorRelativo = 0,
+                Iteraciones = 0
+            };
+
             int contador = 0;
             double anterior = 0;
             var XI = parametros.Xi;
             var XD = parametros.Xd;
-            double xr = this.CalcularXR(XI, XD, parametros.EsBiseccion, parametros.Funcion);
+            double xr = calcularXr(XI, XD, parametros.Funcion);
             var errorRelativo = (xr - anterior) / xr;
             var resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
+
             if (Math.Abs(resultadoXR) < parametros.Tolerancia)
             {
                 resultado.Raiz = xr;
                 return resultado;
             }
+
             while ((Math.Abs(errorRelativo) > parametros.Tolerancia | xr == 0) & contador < parametros.Iteraciones & Math.Abs(resultadoXR) > parametros.Tolerancia)
             {
                 if (EvaluarFuncion(parametros.Funcion, XI) * EvaluarFuncion(parametros.Funcion, xr) > 0)
@@ -60,24 +75,29 @@ namespace AnalisisNumerico.Logica
                 {
                     XD = xr;
                 }
+
                 anterior = xr;
-                xr = this.CalcularXR(XI, XD, parametros.EsBiseccion, parametros.Funcion);
+                xr = calcularXr(XI, XD, parametros.Funcion);
                 contador += 1;
+
                 if (Math.Abs(xr) > ((parametros.Tolerancia) * 10))
                 {
                     errorRelativo = (xr - anterior) / xr;
                 }
+
                 resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
             }
+
             resultado.Iteraciones = contador;
             resultado.ErrorRelativo = errorRelativo;
             resultado.Raiz = xr;
+
             return resultado;
         }
 
-        public ResultadoCerrados MetodosCerrados(ParametrosCerrados parametros)
+        private Resultado MetodosCerrados(ParametrosCerrados parametros, MetodoCerradoDelegate calcularXr)
         {
-            ResultadoCerrados resultado = new ResultadoCerrados();
+            Resultado resultado = new Resultado();
             var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
             var resultadoxd = EvaluarFuncion(parametros.Funcion, parametros.Xd);
 
@@ -100,7 +120,27 @@ namespace AnalisisNumerico.Logica
                 resultado.ErrorRelativo = 0;
                 return resultado;
             }
-            return this.BuscarRaices(parametros);
+            return this.BuscarRaicesCerrados(parametros,calcularXr);
         }
+
+        public Resultado NewtonRaphson(ParametrosAbiertos parametros)
+        {
+            return new Resultado();
+        }
+
+
+        private Resultado MetodoAbierto(ParametrosAbiertos parametros)
+        {
+            Resultado resultado = new Resultado();
+            if (EvaluarFuncion(parametros.Funcion, parametros.Valor) == 0)
+            {
+                resultado.Raiz = parametros.Valor;
+                resultado.Iteraciones = 0;
+                resultado.ErrorRelativo = 0;
+                return resultado;
+            }
+            return resultado;
+        }
+
     }
 }

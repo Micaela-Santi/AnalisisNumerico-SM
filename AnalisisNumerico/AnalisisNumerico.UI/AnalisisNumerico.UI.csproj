@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Frm_MetodosAbiertos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_MetodosAbiertos.Designer.cs">
+      <DependentUpon>Frm_MetodosAbiertos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_MetodosCerrados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frm_MetodosAbiertos.resx">
+      <DependentUpon>Frm_MetodosAbiertos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_MetodosCerrados.resx">
       <DependentUpon>Frm_MetodosCerrados.cs</DependentUpon>
     </EmbeddedResource>

@@ -41,9 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IMetodosRaices.cs" />
+    <Compile Include="ParametrosAbiertos.cs" />
     <Compile Include="ParametrosCerrados.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResultadoCerrados.cs" />
+    <Compile Include="Resultado.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
