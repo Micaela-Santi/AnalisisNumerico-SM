@@ -8,8 +8,9 @@ namespace AnalisisNumerico.Entidades
 {
     public interface IMetodosRaices
     {
-        Resultado Biseccion(ParametrosCerrados parametos);
-        Resultado ReglaFalsa(ParametrosCerrados parametos);
-        Resultado NewtonRaphson(ParametrosAbiertos parametros);
+        Resultado Biseccion(ParametroCompuesto parametos);
+        Resultado ReglaFalsa(ParametroCompuesto parametos);
+        Resultado NewtonRaphson(ParametroSimple parametros);
+        Resultado Secante(ParametroCompuesto parametros);
     }
 }

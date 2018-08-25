@@ -12,12 +12,12 @@ namespace AnalisisNumerico.Logica
     {
         private delegate double MetodoCerradoDelegate(double xi, double xd, string funcion);
 
-        public Resultado Biseccion(ParametrosCerrados parametros)
+        public Resultado Biseccion(ParametroCompuesto parametros)
         {
             return this.MetodosCerrados(parametros, CalcularXrBiseccion);
         }
 
-        public Resultado ReglaFalsa(ParametrosCerrados parametros)
+        public Resultado ReglaFalsa(ParametroCompuesto parametros)
         {
             return this.MetodosCerrados(parametros, CalcularXrReglaFalsa);
         }
@@ -43,7 +43,7 @@ namespace AnalisisNumerico.Logica
             return expresion.calculate();
         }
 
-        private Resultado BuscarRaicesCerrados(ParametrosCerrados parametros, MetodoCerradoDelegate calcularXr)
+        private Resultado BuscarRaicesCerrados(ParametroCompuesto parametros, MetodoCerradoDelegate calcularXr)
         {
             Resultado resultado = new Resultado
             {
@@ -95,7 +95,7 @@ namespace AnalisisNumerico.Logica
             return resultado;
         }
 
-        private Resultado MetodosCerrados(ParametrosCerrados parametros, MetodoCerradoDelegate calcularXr)
+        private Resultado MetodosCerrados(ParametroCompuesto parametros, MetodoCerradoDelegate calcularXr)
         {
             Resultado resultado = new Resultado();
             var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
@@ -128,7 +128,7 @@ namespace AnalisisNumerico.Logica
             return this.BuscarRaicesCerrados(parametros,calcularXr);
         }
 
-        public Resultado NewtonRaphson(ParametrosAbiertos parametros)
+        public Resultado NewtonRaphson(ParametroSimple parametros)
         {
             Resultado resultado = new Resultado()
             {
@@ -136,15 +136,15 @@ namespace AnalisisNumerico.Logica
                 ErrorRelativo = 0
             };
 
-            if (EvaluarFuncion(parametros.Funcion, parametros.Valor) == 0)
+            if (EvaluarFuncion(parametros.Funcion, parametros.Xi) == 0)
             {
-                resultado.Raiz = parametros.Valor;
+                resultado.Raiz = parametros.Xi;
                 return resultado;
             }
-
+            
             double Anterior = 0;
             int Contador = 0;
-            double ValorX = parametros.Valor;
+            double ValorX = parametros.Xi;
             double Tolerancia = parametros.Tolerancia;
             double Derivada = (EvaluarFuncion(parametros.Funcion, (ValorX + Tolerancia)) - EvaluarFuncion(parametros.Funcion,ValorX)) / Tolerancia;
             double xr = ValorX - (EvaluarFuncion(parametros.Funcion, ValorX) / Derivada);
@@ -152,7 +152,12 @@ namespace AnalisisNumerico.Logica
             double errorRelativo = (xr - Anterior) / xr;
             Contador += 1;
 
-            while (Math.Abs(resultadoXr) > Tolerancia  & Contador < parametros.Iteraciones & Math.Abs(errorRelativo) > Tolerancia)
+            if (EvaluarFuncion(parametros.Funcion,Derivada) == 0)
+            {
+                throw new Exception("La recta TG no corta al eje X");
+            }
+
+            while (Math.Abs(resultadoXr) > Tolerancia  & Contador < parametros.Iteraciones & (Math.Abs(errorRelativo) > Tolerancia | xr == 0))
             {
                 Anterior = xr;
                 ValorX = xr;
@@ -161,6 +166,11 @@ namespace AnalisisNumerico.Logica
                 resultadoXr = EvaluarFuncion(parametros.Funcion, xr);
                 errorRelativo = (xr - Anterior) / xr;
                 Contador += 1;
+
+                if (EvaluarFuncion(parametros.Funcion, Derivada) == 0)
+                {
+                    throw new Exception("La recta TG no corta al eje X");
+                }
             }
 
             resultado.Raiz = xr;
@@ -170,5 +180,21 @@ namespace AnalisisNumerico.Logica
             return resultado;
         }
 
+        public Resultado Secante(ParametroCompuesto parametros)
+        {
+            Resultado resultado = new Resultado();
+            var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
+            var resultadoxd = EvaluarFuncion(parametros.Funcion, parametros.Xd);
+
+            if (resultadoxi.ToString() == double.NaN.ToString() | resultadoxd.ToString() == double.NaN.ToString())
+            {
+                throw new Exception("Ingrese nuevamente la Función");
+            }
+            var Xi = parametros.Xi;
+            var Xd = parametros.Xd;
+            var Xr = ((EvaluarFuncion(parametros.Funcion, Xi) * Xd) - (EvaluarFuncion(parametros.Funcion, Xd) * Xi))/((EvaluarFuncion(parametros.Funcion,Xi) - EvaluarFuncion(parametros.Funcion,Xd)));
+            // TERMINAR
+            return resultado;
+        }
     }
 }

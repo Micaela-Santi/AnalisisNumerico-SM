@@ -45,12 +45,13 @@ namespace AnalisisNumerico.UI
 
         private void btn_Calcular_Click(object sender, EventArgs e)
         {
-            ParametrosCerrados parametros = new ParametrosCerrados();
+            ParametroCompuesto parametros = new ParametroCompuesto();
             parametros.Funcion = txt_Funcion.Text;
             parametros.Iteraciones = Convert.ToInt32(txt_Iteraciones.Text);
             parametros.Tolerancia = Convert.ToDouble(txt_Tolerancia.Text);
             parametros.Xi = Convert.ToDouble(txt_ValorXi.Text);
             parametros.Xd = Convert.ToDouble(txt_ValorXd.Text);
+
             if (lbl_NombreMetodo.Text == "Biseccion")
             {
                 parametros.EsBiseccion = true;
@@ -83,7 +84,7 @@ namespace AnalisisNumerico.UI
                 txt_ValorXd.Text = string.Empty;
                 txt_ValorXi.Text = string.Empty;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Verificar Función");
             }

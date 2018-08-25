@@ -20,6 +20,7 @@ namespace AnalisisNumerico.UI
         {
             InitializeComponent();
             this.MetodosRaices = metodosRaices;
+            txt_Funcion.Text = "F(x)=";
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -29,6 +30,29 @@ namespace AnalisisNumerico.UI
 
         private void btn_Calcular_Click(object sender, EventArgs e)
         {
+
+            ParametroSimple parametros = new ParametroSimple()
+            {
+                Xi = Convert.ToDouble(txt_ValorXi.Text),
+                Tolerancia = Convert.ToDouble(txt_Tolerancia.Text),
+                Iteraciones = Convert.ToInt32(txt_Iteraciones.Text),
+                Funcion = txt_Funcion.Text
+            };
+
+            Resultado resultado;
+
+            try
+            {
+                resultado = MetodosRaices.NewtonRaphson(parametros);
+                txt_Error.Text = resultado.ErrorRelativo.ToString();
+                txt_IteracionesActual.Text = resultado.Iteraciones.ToString();
+                txt_Raiz.Text = resultado.Raiz.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("La recta TG no corta al eje X");
+            }
+
 
         }
 
