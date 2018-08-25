@@ -83,6 +83,10 @@ namespace AnalisisNumerico.UI
                 txt_ValorXd.Text = string.Empty;
                 txt_ValorXi.Text = string.Empty;
             }
+            catch(Exception)
+            {
+                MessageBox.Show("Verificar Función");
+            }
         }
 
         internal void Show(string metodo)

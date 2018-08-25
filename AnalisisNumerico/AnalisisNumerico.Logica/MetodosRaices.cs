@@ -101,6 +101,11 @@ namespace AnalisisNumerico.Logica
             var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
             var resultadoxd = EvaluarFuncion(parametros.Funcion, parametros.Xd);
 
+            if (resultadoxi.ToString() == double.NaN.ToString() | resultadoxd.ToString() == double.NaN.ToString())
+            {
+                throw new Exception("Ingrese nuevamente la Función");
+            }
+
             if (resultadoxi * resultadoxd > 0)
             {
                 throw new ArgumentException("Ingresar nuevamente los extremos", "parametros.Xi");
