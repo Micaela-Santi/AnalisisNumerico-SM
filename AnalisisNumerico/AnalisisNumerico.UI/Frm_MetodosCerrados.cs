@@ -95,7 +95,16 @@ namespace AnalisisNumerico.UI
 
         internal void Show(EMetodo metodo)
         {
-            lbl_NombreMetodo.Text = metodo.ToString();
+            
+            switch (metodo)
+            {
+                case EMetodo.ReglaFalsa:
+                        lbl_NombreMetodo.Text = "Regla Falsa";
+                    break;
+                default:
+                        lbl_NombreMetodo.Text = metodo.ToString();
+                    break;
+            }
             MetodoActual = metodo;
             this.Show();
         }
