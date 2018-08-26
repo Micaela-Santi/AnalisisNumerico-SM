@@ -73,5 +73,7 @@ namespace AnalisisNumerico.UI
                 Top = Top + (e.Y - posY);
             }
         }
+
+       
     }
 }

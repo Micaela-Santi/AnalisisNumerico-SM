@@ -118,7 +118,7 @@
             this.Menu.Location = new System.Drawing.Point(14, -1);
             this.Menu.Name = "Menu";
             this.Menu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.Menu.Size = new System.Drawing.Size(570, 26);
+            this.Menu.Size = new System.Drawing.Size(542, 26);
             this.Menu.TabIndex = 3;
             this.Menu.Text = "Menu";
             // 
@@ -140,7 +140,7 @@
             this.reglaFalsaToolStripMenuItem});
             this.cERRADOSToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cERRADOSToolStripMenuItem.Name = "cERRADOSToolStripMenuItem";
-            this.cERRADOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cERRADOSToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.cERRADOSToolStripMenuItem.Text = "CERRADOS";
             // 
             // metodoDeLaBiseccionToolStripMenuItem
@@ -166,7 +166,7 @@
             this.secanteToolStripMenuItem});
             this.aBIERTOSToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aBIERTOSToolStripMenuItem.Name = "aBIERTOSToolStripMenuItem";
-            this.aBIERTOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aBIERTOSToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.aBIERTOSToolStripMenuItem.Text = "ABIERTOS";
             // 
             // newtonRapshonToolStripMenuItem
@@ -181,6 +181,7 @@
             this.secanteToolStripMenuItem.Name = "secanteToolStripMenuItem";
             this.secanteToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.secanteToolStripMenuItem.Text = "Secante";
+            this.secanteToolStripMenuItem.Click += new System.EventHandler(this.secanteToolStripMenuItem_Click);
             // 
             // uNIDAD2ToolStripMenuItem
             // 

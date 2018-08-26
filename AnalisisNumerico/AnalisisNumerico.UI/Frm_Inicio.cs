@@ -18,7 +18,7 @@ namespace AnalisisNumerico.UI
             InitializeComponent();
 
         }
-
+        
         int posX = 0;
         int posY = 0;
 
@@ -44,14 +44,14 @@ namespace AnalisisNumerico.UI
         private void metodoDeLaBiseccionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Program.container.GetInstance<Frm_MetodosCerrados>();
-            string metodo = "Biseccion";
+            Frm_MetodosCerrados.EMetodo metodo = Frm_MetodosCerrados.EMetodo.Biseccion;
             form.Show(metodo);
         }
 
         private void reglaFalsaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Program.container.GetInstance<Frm_MetodosCerrados>();
-            string metodo = "Regla Falsa";
+            Frm_MetodosCerrados.EMetodo metodo = Frm_MetodosCerrados.EMetodo.ReglaFalsa;
             form.Show(metodo);
         }
 
@@ -59,6 +59,13 @@ namespace AnalisisNumerico.UI
         {
             var form = Program.container.GetInstance<Frm_MetodosAbiertos>();
             form.Show();
+        }
+
+        private void secanteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Program.container.GetInstance<Frm_MetodosCerrados>();
+            Frm_MetodosCerrados.EMetodo metodo = Frm_MetodosCerrados.EMetodo.Secante;
+            form.Show(metodo);
         }
     }
 }

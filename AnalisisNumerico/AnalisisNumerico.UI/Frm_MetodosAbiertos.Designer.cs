@@ -133,7 +133,7 @@
             // 
             this.txt_Funcion.Location = new System.Drawing.Point(339, 55);
             this.txt_Funcion.Name = "txt_Funcion";
-            this.txt_Funcion.Size = new System.Drawing.Size(100, 20);
+            this.txt_Funcion.Size = new System.Drawing.Size(180, 20);
             this.txt_Funcion.TabIndex = 21;
             // 
             // lbl_Funcion
