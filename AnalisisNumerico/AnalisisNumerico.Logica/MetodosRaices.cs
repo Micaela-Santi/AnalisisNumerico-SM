@@ -182,7 +182,11 @@ namespace AnalisisNumerico.Logica
 
         public Resultado Secante(ParametroCompuesto parametros)
         {
-            Resultado resultado = new Resultado();
+            Resultado resultado = new Resultado()
+            {
+                Iteraciones = 0,
+                ErrorRelativo = 0
+            };
             var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
             var resultadoxd = EvaluarFuncion(parametros.Funcion, parametros.Xd);
 
@@ -190,10 +194,45 @@ namespace AnalisisNumerico.Logica
             {
                 throw new Exception("Ingrese nuevamente la Función");
             }
+
+            if (resultadoxd * resultadoxi == 0)
+            {
+                if (resultadoxd == 0)
+                {
+                    resultado.Raiz = parametros.Xd;
+                }
+                else
+                {
+                    resultado.Raiz = parametros.Xi;
+                }
+
+                return resultado;
+            }
+
+            double errorRelativo = 0;
+            int contador = 0;
+            double anterior = 0;
             var Xi = parametros.Xi;
             var Xd = parametros.Xd;
             var Xr = ((EvaluarFuncion(parametros.Funcion, Xi) * Xd) - (EvaluarFuncion(parametros.Funcion, Xd) * Xi))/((EvaluarFuncion(parametros.Funcion,Xi) - EvaluarFuncion(parametros.Funcion,Xd)));
-            // TERMINAR
+            var resultadoXr = EvaluarFuncion(parametros.Funcion, Xr);
+            contador += 0;
+            errorRelativo = ((Xr - anterior) / Xr);
+
+            while ((Math.Abs(errorRelativo) > parametros.Tolerancia | Xr == 0) & contador < parametros.Iteraciones & Math.Abs(resultadoXr) > parametros.Tolerancia)
+            {
+                Xi = Xd;
+                Xd = Xr;
+                anterior = Xr;
+                Xr = ((EvaluarFuncion(parametros.Funcion, Xi) * Xd) - (EvaluarFuncion(parametros.Funcion, Xd) * Xi)) / ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)));
+                errorRelativo = ((Xr - anterior) / Xr);
+                contador += 1;
+            }
+
+            resultado.Raiz = Xr;
+            resultado.Iteraciones = contador;
+            resultado.ErrorRelativo = errorRelativo;
+
             return resultado;
         }
     }
