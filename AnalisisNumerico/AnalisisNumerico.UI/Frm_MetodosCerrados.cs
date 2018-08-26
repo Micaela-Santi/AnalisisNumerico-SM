@@ -20,7 +20,13 @@ namespace AnalisisNumerico.UI
             MetodosRaices = metodosRaices;
             txt_Funcion.Text = "F(x)= ";
         }
-
+        public enum EMetodo
+        {
+            Biseccion,
+            ReglaFalsa,
+            Secante
+        }
+        EMetodo MetodoActual;
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -52,28 +58,25 @@ namespace AnalisisNumerico.UI
             parametros.Xi = Convert.ToDouble(txt_ValorXi.Text);
             parametros.Xd = Convert.ToDouble(txt_ValorXd.Text);
 
-            if (lbl_NombreMetodo.Text == "Biseccion")
-            {
-                parametros.EsBiseccion = true;
-            }
-            else
-            {
-                parametros.EsBiseccion = false;
-            }
+            
 
             // .text para obtener valores, .tostring() para escribir sobre el txtbox
             try
             {
                 Resultado Resultado = null;
-
-                if (parametros.EsBiseccion)
+                switch (MetodoActual)
                 {
-                    Resultado = this.MetodosRaices.Biseccion(parametros);
+                    case EMetodo.Biseccion:
+                        Resultado = this.MetodosRaices.Biseccion(parametros);
+                        break;
+                    case EMetodo.ReglaFalsa:
+                        Resultado = this.MetodosRaices.ReglaFalsa(parametros);
+                        break;
+                    case EMetodo.Secante:
+                        Resultado = this.MetodosRaices.Secante(parametros);
+                        break;
                 }
-                else
-                {
-                    Resultado = this.MetodosRaices.ReglaFalsa(parametros);
-                }
+                
                 txt_Raiz.Text = Resultado.Raiz.ToString();
                 txt_IteracionesActual.Text = Resultado.Iteraciones.ToString();
                 txt_Error.Text = Resultado.ErrorRelativo.ToString();
@@ -90,9 +93,10 @@ namespace AnalisisNumerico.UI
             }
         }
 
-        internal void Show(string metodo)
+        internal void Show(EMetodo metodo)
         {
-            lbl_NombreMetodo.Text = metodo;
+            lbl_NombreMetodo.Text = metodo.ToString();
+            MetodoActual = metodo;
             this.Show();
         }
 
