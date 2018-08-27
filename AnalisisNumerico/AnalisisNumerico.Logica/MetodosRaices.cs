@@ -150,7 +150,7 @@ namespace AnalisisNumerico.Logica
 
             if (EvaluarFuncion(parametros.Funcion,Derivada) == 0)
             {
-                throw new Exception("La recta TG no corta al eje X");
+                throw new NoRaizException(Derivada, "La Recta TG es horizontal");
             }
 
             while (Math.Abs(resultadoXr) > Tolerancia  & Contador < parametros.Iteraciones & (Math.Abs(errorRelativo) > Tolerancia | xr == 0))
@@ -165,10 +165,14 @@ namespace AnalisisNumerico.Logica
 
                 if (EvaluarFuncion(parametros.Funcion, Derivada) == 0)
                 {
-                    throw new Exception("La recta TG no corta al eje X");
+                    throw new NoRaizException(Derivada, "La Recta TG es horizontal");
                 }
             }
 
+            if (Math.Abs(resultadoXr) > Tolerancia * 100)
+            {
+                throw new NoRaizException(xr, "Valor muy alejado de la raiz");               
+            }
             resultado.Raiz = xr;
             resultado.ErrorRelativo = errorRelativo;
             resultado.Iteraciones = Contador;

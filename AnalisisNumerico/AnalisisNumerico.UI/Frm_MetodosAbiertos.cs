@@ -40,7 +40,7 @@ namespace AnalisisNumerico.UI
             };
 
             Resultado resultado;
-
+            
             try
             {
                 resultado = MetodosRaices.NewtonRaphson(parametros);
@@ -48,9 +48,10 @@ namespace AnalisisNumerico.UI
                 txt_IteracionesActual.Text = resultado.Iteraciones.ToString();
                 txt_Raiz.Text = resultado.Raiz.ToString();
             }
-            catch (Exception)
+            catch (NoRaizException exception)
             {
-                MessageBox.Show("La recta TG no corta al eje X");
+                var mensaje = exception.Message;
+                MessageBox.Show(mensaje);
             }
 
 
