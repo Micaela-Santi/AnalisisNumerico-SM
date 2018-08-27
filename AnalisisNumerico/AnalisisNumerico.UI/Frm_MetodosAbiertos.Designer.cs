@@ -199,7 +199,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(204)))), ((int)(((byte)(242)))));
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Location = new System.Drawing.Point(1, 0);
             this.panel3.Name = "panel3";
@@ -209,7 +209,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(674, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(675, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(22, 24);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -219,7 +219,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(204)))), ((int)(((byte)(242)))));
             this.panel2.Location = new System.Drawing.Point(1, 335);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(700, 26);
@@ -227,7 +227,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(204)))), ((int)(((byte)(242)))));
             this.panel1.Location = new System.Drawing.Point(675, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(26, 362);
@@ -235,7 +235,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(204)))), ((int)(((byte)(242)))));
             this.panel4.Location = new System.Drawing.Point(0, 1);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(26, 352);
@@ -245,6 +245,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(700, 360);
             this.Controls.Add(this.btn_Limpiar);
             this.Controls.Add(this.btn_Calcular);

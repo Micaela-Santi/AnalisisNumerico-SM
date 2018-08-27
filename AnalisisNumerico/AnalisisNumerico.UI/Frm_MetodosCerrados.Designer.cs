@@ -59,7 +59,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(204)))), ((int)(((byte)(242)))));
             this.panel4.Location = new System.Drawing.Point(-1, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(26, 352);
@@ -67,7 +67,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(204)))), ((int)(((byte)(242)))));
             this.panel1.Location = new System.Drawing.Point(674, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(26, 362);
@@ -75,7 +75,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(204)))), ((int)(((byte)(242)))));
             this.panel2.Location = new System.Drawing.Point(0, 334);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(700, 26);
@@ -83,7 +83,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(204)))), ((int)(((byte)(242)))));
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Location = new System.Drawing.Point(0, -1);
             this.panel3.Name = "panel3";
@@ -275,7 +275,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(700, 360);
             this.Controls.Add(this.lbl_NombreMetodo);
             this.Controls.Add(this.btn_Limpiar);
