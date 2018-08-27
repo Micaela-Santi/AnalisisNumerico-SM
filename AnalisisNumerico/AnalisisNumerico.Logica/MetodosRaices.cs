@@ -59,11 +59,7 @@ namespace AnalisisNumerico.Logica
             var errorRelativo = (xr - anterior) / xr;
             var resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
 
-            if (Math.Abs(resultadoXR) < parametros.Tolerancia)
-            {
-                resultado.Raiz = xr;
-                return resultado;
-            }
+            
 
             while ((Math.Abs(errorRelativo) > parametros.Tolerancia | xr == 0) & contador < parametros.Iteraciones & Math.Abs(resultadoXR) > parametros.Tolerancia)
             {
