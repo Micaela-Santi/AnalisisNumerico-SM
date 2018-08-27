@@ -231,7 +231,7 @@ namespace AnalisisNumerico.Logica
 
             resultado.Raiz = Xr;
             resultado.Iteraciones = contador;
-            resultado.ErrorRelativo = errorRelativo;
+            resultado.ErrorRelativo = Math.Abs(errorRelativo);
 
             return resultado;
         }
