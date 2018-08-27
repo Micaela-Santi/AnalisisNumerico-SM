@@ -23,26 +23,16 @@ namespace AnalisisNumerico.Test
             Parametro.Funcion = "f(x) = -x^2 + 4";
             Parametro.Tolerancia = 0.0001;
             Parametro.Iteraciones = 100;
+
         }
         private ParametroCompuesto Parametro { get; set; }
-        private MetodosRaices MetodosRaices { get; set; }
-        private TestContext testContextInstance;
+        private  MetodosRaices MetodosRaices { get; set; }
 
         /// <summary>
         ///Obtiene o establece el contexto de las pruebas que proporciona
         ///información y funcionalidad para la serie de pruebas actual.
         ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
+        
 
         #region Atributos de prueba adicionales
         //
@@ -67,7 +57,7 @@ namespace AnalisisNumerico.Test
         #endregion
 
         [TestMethod]
-        public void XdEsRaiz()
+        public void BiseccionXdEsRaiz()
         {
             Parametro.Xd = 2;
             Parametro.Xi = 0;
@@ -77,7 +67,7 @@ namespace AnalisisNumerico.Test
             Assert.AreEqual(0, resultado.Iteraciones);
         }
         [TestMethod]
-        public void XiEsRaiz()
+        public void BiseccionXiEsRaiz()
         {
             Parametro.Xi = 2;
             Parametro.Xd = 0;
@@ -88,7 +78,7 @@ namespace AnalisisNumerico.Test
         }
 
         [TestMethod]
-        public void IteracionesMaximas()
+        public void BiseccionIteracionesMaximas()
         {
             Parametro.Xi = -1.90;
             Parametro.Xd = 10;
@@ -98,7 +88,7 @@ namespace AnalisisNumerico.Test
         }
 
         [TestMethod]
-        public void Comun()
+        public void BiseccionComun()
         {
             Parametro.Xi = 1;
             Parametro.Xd = 10;
@@ -107,6 +97,47 @@ namespace AnalisisNumerico.Test
             Assert.IsTrue(resultado.Raiz > 2.8 & resultado.Raiz < 3.2 );
             Assert.IsTrue(resultado.Iteraciones <= Parametro.Iteraciones);
             Assert.IsTrue(resultado.ErrorRelativo < Parametro.Tolerancia);
+        }
+        [TestMethod]
+        public void BiseccionElIntervaloNoContieneRaiz()
+        {
+            Parametro.Xi = 40;
+            Parametro.Xd = 30;
+            Parametro.Funcion = "f(x)= x^3 - 3*x^2";
+            bool Exception = false;
+            try
+            {
+                var Resultado = this.MetodosRaices.Biseccion(this.Parametro);
+            }
+            catch (ArgumentException)
+            {
+                Exception = true;  
+            }
+            finally
+            {
+                Assert.IsTrue(Exception);
+            }
+        }
+
+        [TestMethod]
+        public void BiseccionFuncionMalIngresada()
+        {
+            Parametro.Xi = 40;
+            Parametro.Xd = 30;
+            Parametro.Funcion = "f(x)= 4x";
+            bool Exception = false;
+            try
+            {
+                var Resultado = this.MetodosRaices.Biseccion(this.Parametro);
+            }
+            catch (Exception)
+            {
+                Exception = true;
+            }
+            finally
+            {
+                Assert.IsTrue(Exception);
+            }
         }
     }
 }
