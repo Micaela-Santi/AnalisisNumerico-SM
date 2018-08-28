@@ -52,6 +52,7 @@
     <Compile Include="TestMetodoBiseccion.cs" />
     <Compile Include="TestMetodoNewtonRaphson.cs" />
     <Compile Include="TestMetodoReglaFalsa.cs" />
+    <Compile Include="TestMetodoSecante.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
