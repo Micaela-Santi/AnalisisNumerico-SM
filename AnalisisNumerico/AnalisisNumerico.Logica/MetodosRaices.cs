@@ -53,13 +53,15 @@ namespace AnalisisNumerico.Logica
 
             int contador = 0;
             double anterior = 0;
+            double errorRelativo = 0;
             var XI = parametros.Xi;
             var XD = parametros.Xd;
             double xr = calcularXr(XI, XD, parametros.Funcion);
-            var errorRelativo = (xr - anterior) / xr;
+            if (xr != 0)
+            {
+                errorRelativo = (xr - anterior) / xr;
+            }
             var resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
-
-            
 
             while ((Math.Abs(errorRelativo) > parametros.Tolerancia | xr == 0) & contador < parametros.Iteraciones & Math.Abs(resultadoXR) > parametros.Tolerancia)
             {
@@ -99,7 +101,7 @@ namespace AnalisisNumerico.Logica
 
             if (resultadoxi.ToString() == double.NaN.ToString() | resultadoxd.ToString() == double.NaN.ToString())
             {
-                throw new Exception("Ingrese nuevamente la Función");
+                throw new ArgumentException("Ingrese nuevamente la Función", "parametros.Funcion");
             }
 
             if (resultadoxi * resultadoxd > 0)
@@ -174,7 +176,7 @@ namespace AnalisisNumerico.Logica
                 throw new NoRaizException(xr, "Valor muy alejado de la raiz");               
             }
             resultado.Raiz = xr;
-            resultado.ErrorRelativo = errorRelativo;
+            resultado.ErrorRelativo = Math.Abs(errorRelativo);
             resultado.Iteraciones = Contador;
 
             return resultado;
@@ -190,9 +192,9 @@ namespace AnalisisNumerico.Logica
             var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
             var resultadoxd = EvaluarFuncion(parametros.Funcion, parametros.Xd);
 
-            if (resultadoxi.ToString() == double.NaN.ToString() | resultadoxd.ToString() == double.NaN.ToString())
+            if (resultadoxi.Equals(double.NaN) || resultadoxd.Equals(double.NaN))
             {
-                throw new Exception("Ingrese nuevamente la Función");
+                throw new ArgumentException("Verificar Funcion","Funcion");
             }
 
             if (resultadoxd * resultadoxi == 0)
@@ -214,18 +216,33 @@ namespace AnalisisNumerico.Logica
             double anterior = 0;
             var Xi = parametros.Xi;
             var Xd = parametros.Xd;
+            if ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)) == 0)
+            {
+                throw new DivideByZeroException("División por 0");
+            }
             var Xr = ((EvaluarFuncion(parametros.Funcion, Xi) * Xd) - (EvaluarFuncion(parametros.Funcion, Xd) * Xi))/((EvaluarFuncion(parametros.Funcion,Xi) - EvaluarFuncion(parametros.Funcion,Xd)));
             var resultadoXr = EvaluarFuncion(parametros.Funcion, Xr);
             contador += 0;
-            errorRelativo = ((Xr - anterior) / Xr);
+
+            if (Xr != 0)
+            {
+                errorRelativo = ((Xr - anterior) / Xr);
+            }
 
             while ((Math.Abs(errorRelativo) > parametros.Tolerancia | Xr == 0) & contador < parametros.Iteraciones & Math.Abs(resultadoXr) > parametros.Tolerancia)
             {
                 Xi = Xd;
                 Xd = Xr;
                 anterior = Xr;
+                if ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)) == 0)
+                {
+                    throw new DivideByZeroException("División por 0");
+                }
                 Xr = ((EvaluarFuncion(parametros.Funcion, Xi) * Xd) - (EvaluarFuncion(parametros.Funcion, Xd) * Xi)) / ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)));
-                errorRelativo = ((Xr - anterior) / Xr);
+                if (Xr != 0)
+                {
+                    errorRelativo = ((Xr - anterior) / Xr);
+                }
                 contador += 1;
             }
 

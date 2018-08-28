@@ -26,13 +26,13 @@ namespace AnalisisNumerico.Test
 
         }
         private ParametroCompuesto Parametro { get; set; }
-        private  MetodosRaices MetodosRaices { get; set; }
+        private MetodosRaices MetodosRaices { get; set; }
 
         /// <summary>
         ///Obtiene o establece el contexto de las pruebas que proporciona
         ///información y funcionalidad para la serie de pruebas actual.
         ///</summary>
-        
+
 
         #region Atributos de prueba adicionales
         //
@@ -94,50 +94,31 @@ namespace AnalisisNumerico.Test
             Parametro.Xd = 10;
             Parametro.Funcion = "f(x)= x^3 - 3*x^2";
             var resultado = this.MetodosRaices.Biseccion(this.Parametro);
-            Assert.IsTrue(resultado.Raiz > 2.8 & resultado.Raiz < 3.2 );
+            Assert.IsTrue(resultado.Raiz > 2.8 & resultado.Raiz < 3.2);
             Assert.IsTrue(resultado.Iteraciones <= Parametro.Iteraciones);
             Assert.IsTrue(resultado.ErrorRelativo < Parametro.Tolerancia);
         }
+
         [TestMethod]
+        [ExpectedException(typeof(NoRaizException))]
         public void BiseccionElIntervaloNoContieneRaiz()
         {
             Parametro.Xi = 40;
             Parametro.Xd = 30;
             Parametro.Funcion = "f(x)= x^3 - 3*x^2";
-            bool Exception = false;
-            try
-            {
-                var Resultado = this.MetodosRaices.Biseccion(this.Parametro);
-            }
-            catch (ArgumentException)
-            {
-                Exception = true;  
-            }
-            finally
-            {
-                Assert.IsTrue(Exception);
-            }
+
+            this.MetodosRaices.Biseccion(this.Parametro);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(NoRaizException))]
         public void BiseccionFuncionMalIngresada()
         {
             Parametro.Xi = 40;
             Parametro.Xd = 30;
             Parametro.Funcion = "f(x)= 4x";
-            bool Exception = false;
-            try
-            {
-                var Resultado = this.MetodosRaices.Biseccion(this.Parametro);
-            }
-            catch (Exception)
-            {
-                Exception = true;
-            }
-            finally
-            {
-                Assert.IsTrue(Exception);
-            }
+
+            var Resultado = this.MetodosRaices.Biseccion(this.Parametro);
         }
     }
 }
