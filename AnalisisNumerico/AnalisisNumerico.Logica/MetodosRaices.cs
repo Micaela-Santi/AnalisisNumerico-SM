@@ -57,13 +57,15 @@ namespace AnalisisNumerico.Logica
             var XI = parametros.Xi;
             var XD = parametros.Xd;
             double xr = calcularXr(XI, XD, parametros.Funcion);
+
             if (xr != 0)
             {
                 errorRelativo = (xr - anterior) / xr;
             }
+
             var resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
 
-            while ((Math.Abs(errorRelativo) > parametros.Tolerancia | xr == 0) & contador < parametros.Iteraciones & Math.Abs(resultadoXR) > parametros.Tolerancia)
+            while ((Math.Abs(errorRelativo) > parametros.Tolerancia || xr == 0) && contador < parametros.Iteraciones && Math.Abs(resultadoXR) > parametros.Tolerancia)
             {
                 if (EvaluarFuncion(parametros.Funcion, XI) * EvaluarFuncion(parametros.Funcion, xr) > 0)
                 {
@@ -99,9 +101,9 @@ namespace AnalisisNumerico.Logica
             var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
             var resultadoxd = EvaluarFuncion(parametros.Funcion, parametros.Xd);
 
-            if (resultadoxi.ToString() == double.NaN.ToString() | resultadoxd.ToString() == double.NaN.ToString())
+            if (resultadoxi.Equals(double.NaN) || resultadoxd.Equals(double.NaN))
             {
-                throw new ArgumentException("Ingrese nuevamente la Función", "parametros.Funcion");
+                throw new ArgumentException("Verificar Función", "parametros.Funcion");
             }
 
             if (resultadoxi * resultadoxd > 0)
@@ -121,9 +123,11 @@ namespace AnalisisNumerico.Logica
                 }
                 resultado.Iteraciones = 0;
                 resultado.ErrorRelativo = 0;
+
                 return resultado;
             }
-            return this.BuscarRaicesCerrados(parametros,calcularXr);
+
+            return this.BuscarRaicesCerrados(parametros, calcularXr);
         }
 
         public Resultado NewtonRaphson(ParametroSimple parametros)
@@ -139,42 +143,47 @@ namespace AnalisisNumerico.Logica
                 resultado.Raiz = parametros.Xi;
                 return resultado;
             }
-            
+
             double Anterior = 0;
             int Contador = 0;
             double ValorX = parametros.Xi;
             double Tolerancia = parametros.Tolerancia;
-            double Derivada = (EvaluarFuncion(parametros.Funcion, (ValorX + Tolerancia)) - EvaluarFuncion(parametros.Funcion,ValorX)) / Tolerancia;
+            double Derivada = (EvaluarFuncion(parametros.Funcion, (ValorX + Tolerancia)) - EvaluarFuncion(parametros.Funcion, ValorX)) / Tolerancia;
+
+            if (Derivada == 0)
+            {
+                throw new NoRaizException(Derivada, "La Recta TG es horizontal");
+            }
+
             double xr = ValorX - (EvaluarFuncion(parametros.Funcion, ValorX) / Derivada);
             double resultadoXr = EvaluarFuncion(parametros.Funcion, xr);
             double errorRelativo = (xr - Anterior) / xr;
             Contador += 1;
 
-            if (EvaluarFuncion(parametros.Funcion,Derivada) == 0)
-            {
-                throw new NoRaizException(Derivada, "La Recta TG es horizontal");
-            }
+            
 
-            while (Math.Abs(resultadoXr) > Tolerancia  & Contador < parametros.Iteraciones & (Math.Abs(errorRelativo) > Tolerancia | xr == 0))
+            while (Math.Abs(resultadoXr) > Tolerancia && Contador < parametros.Iteraciones && (Math.Abs(errorRelativo) > Tolerancia || xr == 0))
             {
                 Anterior = xr;
                 ValorX = xr;
                 Derivada = (EvaluarFuncion(parametros.Funcion, (ValorX + Tolerancia)) - EvaluarFuncion(parametros.Funcion, ValorX)) / Tolerancia;
+
+                if (Derivada == 0)
+                {
+                    throw new NoRaizException(Derivada, "La Recta TG es horizontal");
+                }
+
                 xr = ValorX - (EvaluarFuncion(parametros.Funcion, ValorX) / Derivada);
                 resultadoXr = EvaluarFuncion(parametros.Funcion, xr);
                 errorRelativo = (xr - Anterior) / xr;
                 Contador += 1;
-
-                if (EvaluarFuncion(parametros.Funcion, Derivada) == 0)
-                {
-                    throw new NoRaizException(Derivada, "La Recta TG es horizontal");
-                }
             }
 
             if (Math.Abs(resultadoXr) > Tolerancia * 100)
             {
-                throw new NoRaizException(xr, "Valor muy alejado de la raiz");               
+                throw new NoRaizException(xr, "Valor muy alejado de la raiz");
             }
+
             resultado.Raiz = xr;
             resultado.ErrorRelativo = Math.Abs(errorRelativo);
             resultado.Iteraciones = Contador;
@@ -194,7 +203,7 @@ namespace AnalisisNumerico.Logica
 
             if (resultadoxi.Equals(double.NaN) || resultadoxd.Equals(double.NaN))
             {
-                throw new ArgumentException("Verificar Funcion","Funcion");
+                throw new ArgumentException("Verificar Funcion", "Funcion");
             }
 
             if (resultadoxd * resultadoxi == 0)
@@ -220,7 +229,7 @@ namespace AnalisisNumerico.Logica
             {
                 throw new DivideByZeroException("División por 0");
             }
-            var Xr = ((EvaluarFuncion(parametros.Funcion, Xi) * Xd) - (EvaluarFuncion(parametros.Funcion, Xd) * Xi))/((EvaluarFuncion(parametros.Funcion,Xi) - EvaluarFuncion(parametros.Funcion,Xd)));
+            var Xr = ((EvaluarFuncion(parametros.Funcion, Xi) * Xd) - (EvaluarFuncion(parametros.Funcion, Xd) * Xi)) / ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)));
             var resultadoXr = EvaluarFuncion(parametros.Funcion, Xr);
             contador += 0;
 
@@ -229,7 +238,7 @@ namespace AnalisisNumerico.Logica
                 errorRelativo = ((Xr - anterior) / Xr);
             }
 
-            while ((Math.Abs(errorRelativo) > parametros.Tolerancia | Xr == 0) & contador < parametros.Iteraciones & Math.Abs(resultadoXr) > parametros.Tolerancia)
+            while ((Math.Abs(errorRelativo) > parametros.Tolerancia || Xr == 0) && contador < parametros.Iteraciones && Math.Abs(resultadoXr) > parametros.Tolerancia)
             {
                 Xi = Xd;
                 Xd = Xr;

@@ -100,7 +100,7 @@ namespace AnalisisNumerico.Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NoRaizException))]
+        [ExpectedException(typeof(ArgumentException))]
         public void BiseccionElIntervaloNoContieneRaiz()
         {
             Parametro.Xi = 40;
@@ -111,7 +111,7 @@ namespace AnalisisNumerico.Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NoRaizException))]
+        [ExpectedException(typeof(ArgumentException))]
         public void BiseccionFuncionMalIngresada()
         {
             Parametro.Xi = 40;

@@ -16,7 +16,6 @@ namespace AnalisisNumerico.UI
         public Frm_Inicio()
         {
             InitializeComponent();
-
         }
         
         int posX = 0;

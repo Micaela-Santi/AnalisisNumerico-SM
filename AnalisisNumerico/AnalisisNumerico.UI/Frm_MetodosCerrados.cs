@@ -76,6 +76,11 @@ namespace AnalisisNumerico.UI
                     catch (ArgumentException Exception)
                     {
                         MessageBox.Show(Exception.Message);
+                        if (Exception.ParamName == "parametros.Xi")
+                        {
+                            txt_ValorXi.Text = string.Empty;
+                            txt_ValorXd.Text = string.Empty;
+                        }
                     }
                     
                     break;
@@ -90,6 +95,11 @@ namespace AnalisisNumerico.UI
                     catch (ArgumentException Exception)
                     {
                         MessageBox.Show(Exception.Message);
+                        if (Exception.ParamName == "parametros.Xi")
+                        {
+                            txt_ValorXi.Text = string.Empty;
+                            txt_ValorXd.Text = string.Empty;
+                        }
                     }
                     break;
                 case EMetodo.Secante:
