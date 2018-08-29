@@ -44,7 +44,7 @@ namespace AnalisisNumerico.UI
             try
             {
                 resultado = MetodosRaices.NewtonRaphson(parametros);
-                txt_Error.Text = resultado.ErrorRelativo.ToString();
+                txt_Error.Text = resultado.ErrorRelativo.ToString("0.000000000000");
                 txt_IteracionesActual.Text = resultado.Iteraciones.ToString();
                 txt_Raiz.Text = resultado.Raiz.ToString();
             }

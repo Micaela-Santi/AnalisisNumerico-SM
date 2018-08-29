@@ -71,7 +71,7 @@ namespace AnalisisNumerico.UI
                         Resultado = this.MetodosRaices.Biseccion(parametros);
                         txt_Raiz.Text = Resultado.Raiz.ToString();
                         txt_IteracionesActual.Text = Resultado.Iteraciones.ToString();
-                        txt_Error.Text = Resultado.ErrorRelativo.ToString();
+                        txt_Error.Text = Resultado.ErrorRelativo.ToString("0.000000000000");
                     }
                     catch (ArgumentException Exception)
                     {
@@ -90,7 +90,7 @@ namespace AnalisisNumerico.UI
                         Resultado = this.MetodosRaices.ReglaFalsa(parametros);
                         txt_Raiz.Text = Resultado.Raiz.ToString();
                         txt_IteracionesActual.Text = Resultado.Iteraciones.ToString();
-                        txt_Error.Text = Resultado.ErrorRelativo.ToString();
+                        txt_Error.Text = Resultado.ErrorRelativo.ToString("0.000000000000");
                     }
                     catch (ArgumentException Exception)
                     {
@@ -108,7 +108,7 @@ namespace AnalisisNumerico.UI
                         Resultado = this.MetodosRaices.Secante(parametros);
                         txt_Raiz.Text = Resultado.Raiz.ToString();
                         txt_IteracionesActual.Text = Resultado.Iteraciones.ToString();
-                        txt_Error.Text = Resultado.ErrorRelativo.ToString();
+                        txt_Error.Text = Resultado.ErrorRelativo.ToString("0.000000000000");
                     }
                     catch (ArgumentException Exception)
                     {

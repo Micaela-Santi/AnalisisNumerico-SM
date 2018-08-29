@@ -243,15 +243,19 @@ namespace AnalisisNumerico.Logica
                 Xi = Xd;
                 Xd = Xr;
                 anterior = Xr;
+
                 if ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)) == 0)
                 {
                     throw new DivideByZeroException("División por 0");
                 }
+
                 Xr = ((EvaluarFuncion(parametros.Funcion, Xi) * Xd) - (EvaluarFuncion(parametros.Funcion, Xd) * Xi)) / ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)));
+
                 if (Xr != 0)
                 {
                     errorRelativo = ((Xr - anterior) / Xr);
                 }
+
                 contador += 1;
             }
 
