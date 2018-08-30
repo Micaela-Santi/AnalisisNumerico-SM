@@ -138,7 +138,14 @@ namespace AnalisisNumerico.Logica
                 ErrorRelativo = 0
             };
 
-            if (EvaluarFuncion(parametros.Funcion, parametros.Xi) == 0)
+            double resultadoXr = EvaluarFuncion(parametros.Funcion, parametros.Xi);
+
+            if (resultadoXr.Equals(Double.NaN))
+            {
+                throw new ArgumentException("Verificar Funcion", "Funcion");
+            }
+
+            if (resultadoXr == 0)
             {
                 resultado.Raiz = parametros.Xi;
                 return resultado;
@@ -148,27 +155,35 @@ namespace AnalisisNumerico.Logica
             int Contador = 0;
             double ValorX = parametros.Xi;
             double Tolerancia = parametros.Tolerancia;
-            double Derivada = (EvaluarFuncion(parametros.Funcion, (ValorX + Tolerancia)) - EvaluarFuncion(parametros.Funcion, ValorX)) / Tolerancia;
+            double ValorXTole = (ValorX + Tolerancia);
+            double ValorFXTole = EvaluarFuncion(parametros.Funcion, ValorXTole);
+            double ValorXfun = EvaluarFuncion(parametros.Funcion, ValorX);
+            double ValorNumerador = Math.Abs(ValorFXTole) - Math.Abs(ValorXfun);
+            double Derivada = Math.Abs(ValorNumerador) / Tolerancia;
 
-            if (Derivada == 0)
+            if (Derivada < parametros.Tolerancia)
             {
                 throw new NoRaizException(Derivada, "La Recta TG es horizontal");
             }
 
             double xr = ValorX - (EvaluarFuncion(parametros.Funcion, ValorX) / Derivada);
-            double resultadoXr = EvaluarFuncion(parametros.Funcion, xr);
+            resultadoXr = EvaluarFuncion(parametros.Funcion, xr);
             double errorRelativo = (xr - Anterior) / xr;
             Contador += 1;
 
-            
+
 
             while (Math.Abs(resultadoXr) > Tolerancia && Contador < parametros.Iteraciones && (Math.Abs(errorRelativo) > Tolerancia || xr == 0))
             {
                 Anterior = xr;
                 ValorX = xr;
-                Derivada = (EvaluarFuncion(parametros.Funcion, (ValorX + Tolerancia)) - EvaluarFuncion(parametros.Funcion, ValorX)) / Tolerancia;
+                ValorXTole = (ValorX + Tolerancia);
+                ValorFXTole = EvaluarFuncion(parametros.Funcion, ValorXTole);
+                ValorXfun = EvaluarFuncion(parametros.Funcion, ValorX);
+                ValorNumerador = Math.Abs(ValorFXTole) - Math.Abs(ValorXfun);
+                Derivada = Math.Abs(ValorNumerador) / Tolerancia;
 
-                if (Derivada == 0)
+                if (Derivada < parametros.Tolerancia)
                 {
                     throw new NoRaizException(Derivada, "La Recta TG es horizontal");
                 }
