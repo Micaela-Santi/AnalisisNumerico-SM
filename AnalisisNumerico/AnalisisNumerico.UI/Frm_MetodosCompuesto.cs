@@ -1,32 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AnalisisNumerico.Entidades;
 
 namespace AnalisisNumerico.UI
 {
-    public partial class Frm_MetodosCerrados : Form
+    public partial class Frm_MetodosCompuesto : Form
     {
         private IMetodosRaices MetodosRaices;
-        public Frm_MetodosCerrados(IMetodosRaices metodosRaices)
+
+        public Frm_MetodosCompuesto(IMetodosRaices metodosRaices)
         {
             InitializeComponent();
             MetodosRaices = metodosRaices;
             txt_Funcion.Text = "F(x)= ";
         }
+
         public enum EMetodo
         {
             Biseccion,
             ReglaFalsa,
             Secante
         }
+
         EMetodo MetodoActual;
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -58,10 +55,6 @@ namespace AnalisisNumerico.UI
             parametros.Xi = Convert.ToDouble(txt_ValorXi.Text);
             parametros.Xd = Convert.ToDouble(txt_ValorXd.Text);
 
-
-
-            // .text para obtener valores, .tostring() para escribir sobre el txtbox
-
             Resultado Resultado = null;
             switch (MetodoActual)
             {
@@ -69,62 +62,85 @@ namespace AnalisisNumerico.UI
                     try
                     {
                         Resultado = this.MetodosRaices.Biseccion(parametros);
-                        txt_Raiz.Text = Resultado.Raiz.ToString();
+                        txt_Raiz.Text = Resultado.Raiz.ToString("0.000000000000");
                         txt_IteracionesActual.Text = Resultado.Iteraciones.ToString();
                         txt_Error.Text = Resultado.ErrorRelativo.ToString("0.000000000000");
                     }
                     catch (ArgumentException Exception)
                     {
                         MessageBox.Show(Exception.Message);
+
                         if (Exception.ParamName == "parametros.Xi")
                         {
                             txt_ValorXi.Text = string.Empty;
                             txt_ValorXd.Text = string.Empty;
                         }
+
                     }
-                    
                     break;
                 case EMetodo.ReglaFalsa:
+
                     try
                     {
                         Resultado = this.MetodosRaices.ReglaFalsa(parametros);
-                        txt_Raiz.Text = Resultado.Raiz.ToString();
+                        txt_Raiz.Text = Resultado.Raiz.ToString("0.000000000000");
                         txt_IteracionesActual.Text = Resultado.Iteraciones.ToString();
                         txt_Error.Text = Resultado.ErrorRelativo.ToString("0.000000000000");
                     }
                     catch (ArgumentException Exception)
                     {
                         MessageBox.Show(Exception.Message);
+
                         if (Exception.ParamName == "parametros.Xi")
                         {
                             txt_ValorXi.Text = string.Empty;
                             txt_ValorXd.Text = string.Empty;
                         }
+
                     }
                     break;
                 case EMetodo.Secante:
+
                     try
                     {
                         Resultado = this.MetodosRaices.Secante(parametros);
-                        txt_Raiz.Text = Resultado.Raiz.ToString();
+                        txt_Raiz.Text = Resultado.Raiz.ToString("0.000000000000");
                         txt_IteracionesActual.Text = Resultado.Iteraciones.ToString();
                         txt_Error.Text = Resultado.ErrorRelativo.ToString("0.000000000000");
                     }
                     catch (ArgumentException Exception)
                     {
                         MessageBox.Show(Exception.Message);
+
+                        if (Exception.ParamName == "Xi")
+                        {
+                            txt_ValorXi.Text = string.Empty;
+                        }
+
+                        if (Exception.ParamName == "Xd")
+                        {
+                            txt_ValorXd.Text = string.Empty;
+                        }
+
                     }
-                    catch(DivideByZeroException Exception)
+                    catch (DivideByZeroException Exception)
                     {
                         MessageBox.Show(Exception.Message);
                     }
+                    catch (NoRaizException Exception)
+                    {
+                        MessageBox.Show(Exception.Message);
+                        txt_Raiz.Text = Exception.Valor.ToString();
+                        txt_IteracionesActual.Text = Exception.Iteraciones.ToString();
+                    }
+
                     break;
             }
+
         }
 
         internal void Show(EMetodo metodo)
         {
-
             switch (metodo)
             {
                 case EMetodo.ReglaFalsa:
@@ -134,6 +150,7 @@ namespace AnalisisNumerico.UI
                     lbl_NombreMetodo.Text = metodo.ToString();
                     break;
             }
+
             MetodoActual = metodo;
             this.Show();
         }

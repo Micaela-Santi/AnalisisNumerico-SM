@@ -1,6 +1,6 @@
 ﻿namespace AnalisisNumerico.UI
 {
-    partial class Frm_MetodosAbiertos
+    partial class Frm_MetodosSimple
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_MetodosAbiertos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_MetodosSimple));
             this.btn_Limpiar = new System.Windows.Forms.Button();
             this.btn_Calcular = new System.Windows.Forms.Button();
             this.txt_Error = new System.Windows.Forms.TextBox();
@@ -50,6 +50,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -131,7 +132,7 @@
             // 
             // txt_Funcion
             // 
-            this.txt_Funcion.Location = new System.Drawing.Point(339, 55);
+            this.txt_Funcion.Location = new System.Drawing.Point(199, 54);
             this.txt_Funcion.Name = "txt_Funcion";
             this.txt_Funcion.Size = new System.Drawing.Size(180, 20);
             this.txt_Funcion.TabIndex = 21;
@@ -140,7 +141,7 @@
             // 
             this.lbl_Funcion.AutoSize = true;
             this.lbl_Funcion.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Funcion.Location = new System.Drawing.Point(185, 55);
+            this.lbl_Funcion.Location = new System.Drawing.Point(45, 54);
             this.lbl_Funcion.Name = "lbl_Funcion";
             this.lbl_Funcion.Size = new System.Drawing.Size(74, 16);
             this.lbl_Funcion.TabIndex = 37;
@@ -184,7 +185,7 @@
             // 
             this.lbl_ValorInicial.AutoSize = true;
             this.lbl_ValorInicial.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ValorInicial.Location = new System.Drawing.Point(185, 104);
+            this.lbl_ValorInicial.Location = new System.Drawing.Point(45, 103);
             this.lbl_ValorInicial.Name = "lbl_ValorInicial";
             this.lbl_ValorInicial.Size = new System.Drawing.Size(131, 16);
             this.lbl_ValorInicial.TabIndex = 33;
@@ -192,7 +193,7 @@
             // 
             // txt_ValorXi
             // 
-            this.txt_ValorXi.Location = new System.Drawing.Point(339, 104);
+            this.txt_ValorXi.Location = new System.Drawing.Point(199, 103);
             this.txt_ValorXi.Name = "txt_ValorXi";
             this.txt_ValorXi.Size = new System.Drawing.Size(100, 20);
             this.txt_ValorXi.TabIndex = 22;
@@ -241,12 +242,23 @@
             this.panel4.Size = new System.Drawing.Size(26, 352);
             this.panel4.TabIndex = 24;
             // 
-            // Frm_MetodosAbiertos
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(490, 56);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(162, 18);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "Newton-Raphson";
+            // 
+            // Frm_MetodosSimple
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(700, 360);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_Limpiar);
             this.Controls.Add(this.btn_Calcular);
             this.Controls.Add(this.txt_Error);
@@ -268,7 +280,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Frm_MetodosAbiertos";
+            this.Name = "Frm_MetodosSimple";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_MetodosAbiertos";
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MetodosAbiertos_MouseMove);
@@ -302,5 +314,6 @@
         public System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label3;
     }
 }

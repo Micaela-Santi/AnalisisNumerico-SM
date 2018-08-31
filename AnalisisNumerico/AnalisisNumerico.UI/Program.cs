@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AnalisisNumerico.Entidades;
 using AnalisisNumerico.Logica;
 using SimpleInjector;
-
 
 namespace AnalisisNumerico.UI
 {
@@ -14,9 +10,6 @@ namespace AnalisisNumerico.UI
     {
         internal static Container container;
 
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
@@ -32,8 +25,8 @@ namespace AnalisisNumerico.UI
             container = new Container();
             container.Register<IMetodosRaices,MetodosRaices>();
             container.Register<Frm_Inicio>();
-            container.Register<Frm_MetodosCerrados>();
-            container.Register<Frm_MetodosAbiertos>();
+            container.Register<Frm_MetodosCompuesto>();
+            container.Register<Frm_MetodosSimple>();
         } 
     }
 }

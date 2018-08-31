@@ -69,17 +69,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Frm_MetodosAbiertos.cs">
+    <Compile Include="Frm_MetodosSimple.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_MetodosAbiertos.Designer.cs">
-      <DependentUpon>Frm_MetodosAbiertos.cs</DependentUpon>
+    <Compile Include="Frm_MetodosSimple.Designer.cs">
+      <DependentUpon>Frm_MetodosSimple.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_MetodosCerrados.cs">
+    <Compile Include="Frm_MetodosCompuesto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_MetodosCerrados.Designer.cs">
-      <DependentUpon>Frm_MetodosCerrados.cs</DependentUpon>
+    <Compile Include="Frm_MetodosCompuesto.Designer.cs">
+      <DependentUpon>Frm_MetodosCompuesto.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Inicio.cs">
       <SubType>Form</SubType>
@@ -89,11 +89,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Frm_MetodosAbiertos.resx">
-      <DependentUpon>Frm_MetodosAbiertos.cs</DependentUpon>
+    <EmbeddedResource Include="Frm_MetodosSimple.resx">
+      <DependentUpon>Frm_MetodosSimple.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_MetodosCerrados.resx">
-      <DependentUpon>Frm_MetodosCerrados.cs</DependentUpon>
+    <EmbeddedResource Include="Frm_MetodosCompuesto.resx">
+      <DependentUpon>Frm_MetodosCompuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Inicio.resx">
       <DependentUpon>Frm_Inicio.cs</DependentUpon>

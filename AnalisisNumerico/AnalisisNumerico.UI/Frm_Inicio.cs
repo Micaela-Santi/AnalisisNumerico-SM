@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using AnalisisNumerico.Entidades;
 
 namespace AnalisisNumerico.UI
 {
@@ -16,8 +8,40 @@ namespace AnalisisNumerico.UI
         public Frm_Inicio()
         {
             InitializeComponent();
+        }      
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
-        
+
+        private void metodoDeLaBiseccionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Program.container.GetInstance<Frm_MetodosCompuesto>();
+            Frm_MetodosCompuesto.EMetodo metodo = Frm_MetodosCompuesto.EMetodo.Biseccion;
+            form.Show(metodo);
+        }
+
+        private void reglaFalsaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Program.container.GetInstance<Frm_MetodosCompuesto>();
+            Frm_MetodosCompuesto.EMetodo metodo = Frm_MetodosCompuesto.EMetodo.ReglaFalsa;
+            form.Show(metodo);
+        }
+
+        private void newtonRapshonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Program.container.GetInstance<Frm_MetodosSimple>();
+            form.Show();
+        }
+
+        private void secanteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Program.container.GetInstance<Frm_MetodosCompuesto>();
+            Frm_MetodosCompuesto.EMetodo metodo = Frm_MetodosCompuesto.EMetodo.Secante;
+            form.Show(metodo);
+        }
+
         int posX = 0;
         int posY = 0;
 
@@ -33,38 +57,6 @@ namespace AnalisisNumerico.UI
                 Left = Left + (e.X - posX);
                 Top = Top + (e.Y - posY);
             }
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void metodoDeLaBiseccionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Program.container.GetInstance<Frm_MetodosCerrados>();
-            Frm_MetodosCerrados.EMetodo metodo = Frm_MetodosCerrados.EMetodo.Biseccion;
-            form.Show(metodo);
-        }
-
-        private void reglaFalsaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Program.container.GetInstance<Frm_MetodosCerrados>();
-            Frm_MetodosCerrados.EMetodo metodo = Frm_MetodosCerrados.EMetodo.ReglaFalsa;
-            form.Show(metodo);
-        }
-
-        private void newtonRapshonToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Program.container.GetInstance<Frm_MetodosAbiertos>();
-            form.Show();
-        }
-
-        private void secanteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Program.container.GetInstance<Frm_MetodosCerrados>();
-            Frm_MetodosCerrados.EMetodo metodo = Frm_MetodosCerrados.EMetodo.Secante;
-            form.Show(metodo);
         }
     }
 }

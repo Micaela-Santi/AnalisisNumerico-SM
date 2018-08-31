@@ -1,22 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AnalisisNumerico.Entidades;
 
 namespace AnalisisNumerico.UI
 {
-    public partial class Frm_MetodosAbiertos : Form
+    public partial class Frm_MetodosSimple : Form
     {
 
         private IMetodosRaices MetodosRaices;
 
-        public Frm_MetodosAbiertos(IMetodosRaices metodosRaices)
+        public Frm_MetodosSimple(IMetodosRaices metodosRaices)
         {
             InitializeComponent();
             this.MetodosRaices = metodosRaices;
@@ -46,7 +39,7 @@ namespace AnalisisNumerico.UI
                 resultado = MetodosRaices.NewtonRaphson(parametros);
                 txt_Error.Text = resultado.ErrorRelativo.ToString("0.000000000000");
                 txt_IteracionesActual.Text = resultado.Iteraciones.ToString();
-                txt_Raiz.Text = resultado.Raiz.ToString();
+                txt_Raiz.Text = resultado.Raiz.ToString("0.000000000000");
             }
             catch (NoRaizException exception)
             {
@@ -55,7 +48,6 @@ namespace AnalisisNumerico.UI
                 txt_Raiz.Text = exception.Valor.ToString();
                 txt_IteracionesActual.Text = exception.Iteraciones.ToString();
             }
-
 
         }
 
@@ -75,8 +67,9 @@ namespace AnalisisNumerico.UI
                 Left = Left + (e.X - posX);
                 Top = Top + (e.Y - posY);
             }
-        }
 
-       
+        }
+      
     }
+
 }
