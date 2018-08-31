@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExceptionNoRaiz.cs" />
+    <Compile Include="NoRaizException.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="IMetodosRaices.cs" />
     <Compile Include="ParametroSimple.cs" />
     <Compile Include="ParametroCompuesto.cs" />

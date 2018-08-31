@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AnalisisNumerico.Entidades
+﻿namespace AnalisisNumerico.Entidades
 {
     public interface IMetodosRaices
     {
@@ -13,4 +7,5 @@ namespace AnalisisNumerico.Entidades
         Resultado NewtonRaphson(ParametroSimple parametros);
         Resultado Secante(ParametroCompuesto parametros);
     }
+
 }
