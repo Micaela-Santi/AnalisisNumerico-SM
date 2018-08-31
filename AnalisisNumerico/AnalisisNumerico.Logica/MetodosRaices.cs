@@ -163,7 +163,7 @@ namespace AnalisisNumerico.Logica
 
             if (Derivada < parametros.Tolerancia)
             {
-                throw new NoRaizException(Derivada, "La Recta TG es horizontal");
+                throw new NoRaizException(ValorX,"La Recta TG en este punto es horizontal",Contador);
             }
 
             double xr = ValorX - (EvaluarFuncion(parametros.Funcion, ValorX) / Derivada);
@@ -185,7 +185,7 @@ namespace AnalisisNumerico.Logica
 
                 if (Derivada < parametros.Tolerancia)
                 {
-                    throw new NoRaizException(Derivada, "La Recta TG es horizontal");
+                    throw new NoRaizException(ValorX, "La Recta TG en este punto es horizontal", Contador);
                 }
 
                 xr = ValorX - (EvaluarFuncion(parametros.Funcion, ValorX) / Derivada);
@@ -196,7 +196,7 @@ namespace AnalisisNumerico.Logica
 
             if (Math.Abs(resultadoXr) > Tolerancia * 100)
             {
-                throw new NoRaizException(xr, "Valor muy alejado de la raiz");
+                throw new NoRaizException(xr, "Valor muy alejado de la raiz",Contador);
             }
 
             resultado.Raiz = xr;

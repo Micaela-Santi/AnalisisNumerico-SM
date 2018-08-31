@@ -52,6 +52,8 @@ namespace AnalisisNumerico.UI
             {
                 var mensaje = exception.Message;
                 MessageBox.Show(mensaje);
+                txt_Raiz.Text = exception.Valor.ToString();
+                txt_IteracionesActual.Text = exception.Iteraciones.ToString();
             }
 
 
