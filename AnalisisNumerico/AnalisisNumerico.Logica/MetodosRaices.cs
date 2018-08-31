@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using org.mariuszgromada.math.mxparser;
 using AnalisisNumerico.Entidades;
 
@@ -11,16 +7,6 @@ namespace AnalisisNumerico.Logica
     public class MetodosRaices : IMetodosRaices
     {
         private delegate double MetodoCerradoDelegate(double xi, double xd, string funcion);
-
-        public Resultado Biseccion(ParametroCompuesto parametros)
-        {
-            return this.MetodosCerrados(parametros, CalcularXrBiseccion);
-        }
-
-        public Resultado ReglaFalsa(ParametroCompuesto parametros)
-        {
-            return this.MetodosCerrados(parametros, CalcularXrReglaFalsa);
-        }
 
         private double CalcularXrBiseccion(double xi, double xd, string funcion)
         {
@@ -41,6 +27,51 @@ namespace AnalisisNumerico.Logica
             var nombre = funcionParametro.Split('=')[0].Trim();
             var expresion = new Expression(nombre, funcion, argumento);
             return expresion.calculate();
+        }
+
+        public Resultado Biseccion(ParametroCompuesto parametros)
+        {
+            return this.MetodosCerrados(parametros, CalcularXrBiseccion);
+        }
+
+        public Resultado ReglaFalsa(ParametroCompuesto parametros)
+        {
+            return this.MetodosCerrados(parametros, CalcularXrReglaFalsa);
+        }
+
+        private Resultado MetodosCerrados(ParametroCompuesto parametros, MetodoCerradoDelegate calcularXr)
+        {
+            Resultado resultado = new Resultado();
+            var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
+            var resultadoxd = EvaluarFuncion(parametros.Funcion, parametros.Xd);
+
+            if (resultadoxi.Equals(double.NaN) || resultadoxd.Equals(double.NaN))
+            {
+                throw new ArgumentException("Verificar Función", "parametros.Funcion");
+            }
+
+            if (resultadoxi * resultadoxd > 0)
+            {
+                throw new ArgumentException("Ingresar nuevamente los extremos", "parametros.Xi");
+            }
+
+            if (resultadoxi * resultadoxd == 0)
+            {
+                if (resultadoxi == 0)
+                {
+                    resultado.Raiz = parametros.Xi;
+                }
+                else
+                {
+                    resultado.Raiz = parametros.Xd;
+                }
+                resultado.Iteraciones = 0;
+                resultado.ErrorRelativo = 0;
+
+                return resultado;
+            }
+
+            return this.BuscarRaicesCerrados(parametros, calcularXr);
         }
 
         private Resultado BuscarRaicesCerrados(ParametroCompuesto parametros, MetodoCerradoDelegate calcularXr)
@@ -95,41 +126,6 @@ namespace AnalisisNumerico.Logica
             return resultado;
         }
 
-        private Resultado MetodosCerrados(ParametroCompuesto parametros, MetodoCerradoDelegate calcularXr)
-        {
-            Resultado resultado = new Resultado();
-            var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
-            var resultadoxd = EvaluarFuncion(parametros.Funcion, parametros.Xd);
-
-            if (resultadoxi.Equals(double.NaN) || resultadoxd.Equals(double.NaN))
-            {
-                throw new ArgumentException("Verificar Función", "parametros.Funcion");
-            }
-
-            if (resultadoxi * resultadoxd > 0)
-            {
-                throw new ArgumentException("Ingresar nuevamente los extremos", "parametros.Xi");
-            }
-
-            if (resultadoxi * resultadoxd == 0)
-            {
-                if (resultadoxi == 0)
-                {
-                    resultado.Raiz = parametros.Xi;
-                }
-                else
-                {
-                    resultado.Raiz = parametros.Xd;
-                }
-                resultado.Iteraciones = 0;
-                resultado.ErrorRelativo = 0;
-
-                return resultado;
-            }
-
-            return this.BuscarRaicesCerrados(parametros, calcularXr);
-        }
-
         public Resultado NewtonRaphson(ParametroSimple parametros)
         {
             Resultado resultado = new Resultado()
@@ -163,7 +159,7 @@ namespace AnalisisNumerico.Logica
 
             if (Derivada < parametros.Tolerancia)
             {
-                throw new NoRaizException(ValorX,"La Recta TG en este punto es horizontal",Contador);
+                throw new NoRaizException(ValorX, "La Recta TG en este punto es horizontal", Contador);
             }
 
             double xr = ValorX - (EvaluarFuncion(parametros.Funcion, ValorX) / Derivada);
@@ -196,7 +192,7 @@ namespace AnalisisNumerico.Logica
 
             if (Math.Abs(resultadoXr) > Tolerancia * 100)
             {
-                throw new NoRaizException(xr, "Valor muy alejado de la raiz",Contador);
+                throw new NoRaizException(xr, "Valor muy alejado de la raiz", Contador);
             }
 
             resultado.Raiz = xr;
@@ -216,9 +212,19 @@ namespace AnalisisNumerico.Logica
             var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
             var resultadoxd = EvaluarFuncion(parametros.Funcion, parametros.Xd);
 
-            if (resultadoxi.Equals(double.NaN) || resultadoxd.Equals(double.NaN))
+            if (resultadoxi.Equals(double.NaN) && resultadoxd.Equals(double.NaN))
             {
                 throw new ArgumentException("Verificar Funcion", "Funcion");
+            }
+
+            if (resultadoxi.Equals(Double.NaN) && (resultadoxd.Equals(Double.NaN) == false))
+            {
+                throw new ArgumentException("Parametro XI fuera del dominio de la F(x)", "Xi");
+            }
+
+            if ((resultadoxi.Equals(Double.NaN) == false) && (resultadoxd.Equals(Double.NaN)))
+            {
+                throw new ArgumentException("Parametro XD fuera del dominio de la F(x)", "Xd");
             }
 
             if (resultadoxd * resultadoxi == 0)
@@ -240,13 +246,20 @@ namespace AnalisisNumerico.Logica
             double anterior = 0;
             var Xi = parametros.Xi;
             var Xd = parametros.Xd;
+
             if ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)) == 0)
             {
                 throw new DivideByZeroException("División por 0");
             }
+
             var Xr = ((EvaluarFuncion(parametros.Funcion, Xi) * Xd) - (EvaluarFuncion(parametros.Funcion, Xd) * Xi)) / ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)));
             var resultadoXr = EvaluarFuncion(parametros.Funcion, Xr);
             contador += 0;
+
+            if (resultadoXr.Equals(double.NaN))
+            {
+                throw new NoRaizException(Xr, "Punto fuera del dominio de la funcion", 0);
+            }
 
             if (Xr != 0)
             {
@@ -266,6 +279,11 @@ namespace AnalisisNumerico.Logica
 
                 Xr = ((EvaluarFuncion(parametros.Funcion, Xi) * Xd) - (EvaluarFuncion(parametros.Funcion, Xd) * Xi)) / ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)));
 
+                if (resultadoXr.Equals(double.NaN))
+                {
+                    throw new NoRaizException(Xr, "Punto fuera del dominio de la funcion", contador);
+                }
+
                 if (Xr != 0)
                 {
                     errorRelativo = ((Xr - anterior) / Xr);
@@ -274,11 +292,18 @@ namespace AnalisisNumerico.Logica
                 contador += 1;
             }
 
+            if (Math.Abs(resultadoXr) > parametros.Tolerancia * 100)
+            {
+                throw new NoRaizException(Xr, "Valor muy alejado de la raiz", contador);
+            }
+
             resultado.Raiz = Xr;
             resultado.Iteraciones = contador;
             resultado.ErrorRelativo = Math.Abs(errorRelativo);
 
             return resultado;
         }
+
     }
+
 }
