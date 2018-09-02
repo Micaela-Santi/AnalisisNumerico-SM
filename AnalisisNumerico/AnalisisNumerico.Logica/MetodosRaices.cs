@@ -154,10 +154,10 @@ namespace AnalisisNumerico.Logica
             double ValorXTole = (ValorX + Tolerancia);
             double ValorFXTole = EvaluarFuncion(parametros.Funcion, ValorXTole);
             double ValorXfun = EvaluarFuncion(parametros.Funcion, ValorX);
-            double ValorNumerador = Math.Abs(ValorFXTole) - Math.Abs(ValorXfun);
-            double Derivada = Math.Abs(ValorNumerador) / Tolerancia;
+            double ValorNumerador = ValorFXTole - ValorXfun;
+            double Derivada = ValorNumerador / Tolerancia;
 
-            if (Derivada < parametros.Tolerancia)
+            if (Math.Abs (Derivada) < parametros.Tolerancia)
             {
                 throw new NoRaizException(ValorX, "La Recta TG en este punto es horizontal", Contador);
             }
@@ -167,7 +167,10 @@ namespace AnalisisNumerico.Logica
             double errorRelativo = (xr - Anterior) / xr;
             Contador += 1;
 
-
+            if (resultadoXr.Equals(double.NaN))
+            {
+                throw new NoRaizException(xr, "El valor no pertenece al dominio de la Funcion", Contador);
+            }
 
             while (Math.Abs(resultadoXr) > Tolerancia && Contador < parametros.Iteraciones && (Math.Abs(errorRelativo) > Tolerancia || xr == 0))
             {
@@ -176,16 +179,20 @@ namespace AnalisisNumerico.Logica
                 ValorXTole = (ValorX + Tolerancia);
                 ValorFXTole = EvaluarFuncion(parametros.Funcion, ValorXTole);
                 ValorXfun = EvaluarFuncion(parametros.Funcion, ValorX);
-                ValorNumerador = Math.Abs(ValorFXTole) - Math.Abs(ValorXfun);
-                Derivada = Math.Abs(ValorNumerador) / Tolerancia;
+                ValorNumerador = ValorFXTole - ValorXfun;
+                Derivada = ValorNumerador / Tolerancia;
 
-                if (Derivada < parametros.Tolerancia)
+                if (Math.Abs(Derivada) < parametros.Tolerancia)
                 {
                     throw new NoRaizException(ValorX, "La Recta TG en este punto es horizontal", Contador);
                 }
 
                 xr = ValorX - (EvaluarFuncion(parametros.Funcion, ValorX) / Derivada);
                 resultadoXr = EvaluarFuncion(parametros.Funcion, xr);
+                if (resultadoXr.Equals(double.NaN))
+                {
+                    throw new NoRaizException(xr, "El valor no pertenece al dominio de la Funcion", Contador);
+                }
                 errorRelativo = (xr - Anterior) / xr;
                 Contador += 1;
             }
@@ -278,6 +285,7 @@ namespace AnalisisNumerico.Logica
                 }
 
                 Xr = ((EvaluarFuncion(parametros.Funcion, Xi) * Xd) - (EvaluarFuncion(parametros.Funcion, Xd) * Xi)) / ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)));
+                resultadoXr = EvaluarFuncion(parametros.Funcion, Xr);
 
                 if (resultadoXr.Equals(double.NaN))
                 {
