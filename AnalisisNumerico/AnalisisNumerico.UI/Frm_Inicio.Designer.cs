@@ -120,7 +120,7 @@
             this.Menu.Location = new System.Drawing.Point(14, -1);
             this.Menu.Name = "Menu";
             this.Menu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.Menu.Size = new System.Drawing.Size(570, 26);
+            this.Menu.Size = new System.Drawing.Size(450, 26);
             this.Menu.TabIndex = 3;
             this.Menu.Text = "Menu";
             // 
@@ -142,7 +142,7 @@
             this.reglaFalsaToolStripMenuItem});
             this.cERRADOSToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cERRADOSToolStripMenuItem.Name = "cERRADOSToolStripMenuItem";
-            this.cERRADOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cERRADOSToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.cERRADOSToolStripMenuItem.Text = "CERRADOS";
             // 
             // metodoDeLaBiseccionToolStripMenuItem
@@ -168,7 +168,7 @@
             this.secanteToolStripMenuItem});
             this.aBIERTOSToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aBIERTOSToolStripMenuItem.Name = "aBIERTOSToolStripMenuItem";
-            this.aBIERTOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aBIERTOSToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.aBIERTOSToolStripMenuItem.Text = "ABIERTOS";
             // 
             // newtonRapshonToolStripMenuItem
@@ -270,7 +270,7 @@
             this.multipleToolStripMenuItem});
             this.trapeciosToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trapeciosToolStripMenuItem.Name = "trapeciosToolStripMenuItem";
-            this.trapeciosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.trapeciosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.trapeciosToolStripMenuItem.Text = "Trapecios";
             // 
             // simpleToolStripMenuItem
@@ -294,7 +294,7 @@
             this.multipleToolStripMenuItem1});
             this.simpson13ToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpson13ToolStripMenuItem.Name = "simpson13ToolStripMenuItem";
-            this.simpson13ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.simpson13ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.simpson13ToolStripMenuItem.Text = "Simpson 1/3";
             // 
             // simpleToolStripMenuItem1
@@ -313,12 +313,13 @@
             // 
             this.simpson38ToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpson38ToolStripMenuItem.Name = "simpson38ToolStripMenuItem";
-            this.simpson38ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.simpson38ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.simpson38ToolStripMenuItem.Text = "Simpson 3/8";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = null;
             this.pictureBox2.Location = new System.Drawing.Point(25, 25);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(751, 403);

@@ -268,6 +268,11 @@ namespace AnalisisNumerico.Logica
                 throw new NoRaizException(Xr, "Punto fuera del dominio de la funcion", 0);
             }
 
+            if (double.IsInfinity(resultadoXr))
+            {
+                throw new NoRaizException(Xr, "La Funcion evaluada en este punto es infinita", contador);
+            }
+
             if (Xr != 0)
             {
                 errorRelativo = ((Xr - anterior) / Xr);
@@ -290,6 +295,11 @@ namespace AnalisisNumerico.Logica
                 if (resultadoXr.Equals(double.NaN))
                 {
                     throw new NoRaizException(Xr, "Punto fuera del dominio de la funcion", contador);
+                }
+
+                if (double.IsInfinity(resultadoXr))
+                {
+                    throw new NoRaizException(Xr, "La Funcion evaluada en este punto es infinita", contador);
                 }
 
                 if (Xr != 0)
