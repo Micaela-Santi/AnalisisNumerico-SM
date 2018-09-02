@@ -51,15 +51,6 @@ namespace AnalisisNumerico.Test
             MetodosRaices.NewtonRaphson(Parametro);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(NoRaizException))]
-        public void NewtonRaphsonExtremo()
-        {
-            Parametro.Funcion = "f(x)=x^2-4";
-            Parametro.Xi = -6;
-
-            MetodosRaices.NewtonRaphson(Parametro);
-        }
 
         [TestMethod]
         [ExpectedException(typeof(NoRaizException))]

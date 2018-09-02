@@ -156,24 +156,27 @@ namespace AnalisisNumerico.Logica
             double ValorXfun = EvaluarFuncion(parametros.Funcion, ValorX);
             double ValorNumerador = ValorFXTole - ValorXfun;
             double Derivada = ValorNumerador / Tolerancia;
-
-            if (Math.Abs (Derivada) < parametros.Tolerancia)
+            double xr = 0;
+            double errorRelativo = 0;
+            
+            do
             {
-                throw new NoRaizException(ValorX, "La Recta TG en este punto es horizontal", Contador);
-            }
+                if (Math.Abs(Derivada) < parametros.Tolerancia)
+                {
+                    throw new NoRaizException(ValorX, "La Recta TG en este punto es horizontal", Contador);
+                }
 
-            double xr = ValorX - (EvaluarFuncion(parametros.Funcion, ValorX) / Derivada);
-            resultadoXr = EvaluarFuncion(parametros.Funcion, xr);
-            double errorRelativo = (xr - Anterior) / xr;
-            Contador += 1;
+                xr = ValorX - (EvaluarFuncion(parametros.Funcion, ValorX) / Derivada);
+                resultadoXr = EvaluarFuncion(parametros.Funcion, xr);
 
-            if (resultadoXr.Equals(double.NaN))
-            {
-                throw new NoRaizException(xr, "El valor no pertenece al dominio de la Funcion", Contador);
-            }
+                if (resultadoXr.Equals(double.NaN))
+                {
+                    throw new NoRaizException(xr, "El valor no pertenece al dominio de la Funcion", Contador);
+                }
 
-            while (Math.Abs(resultadoXr) > Tolerancia && Contador < parametros.Iteraciones && (Math.Abs(errorRelativo) > Tolerancia || xr == 0))
-            {
+                errorRelativo = (xr - Anterior) / xr;
+                Contador += 1;
+
                 Anterior = xr;
                 ValorX = xr;
                 ValorXTole = (ValorX + Tolerancia);
@@ -182,21 +185,9 @@ namespace AnalisisNumerico.Logica
                 ValorNumerador = ValorFXTole - ValorXfun;
                 Derivada = ValorNumerador / Tolerancia;
 
-                if (Math.Abs(Derivada) < parametros.Tolerancia)
-                {
-                    throw new NoRaizException(ValorX, "La Recta TG en este punto es horizontal", Contador);
-                }
+            } while (Math.Abs(resultadoXr) > Tolerancia && Contador < parametros.Iteraciones && (Math.Abs(errorRelativo) > Tolerancia || xr == 0));
 
-                xr = ValorX - (EvaluarFuncion(parametros.Funcion, ValorX) / Derivada);
-                resultadoXr = EvaluarFuncion(parametros.Funcion, xr);
-                if (resultadoXr.Equals(double.NaN))
-                {
-                    throw new NoRaizException(xr, "El valor no pertenece al dominio de la Funcion", Contador);
-                }
-                errorRelativo = (xr - Anterior) / xr;
-                Contador += 1;
-            }
-
+ 
             if (Math.Abs(resultadoXr) > Tolerancia * 100)
             {
                 throw new NoRaizException(xr, "Valor muy alejado de la raiz", Contador);
@@ -216,23 +207,11 @@ namespace AnalisisNumerico.Logica
                 Iteraciones = 0,
                 ErrorRelativo = 0
             };
+
+            VerificaParametros(parametros);
+
             var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
             var resultadoxd = EvaluarFuncion(parametros.Funcion, parametros.Xd);
-
-            if (resultadoxi.Equals(double.NaN) && resultadoxd.Equals(double.NaN))
-            {
-                throw new ArgumentException("Verificar Funcion", "Funcion");
-            }
-
-            if (resultadoxi.Equals(Double.NaN) && (resultadoxd.Equals(Double.NaN) == false))
-            {
-                throw new ArgumentException("Parametro XI fuera del dominio de la F(x)", "Xi");
-            }
-
-            if ((resultadoxi.Equals(Double.NaN) == false) && (resultadoxd.Equals(Double.NaN)))
-            {
-                throw new ArgumentException("Parametro XD fuera del dominio de la F(x)", "Xd");
-            }
 
             if (resultadoxd * resultadoxi == 0)
             {
@@ -253,37 +232,11 @@ namespace AnalisisNumerico.Logica
             double anterior = 0;
             var Xi = parametros.Xi;
             var Xd = parametros.Xd;
+            double Xr = 0;
+            double resultadoXr = 0;
 
-            if ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)) == 0)
+            do
             {
-                throw new DivideByZeroException("División por 0");
-            }
-
-            var Xr = ((EvaluarFuncion(parametros.Funcion, Xi) * Xd) - (EvaluarFuncion(parametros.Funcion, Xd) * Xi)) / ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)));
-            var resultadoXr = EvaluarFuncion(parametros.Funcion, Xr);
-            contador += 0;
-
-            if (resultadoXr.Equals(double.NaN))
-            {
-                throw new NoRaizException(Xr, "Punto fuera del dominio de la funcion", 0);
-            }
-
-            if (double.IsInfinity(resultadoXr))
-            {
-                throw new NoRaizException(Xr, "La Funcion evaluada en este punto es infinita", contador);
-            }
-
-            if (Xr != 0)
-            {
-                errorRelativo = ((Xr - anterior) / Xr);
-            }
-
-            while ((Math.Abs(errorRelativo) > parametros.Tolerancia || Xr == 0) && contador < parametros.Iteraciones && Math.Abs(resultadoXr) > parametros.Tolerancia)
-            {
-                Xi = Xd;
-                Xd = Xr;
-                anterior = Xr;
-
                 if ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)) == 0)
                 {
                     throw new DivideByZeroException("División por 0");
@@ -291,10 +244,11 @@ namespace AnalisisNumerico.Logica
 
                 Xr = ((EvaluarFuncion(parametros.Funcion, Xi) * Xd) - (EvaluarFuncion(parametros.Funcion, Xd) * Xi)) / ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)));
                 resultadoXr = EvaluarFuncion(parametros.Funcion, Xr);
+                contador += 0;
 
                 if (resultadoXr.Equals(double.NaN))
                 {
-                    throw new NoRaizException(Xr, "Punto fuera del dominio de la funcion", contador);
+                    throw new NoRaizException(Xr, "Punto fuera del dominio de la funcion", 0);
                 }
 
                 if (double.IsInfinity(resultadoXr))
@@ -307,9 +261,13 @@ namespace AnalisisNumerico.Logica
                     errorRelativo = ((Xr - anterior) / Xr);
                 }
 
-                contador += 1;
-            }
+                Xi = Xd;
+                Xd = Xr;
+                anterior = Xr;
 
+            } while ((Math.Abs(errorRelativo) > parametros.Tolerancia || Xr == 0) && contador < parametros.Iteraciones && Math.Abs(resultadoXr) > parametros.Tolerancia);
+
+        
             if (Math.Abs(resultadoXr) > parametros.Tolerancia * 100)
             {
                 throw new NoRaizException(Xr, "Valor muy alejado de la raiz", contador);
@@ -319,7 +277,29 @@ namespace AnalisisNumerico.Logica
             resultado.Iteraciones = contador;
             resultado.ErrorRelativo = Math.Abs(errorRelativo);
 
+
             return resultado;
+        }
+
+        private void VerificaParametros(ParametroCompuesto parametro)
+        {
+            var resultadoxi = EvaluarFuncion(parametro.Funcion, parametro.Xi);
+            var resultadoxd = EvaluarFuncion(parametro.Funcion, parametro.Xd);
+
+            if (resultadoxi.Equals(double.NaN) && resultadoxd.Equals(double.NaN))
+            {
+                throw new ArgumentException("Verificar Funcion", "Funcion");
+            }
+
+            if (resultadoxi.Equals(Double.NaN) && (resultadoxd.Equals(Double.NaN) == false))
+            {
+                throw new ArgumentException("Parametro XI fuera del dominio de la F(x)", "Xi");
+            }
+
+            if ((resultadoxi.Equals(Double.NaN) == false) && (resultadoxd.Equals(Double.NaN)))
+            {
+                throw new ArgumentException("Parametro XD fuera del dominio de la F(x)", "Xd");
+            }
         }
 
     }
