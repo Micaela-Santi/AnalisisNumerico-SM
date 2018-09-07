@@ -40,14 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IEcuaciones.cs" />
     <Compile Include="NoRaizException.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="IMetodosRaices.cs" />
     <Compile Include="ParametroSimple.cs" />
     <Compile Include="ParametroCompuesto.cs" />
+    <Compile Include="ParmetroGaussJordan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resultado.cs" />
+    <Compile Include="ResultadoEcuaciones.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

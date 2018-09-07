@@ -42,7 +42,6 @@
             this.newtonRapshonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.secanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uNIDAD2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gaussianaSimpleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gaussJordanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vonMissesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gaussSeidelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,7 +119,7 @@
             this.Menu.Location = new System.Drawing.Point(14, -1);
             this.Menu.Name = "Menu";
             this.Menu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.Menu.Size = new System.Drawing.Size(450, 26);
+            this.Menu.Size = new System.Drawing.Size(570, 26);
             this.Menu.TabIndex = 3;
             this.Menu.Text = "Menu";
             // 
@@ -188,7 +187,6 @@
             // uNIDAD2ToolStripMenuItem
             // 
             this.uNIDAD2ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gaussianaSimpleToolStripMenuItem,
             this.gaussJordanToolStripMenuItem,
             this.vonMissesToolStripMenuItem,
             this.gaussSeidelToolStripMenuItem});
@@ -198,32 +196,25 @@
             this.uNIDAD2ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.uNIDAD2ToolStripMenuItem.Text = "UNIDAD 2";
             // 
-            // gaussianaSimpleToolStripMenuItem
-            // 
-            this.gaussianaSimpleToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gaussianaSimpleToolStripMenuItem.Name = "gaussianaSimpleToolStripMenuItem";
-            this.gaussianaSimpleToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.gaussianaSimpleToolStripMenuItem.Text = "Gaussiana Simple";
-            // 
             // gaussJordanToolStripMenuItem
             // 
             this.gaussJordanToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gaussJordanToolStripMenuItem.Name = "gaussJordanToolStripMenuItem";
-            this.gaussJordanToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.gaussJordanToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.gaussJordanToolStripMenuItem.Text = "Gauss Jordan";
             // 
             // vonMissesToolStripMenuItem
             // 
             this.vonMissesToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vonMissesToolStripMenuItem.Name = "vonMissesToolStripMenuItem";
-            this.vonMissesToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.vonMissesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.vonMissesToolStripMenuItem.Text = "Von Misses";
             // 
             // gaussSeidelToolStripMenuItem
             // 
             this.gaussSeidelToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gaussSeidelToolStripMenuItem.Name = "gaussSeidelToolStripMenuItem";
-            this.gaussSeidelToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.gaussSeidelToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.gaussSeidelToolStripMenuItem.Text = "Gauss - Seidel";
             // 
             // uNIDAD3ToolStripMenuItem
@@ -369,7 +360,6 @@
         private System.Windows.Forms.ToolStripMenuItem newtonRapshonToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem secanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uNIDAD2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gaussianaSimpleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gaussJordanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vonMissesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gaussSeidelToolStripMenuItem;
