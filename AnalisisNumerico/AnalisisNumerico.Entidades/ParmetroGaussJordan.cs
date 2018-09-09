@@ -11,6 +11,6 @@ namespace AnalisisNumerico.Entidades
         public int NumeroIncognitas { get; set; }
         public int NumeroFilas { get; set; }
         public int NumeroColumnas { get; set; }
-        public int [,] Matriz { get; set; }
+        public decimal[,] Matriz { get; set; }
     }
 }
