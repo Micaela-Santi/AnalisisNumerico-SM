@@ -36,13 +36,10 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.lbl_NumIncognitas = new System.Windows.Forms.Label();
             this.txt_NumeroIncognitas = new System.Windows.Forms.TextBox();
-            this.lbl_NumFilas = new System.Windows.Forms.Label();
-            this.txt_NumFilas = new System.Windows.Forms.TextBox();
-            this.lbl_NumColumnas = new System.Windows.Forms.Label();
-            this.txt_NumColumnas = new System.Windows.Forms.TextBox();
-            this.btn_Calcular = new System.Windows.Forms.Button();
-            this.btn_limpiar = new System.Windows.Forms.Button();
+            this.btn_Graficar = new System.Windows.Forms.Button();
+            this.btn_Limpiar = new System.Windows.Forms.Button();
             this.Grilla_Mat = new System.Windows.Forms.GroupBox();
+            this.btn_Calcular = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +67,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(204)))), ((int)(((byte)(242)))));
-            this.panel2.Location = new System.Drawing.Point(0, 415);
+            this.panel2.Location = new System.Drawing.Point(0, 504);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(900, 26);
             this.panel2.TabIndex = 11;
@@ -80,7 +77,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(204)))), ((int)(((byte)(242)))));
             this.panel1.Location = new System.Drawing.Point(874, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(26, 442);
+            this.panel1.Size = new System.Drawing.Size(26, 529);
             this.panel1.TabIndex = 10;
             // 
             // panel4
@@ -88,13 +85,13 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(204)))), ((int)(((byte)(242)))));
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(26, 441);
+            this.panel4.Size = new System.Drawing.Size(26, 528);
             this.panel4.TabIndex = 9;
             // 
             // lbl_NumIncognitas
             // 
             this.lbl_NumIncognitas.AutoSize = true;
-            this.lbl_NumIncognitas.Location = new System.Drawing.Point(32, 65);
+            this.lbl_NumIncognitas.Location = new System.Drawing.Point(51, 52);
             this.lbl_NumIncognitas.Name = "lbl_NumIncognitas";
             this.lbl_NumIncognitas.Size = new System.Drawing.Size(202, 18);
             this.lbl_NumIncognitas.TabIndex = 13;
@@ -102,86 +99,61 @@
             // 
             // txt_NumeroIncognitas
             // 
-            this.txt_NumeroIncognitas.Location = new System.Drawing.Point(268, 62);
+            this.txt_NumeroIncognitas.Location = new System.Drawing.Point(274, 49);
             this.txt_NumeroIncognitas.Name = "txt_NumeroIncognitas";
             this.txt_NumeroIncognitas.Size = new System.Drawing.Size(100, 27);
             this.txt_NumeroIncognitas.TabIndex = 1;
+            this.txt_NumeroIncognitas.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_NumeroIncognitas_KeyUp);
             // 
-            // lbl_NumFilas
+            // btn_Graficar
             // 
-            this.lbl_NumFilas.AutoSize = true;
-            this.lbl_NumFilas.Location = new System.Drawing.Point(35, 134);
-            this.lbl_NumFilas.Name = "lbl_NumFilas";
-            this.lbl_NumFilas.Size = new System.Drawing.Size(148, 18);
-            this.lbl_NumFilas.TabIndex = 14;
-            this.lbl_NumFilas.Text = "Numero de Filas";
+            this.btn_Graficar.Location = new System.Drawing.Point(702, 156);
+            this.btn_Graficar.Name = "btn_Graficar";
+            this.btn_Graficar.Size = new System.Drawing.Size(114, 31);
+            this.btn_Graficar.TabIndex = 4;
+            this.btn_Graficar.Text = "GRAFICAR";
+            this.btn_Graficar.UseVisualStyleBackColor = true;
+            this.btn_Graficar.Click += new System.EventHandler(this.btn_Graficar_Click);
             // 
-            // txt_NumFilas
+            // btn_Limpiar
             // 
-            this.txt_NumFilas.Location = new System.Drawing.Point(268, 125);
-            this.txt_NumFilas.Name = "txt_NumFilas";
-            this.txt_NumFilas.Size = new System.Drawing.Size(100, 27);
-            this.txt_NumFilas.TabIndex = 2;
-            // 
-            // lbl_NumColumnas
-            // 
-            this.lbl_NumColumnas.AutoSize = true;
-            this.lbl_NumColumnas.Location = new System.Drawing.Point(35, 202);
-            this.lbl_NumColumnas.Name = "lbl_NumColumnas";
-            this.lbl_NumColumnas.Size = new System.Drawing.Size(195, 18);
-            this.lbl_NumColumnas.TabIndex = 15;
-            this.lbl_NumColumnas.Text = "Numero de Columnas";
-            // 
-            // txt_NumColumnas
-            // 
-            this.txt_NumColumnas.Location = new System.Drawing.Point(268, 193);
-            this.txt_NumColumnas.Name = "txt_NumColumnas";
-            this.txt_NumColumnas.Size = new System.Drawing.Size(100, 27);
-            this.txt_NumColumnas.TabIndex = 3;
-            // 
-            // btn_Calcular
-            // 
-            this.btn_Calcular.Location = new System.Drawing.Point(254, 256);
-            this.btn_Calcular.Name = "btn_Calcular";
-            this.btn_Calcular.Size = new System.Drawing.Size(114, 31);
-            this.btn_Calcular.TabIndex = 4;
-            this.btn_Calcular.Text = "GRAFICAR";
-            this.btn_Calcular.UseVisualStyleBackColor = true;
-            this.btn_Calcular.Click += new System.EventHandler(this.btn_Calcular_Click);
-            // 
-            // btn_limpiar
-            // 
-            this.btn_limpiar.Location = new System.Drawing.Point(254, 323);
-            this.btn_limpiar.Name = "btn_limpiar";
-            this.btn_limpiar.Size = new System.Drawing.Size(114, 31);
-            this.btn_limpiar.TabIndex = 5;
-            this.btn_limpiar.Text = "LIMPIAR";
-            this.btn_limpiar.UseVisualStyleBackColor = true;
-            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
+            this.btn_Limpiar.Location = new System.Drawing.Point(702, 322);
+            this.btn_Limpiar.Name = "btn_Limpiar";
+            this.btn_Limpiar.Size = new System.Drawing.Size(114, 31);
+            this.btn_Limpiar.TabIndex = 6;
+            this.btn_Limpiar.Text = "LIMPIAR";
+            this.btn_Limpiar.UseVisualStyleBackColor = true;
+            this.btn_Limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // Grilla_Mat
             // 
             this.Grilla_Mat.AutoSize = true;
-            this.Grilla_Mat.Location = new System.Drawing.Point(435, 62);
+            this.Grilla_Mat.Location = new System.Drawing.Point(54, 89);
             this.Grilla_Mat.Name = "Grilla_Mat";
-            this.Grilla_Mat.Size = new System.Drawing.Size(419, 292);
+            this.Grilla_Mat.Size = new System.Drawing.Size(566, 376);
             this.Grilla_Mat.TabIndex = 18;
             this.Grilla_Mat.TabStop = false;
             this.Grilla_Mat.Text = "Matriz";
+            // 
+            // btn_Calcular
+            // 
+            this.btn_Calcular.Location = new System.Drawing.Point(702, 234);
+            this.btn_Calcular.Name = "btn_Calcular";
+            this.btn_Calcular.Size = new System.Drawing.Size(114, 31);
+            this.btn_Calcular.TabIndex = 5;
+            this.btn_Calcular.Text = "CALCULAR";
+            this.btn_Calcular.UseVisualStyleBackColor = true;
             // 
             // Frm_ParametrosGaussJordan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 440);
-            this.Controls.Add(this.Grilla_Mat);
-            this.Controls.Add(this.btn_limpiar);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(900, 530);
             this.Controls.Add(this.btn_Calcular);
-            this.Controls.Add(this.txt_NumColumnas);
-            this.Controls.Add(this.lbl_NumColumnas);
-            this.Controls.Add(this.txt_NumFilas);
-            this.Controls.Add(this.lbl_NumFilas);
+            this.Controls.Add(this.Grilla_Mat);
+            this.Controls.Add(this.btn_Limpiar);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.btn_Graficar);
             this.Controls.Add(this.txt_NumeroIncognitas);
             this.Controls.Add(this.lbl_NumIncognitas);
             this.Controls.Add(this.panel3);
@@ -209,12 +181,9 @@
         public System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lbl_NumIncognitas;
         private System.Windows.Forms.TextBox txt_NumeroIncognitas;
-        private System.Windows.Forms.Label lbl_NumFilas;
-        private System.Windows.Forms.TextBox txt_NumFilas;
-        private System.Windows.Forms.Label lbl_NumColumnas;
-        private System.Windows.Forms.TextBox txt_NumColumnas;
-        private System.Windows.Forms.Button btn_Calcular;
-        private System.Windows.Forms.Button btn_limpiar;
+        private System.Windows.Forms.Button btn_Graficar;
+        private System.Windows.Forms.Button btn_Limpiar;
         private System.Windows.Forms.GroupBox Grilla_Mat;
+        private System.Windows.Forms.Button btn_Calcular;
     }
 }

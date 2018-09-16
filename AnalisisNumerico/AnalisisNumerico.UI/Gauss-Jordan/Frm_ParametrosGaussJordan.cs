@@ -17,38 +17,45 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
             InitializeComponent();
         }
         private TextBox[,] Matriz;
-        int fila;
-        int columna;
 
-        private void btn_Calcular_Click(object sender, EventArgs e)
+
+        private void Graficar()
         {
+            int incognitas;
+
             Grilla_Mat.Controls.Clear();
 
-            if (!int.TryParse(txt_NumFilas.Text, out fila))
+            if (!int.TryParse(txt_NumeroIncognitas.Text, out incognitas))
             {
-                MessageBox.Show("La fila es nula.", "Error");
-                return;
-            }
-            if (!int.TryParse(txt_NumColumnas.Text, out columna))
-            {
-                MessageBox.Show("La columna es nula.", "Error");
+                MessageBox.Show("El numero de incognitas es nula.", "Error");
                 return;
             }
 
-            Matriz = new TextBox[fila, columna];
-            int TamañoText = Grilla_Mat.Width / columna;
+            incognitas = incognitas + 1;
+            Matriz = new TextBox[incognitas, incognitas];
+            int TamañoText = Grilla_Mat.Width / incognitas;
+
             for (int x = 0; x < Matriz.GetLength(0); x++)
             {
+
                 for (int y = 0; y < Matriz.GetLength(1); y++)
                 {
+
                     Matriz[x, y] = new TextBox();
                     Matriz[x, y].Text = string.Empty;
                     Matriz[x, y].Top = (x * Matriz[x, y].Height) + 20;
                     Matriz[x, y].Left = y * TamañoText;
                     Matriz[x, y].Width = TamañoText + 6;
                     Grilla_Mat.Controls.Add(Matriz[x, y]);
+
                 }
+
             }
+        }
+
+        private void btn_Graficar_Click(object sender, EventArgs e)
+        {
+            Graficar();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -59,9 +66,15 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
         private void btn_limpiar_Click(object sender, EventArgs e)
         {
             Grilla_Mat.Controls.Clear();
-            txt_NumColumnas.Text = string.Empty;
-            txt_NumFilas.Text = string.Empty;
             txt_NumeroIncognitas.Text = string.Empty;
+        }
+
+        private void txt_NumeroIncognitas_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Graficar();
+            }
         }
     }
 }

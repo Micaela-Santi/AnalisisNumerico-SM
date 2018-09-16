@@ -33,17 +33,6 @@ namespace AnalisisNumerico.Logica
             }
             
         }
-
-        public ResultadoEcuaciones GaussJordan(ParmetroGaussJordan parametro)
-        {
-            ResultadoEcuaciones resultado = new ResultadoEcuaciones();
-            
-            for (int i = 0; i < parametro.NumeroColumnas; i++)
-            {
-                
-
-            }
-
-        }
+       
     }
 }
