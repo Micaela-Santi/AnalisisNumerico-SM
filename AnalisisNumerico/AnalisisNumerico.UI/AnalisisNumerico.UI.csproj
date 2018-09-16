@@ -69,16 +69,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Frm_MetodosSimple.cs">
+    <Compile Include="Gauss-Jordan\Frm_ParametrosGaussJordan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_MetodosSimple.Designer.cs">
+    <Compile Include="Gauss-Jordan\Frm_ParametrosGaussJordan.Designer.cs">
+      <DependentUpon>Frm_ParametrosGaussJordan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raices\Frm_MetodosSimple.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raices\Frm_MetodosSimple.Designer.cs">
       <DependentUpon>Frm_MetodosSimple.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_MetodosCompuesto.cs">
+    <Compile Include="Raices\Frm_MetodosCompuesto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_MetodosCompuesto.Designer.cs">
+    <Compile Include="Raices\Frm_MetodosCompuesto.Designer.cs">
       <DependentUpon>Frm_MetodosCompuesto.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Inicio.cs">
@@ -89,10 +95,19 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Frm_MetodosSimple.resx">
+    <Compile Include="Teoria\Frm_Unidad1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teoria\Frm_Unidad1.Designer.cs">
+      <DependentUpon>Frm_Unidad1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Gauss-Jordan\Frm_ParametrosGaussJordan.resx">
+      <DependentUpon>Frm_ParametrosGaussJordan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raices\Frm_MetodosSimple.resx">
       <DependentUpon>Frm_MetodosSimple.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_MetodosCompuesto.resx">
+    <EmbeddedResource Include="Raices\Frm_MetodosCompuesto.resx">
       <DependentUpon>Frm_MetodosCompuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Inicio.resx">
@@ -107,6 +122,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Teoria\Frm_Unidad1.resx">
+      <DependentUpon>Frm_Unidad1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="docs\member-search-index.zip" />
     <None Include="docs\package-search-index.zip" />
     <None Include="docs\type-search-index.zip" />

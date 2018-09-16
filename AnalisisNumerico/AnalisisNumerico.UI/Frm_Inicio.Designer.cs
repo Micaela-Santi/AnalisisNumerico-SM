@@ -56,6 +56,11 @@
             this.simpleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.multipleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.simpson38ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tEORIAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unidad1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.unidad2ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.unidad3ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.unidad4ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -115,11 +120,12 @@
             this.uNIDAD1ToolStripMenuItem,
             this.uNIDAD2ToolStripMenuItem,
             this.uNIDAD3ToolStripMenuItem,
-            this.uNIDAD4ToolStripMenuItem});
+            this.uNIDAD4ToolStripMenuItem,
+            this.tEORIAToolStripMenuItem});
             this.Menu.Location = new System.Drawing.Point(14, -1);
             this.Menu.Name = "Menu";
             this.Menu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.Menu.Size = new System.Drawing.Size(570, 26);
+            this.Menu.Size = new System.Drawing.Size(660, 26);
             this.Menu.TabIndex = 3;
             this.Menu.Text = "Menu";
             // 
@@ -202,6 +208,7 @@
             this.gaussJordanToolStripMenuItem.Name = "gaussJordanToolStripMenuItem";
             this.gaussJordanToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.gaussJordanToolStripMenuItem.Text = "Gauss Jordan";
+            this.gaussJordanToolStripMenuItem.Click += new System.EventHandler(this.gaussJordanToolStripMenuItem_Click);
             // 
             // vonMissesToolStripMenuItem
             // 
@@ -307,6 +314,43 @@
             this.simpson38ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.simpson38ToolStripMenuItem.Text = "Simpson 3/8";
             // 
+            // tEORIAToolStripMenuItem
+            // 
+            this.tEORIAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.unidad1ToolStripMenuItem1,
+            this.unidad2ToolStripMenuItem1,
+            this.unidad3ToolStripMenuItem1,
+            this.unidad4ToolStripMenuItem1});
+            this.tEORIAToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tEORIAToolStripMenuItem.Name = "tEORIAToolStripMenuItem";
+            this.tEORIAToolStripMenuItem.Size = new System.Drawing.Size(90, 22);
+            this.tEORIAToolStripMenuItem.Text = "TEORIA";
+            // 
+            // unidad1ToolStripMenuItem1
+            // 
+            this.unidad1ToolStripMenuItem1.Name = "unidad1ToolStripMenuItem1";
+            this.unidad1ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.unidad1ToolStripMenuItem1.Text = "Unidad 1";
+            this.unidad1ToolStripMenuItem1.Click += new System.EventHandler(this.unidad1ToolStripMenuItem1_Click);
+            // 
+            // unidad2ToolStripMenuItem1
+            // 
+            this.unidad2ToolStripMenuItem1.Name = "unidad2ToolStripMenuItem1";
+            this.unidad2ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.unidad2ToolStripMenuItem1.Text = "Unidad 2";
+            // 
+            // unidad3ToolStripMenuItem1
+            // 
+            this.unidad3ToolStripMenuItem1.Name = "unidad3ToolStripMenuItem1";
+            this.unidad3ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.unidad3ToolStripMenuItem1.Text = "Unidad 3";
+            // 
+            // unidad4ToolStripMenuItem1
+            // 
+            this.unidad4ToolStripMenuItem1.Name = "unidad4ToolStripMenuItem1";
+            this.unidad4ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.unidad4ToolStripMenuItem1.Text = "Unidad 4";
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
@@ -376,6 +420,11 @@
         private System.Windows.Forms.ToolStripMenuItem simpson38ToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolStripMenuItem tEORIAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unidad1ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem unidad2ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem unidad3ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem unidad4ToolStripMenuItem1;
     }
 }
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AnalisisNumerico.UI.Gauss_Jordan;
+using AnalisisNumerico.UI.Teoria;
+using System;
 using System.Windows.Forms;
 
 namespace AnalisisNumerico.UI
@@ -8,7 +10,7 @@ namespace AnalisisNumerico.UI
         public Frm_Inicio()
         {
             InitializeComponent();
-        }      
+        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -42,6 +44,13 @@ namespace AnalisisNumerico.UI
             form.Show(metodo);
         }
 
+
+        private void gaussJordanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_ParametrosGaussJordan form = new Frm_ParametrosGaussJordan();
+            form.Show();
+        }
+
         int posX = 0;
         int posY = 0;
 
@@ -57,6 +66,12 @@ namespace AnalisisNumerico.UI
                 Left = Left + (e.X - posX);
                 Top = Top + (e.Y - posY);
             }
+        }
+
+        private void unidad1ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Frm_Unidad1 Unidad1 = new Frm_Unidad1();
+            Unidad1.Show();
         }
     }
 }
