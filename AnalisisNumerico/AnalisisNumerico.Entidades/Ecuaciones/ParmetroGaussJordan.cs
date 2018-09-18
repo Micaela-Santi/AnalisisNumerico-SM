@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnalisisNumerico.Entidades
+namespace AnalisisNumerico.Entidades.Ecuaciones
 {
     public class ParmetroGaussJordan
     {
         public int NumeroIncognitas { get; set; }
-        public int NumeroFilas { get; set; }
-        public int NumeroColumnas { get; set; }
         public decimal[,] Matriz { get; set; }
     }
 }

@@ -31,9 +31,10 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
                 return;
             }
 
-            incognitas = incognitas + 1;
-            Matriz = new TextBox[incognitas, incognitas];
-            int TamañoText = Grilla_Mat.Width / incognitas;
+            int Columna = incognitas + 1;
+            int Fila = incognitas;
+            Matriz = new TextBox[Fila, Columna];
+            int TamañoText = Grilla_Mat.Width / Columna;
 
             for (int x = 0; x < Matriz.GetLength(0); x++)
             {
@@ -76,6 +77,7 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
                 Graficar();
             }
         }
+
     }
 }
 

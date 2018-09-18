@@ -1,38 +1,92 @@
 ﻿using AnalisisNumerico.Entidades;
+using AnalisisNumerico.Entidades.Ecuaciones;
 using System;
 
 namespace AnalisisNumerico.Logica
 {
     public class MetodosEcuaciones : IEcuaciones
     {
-
-        private void AcomodaFila(double[,] matriz, int columnaActual,int filaActual, int cantidadfilas, int cantidadColumnas)
+        private void AcomodarFilas(decimal[,] matriz, int incognitaActual, int filas)
         {
-            double Mayor = -1;
-            int Indice = -1;
-           
-            for (int s = 0; s < cantidadfilas; s++)
+            decimal Mayor = -1;
+            int FilaMayor = 0;
+            for (int i = 0; i < filas; i++)
             {
-                if (Math.Abs(matriz[s, columnaActual]) > Mayor)
+                if (Mayor < Math.Abs(matriz[i, incognitaActual]))
                 {
-                    Mayor = matriz[s, columnaActual];
-                    Indice = s;
+                    Mayor = Math.Abs(matriz[i, incognitaActual]);
+                    FilaMayor = i;
                 }
             }
 
             if (Mayor == -1)
             {
-                throw new Exception("Toda la columna es de 0");
+                throw new Exception("El sistema NO es normal");
             }
 
-            for (int c = 0; c < cantidadColumnas; c++)
+            for (int c = 0; c < filas + 1 ; c++)
             {
-                var aux = matriz[filaActual, c];
-                matriz[filaActual, c] = matriz[Indice, c];
-                matriz[Indice, c] = aux;
+
+                var Aux = matriz[incognitaActual, c];
+                matriz[incognitaActual, c] = matriz[FilaMayor, c];
+                matriz[FilaMayor, c] = Aux;
+
+            }
+
+        }
+
+
+        private void Normalizacion(decimal[,] matriz, int fila, int cantColumnas)
+        {
+            for (int i = 0; i < cantColumnas; i++)
+            {
+                matriz[fila, i] = matriz[fila, i] / matriz[fila, fila];
+            }
+
+        }
+
+        private void HacerCero (decimal [,] matriz, int filaActual, int cantFilas)
+        {
+            for (int i = 0; i < cantFilas; i++)
+            {
+                if (i != filaActual)
+                {
+                    for (int x = 0; x < cantFilas; x++)
+                    {
+                        matriz[i, x] = matriz[i, x] - (matriz[i, x] * matriz[filaActual, x]);
+                    }
+                }
+            }
+
+
+        }
+
+        public ResultadoEcuaciones GaussJordan(ParmetroGaussJordan parametro)
+        {
+            ResultadoEcuaciones resultado = new ResultadoEcuaciones();
+
+            for (int i = 0; i < parametro.NumeroIncognitas; i++)
+            {
+
+                AcomodarFilas(parametro.Matriz, i, parametro.NumeroIncognitas);
+
+                Normalizacion(parametro.Matriz, i, parametro.NumeroIncognitas);
+
+                HacerCero(parametro.Matriz, i, parametro.NumeroIncognitas);
+
+            }
+
+            for (int i = 0; i < parametro.NumeroIncognitas; i++)
+            {
+                Incognita incognita = new Incognita();
+                incognita.Valor = parametro.Matriz[i, parametro.NumeroIncognitas + 1];
+                resultado.Solucion.Add(incognita);
             }
             
+
+
+            return resultado;
         }
-       
+
     }
 }
