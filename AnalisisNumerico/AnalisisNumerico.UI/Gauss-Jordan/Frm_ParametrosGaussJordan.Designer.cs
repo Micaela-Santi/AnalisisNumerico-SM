@@ -143,6 +143,7 @@
             this.btn_Calcular.TabIndex = 5;
             this.btn_Calcular.Text = "CALCULAR";
             this.btn_Calcular.UseVisualStyleBackColor = true;
+            this.btn_Calcular.Click += new System.EventHandler(this.btn_Calcular_Click);
             // 
             // Frm_ParametrosGaussJordan
             // 

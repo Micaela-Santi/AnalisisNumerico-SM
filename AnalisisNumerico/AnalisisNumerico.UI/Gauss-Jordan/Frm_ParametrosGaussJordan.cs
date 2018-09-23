@@ -7,20 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AnalisisNumerico.Entidades;
+using AnalisisNumerico.Entidades.Ecuaciones;
 
 namespace AnalisisNumerico.UI.Gauss_Jordan
 {
     public partial class Frm_ParametrosGaussJordan : Form
     {
-        public Frm_ParametrosGaussJordan()
+        private IEcuaciones MetodoEcuaciones;
+
+        public Frm_ParametrosGaussJordan(IEcuaciones ecuaciones)
         {
+            MetodoEcuaciones = ecuaciones;
             InitializeComponent();
         }
-        private TextBox[,] Matriz;
 
 
         private void Graficar()
         {
+            TextBox[,] Matriz;
             int incognitas;
 
             Grilla_Mat.Controls.Clear();
@@ -50,7 +55,6 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
                     Grilla_Mat.Controls.Add(Matriz[x, y]);
 
                 }
-
             }
         }
 
@@ -78,6 +82,24 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
             }
         }
 
+        private void btn_Calcular_Click(object sender, EventArgs e)
+        {
+            var incognitas = Convert.ToInt16(txt_NumeroIncognitas.Text);
+            ParmetroGaussJordan parametro = new ParmetroGaussJordan()
+            {
+                NumeroIncognitas = incognitas,
+            };
+
+            //TODO Obtener valores de la grilla
+            
+            for (int i = 0; i <((incognitas - 1)) ; i++)
+            {
+                for (int c = 0; c < incognitas; c++)
+                {
+                    parametro.Matriz[i, c] = Convert.ToDecimal(Grilla_Mat);
+                }
+            }
+        }
     }
 }
 

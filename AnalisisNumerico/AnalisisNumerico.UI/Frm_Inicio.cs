@@ -47,7 +47,7 @@ namespace AnalisisNumerico.UI
 
         private void gaussJordanToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_ParametrosGaussJordan form = new Frm_ParametrosGaussJordan();
+            var form = Program.container.GetInstance<Frm_ParametrosGaussJordan>();
             form.Show();
         }
 

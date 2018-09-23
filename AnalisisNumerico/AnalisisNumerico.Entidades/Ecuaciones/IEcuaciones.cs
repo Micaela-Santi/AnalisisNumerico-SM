@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnalisisNumerico.Entidades.Ecuaciones;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace AnalisisNumerico.Entidades
 {
     public interface IEcuaciones
     {
-
+        ResultadoEcuaciones GaussJordan(ParmetroGaussJordan parametro);
     }
 }
