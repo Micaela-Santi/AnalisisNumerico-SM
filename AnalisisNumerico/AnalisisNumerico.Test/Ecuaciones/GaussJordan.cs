@@ -79,6 +79,8 @@ namespace AnalisisNumerico.Test.Ecuaciones
                 NumeroIncognitas = 2
             });
 
+            var resul1 = resultado.Solucion[0];
+            var resul2 = resultado.Solucion[1];
             var algo = resultado;
         }
     }

@@ -10,5 +10,10 @@ namespace AnalisisNumerico.Entidades
     public class ResultadoEcuaciones
     {
         public List<Incognita> Solucion { get; set;}
+
+        public ResultadoEcuaciones()
+        {
+            this.Solucion = new List<Incognita>();
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace AnalisisNumerico.Logica
         {
             decimal Mayor = -1;
             int FilaMayor = 0;
-            for (int i = 0; i <= filas; i++)
+            for (int i = incognitaActual; i <= filas; i++)
             {
                 if (Mayor < Math.Abs(matriz[i, incognitaActual]))
                 {
@@ -24,7 +24,7 @@ namespace AnalisisNumerico.Logica
                 throw new Exception("El sistema NO es normal");
             }
 
-            for (int c = 0; c < columnas + 1; c++)
+            for (int c = 0; c <= columnas; c++)
             {
 
                 var Aux = matriz[incognitaActual, c];
@@ -37,22 +37,22 @@ namespace AnalisisNumerico.Logica
 
         private void Normalizacion(decimal[,] matriz, int fila, int cantColumnas)
         {
-            for (int i = 0; i < cantColumnas; i++)
+            for (int i = 0; i <= cantColumnas; i++)
             {
                 matriz[fila, i] = matriz[fila, i] / matriz[fila, fila];
             }
-
         }
 
         private void HacerCero(decimal[,] matriz, int filaActual, int cantFilas, int cantColumnas)
         {
             for (int i = 0; i <= cantFilas; i++)
             {
-                if (i != filaActual)
+                var multiplicar = matriz[i, filaActual];
+                if (i != filaActual && matriz[i,filaActual] != 0)
                 {
-                    for (int x = 0; x < (cantColumnas); x++)
+                    for (int x = 0; x <= cantColumnas; x++)
                     {
-                        matriz[i, x] = matriz[i, x] - (matriz[i, x] * matriz[filaActual, x]);
+                        matriz[i, x] = ( multiplicar * matriz[filaActual, x] * (-1)) + (matriz[i, x] );
                     }
                 }
             }
@@ -64,26 +64,25 @@ namespace AnalisisNumerico.Logica
         {
             ResultadoEcuaciones resultado = new ResultadoEcuaciones();
             int fila = parametro.NumeroIncognitas - 1;
-            int columna = parametro.NumeroIncognitas;
+            int columna = parametro.NumeroIncognitas; 
 
-            for (int i = 0; i < parametro.NumeroIncognitas; i++)
+            for (int i = 0; i <= (columna-1); i++)
             {
 
                 AcomodarFilas(parametro.Matriz, i, fila, columna);
 
                 Normalizacion(parametro.Matriz, i, columna);
 
-                HacerCero(parametro.Matriz, i, fila,columna);
+                HacerCero(parametro.Matriz, i, fila, columna);
 
             }
 
             for (int i = 0; i < parametro.NumeroIncognitas; i++)
             {
                 Incognita incognita = new Incognita();
-                incognita.Valor = parametro.Matriz[i, parametro.NumeroIncognitas + 1];
+                incognita.Valor = parametro.Matriz[i, columna];
                 resultado.Solucion.Add(incognita);
             }
-
 
 
             return resultado;
