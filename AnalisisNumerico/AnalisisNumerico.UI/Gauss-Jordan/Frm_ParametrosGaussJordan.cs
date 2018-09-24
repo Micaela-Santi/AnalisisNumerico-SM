@@ -21,11 +21,11 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
             MetodoEcuaciones = ecuaciones;
             InitializeComponent();
         }
-
+        private TextBox[,] Matriz;
 
         private void Graficar()
         {
-            TextBox[,] Matriz;
+
             int incognitas;
 
             Grilla_Mat.Controls.Clear();
@@ -43,7 +43,6 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
 
             for (int x = 0; x < Matriz.GetLength(0); x++)
             {
-
                 for (int y = 0; y < Matriz.GetLength(1); y++)
                 {
 
@@ -85,19 +84,36 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
         private void btn_Calcular_Click(object sender, EventArgs e)
         {
             var incognitas = Convert.ToInt16(txt_NumeroIncognitas.Text);
-            ParmetroGaussJordan parametro = new ParmetroGaussJordan()
+            var filas = incognitas;
+            var columnas = incognitas + 1;
+            ParmetroGaussJordan parametro = new ParmetroGaussJordan(filas, columnas)
             {
                 NumeroIncognitas = incognitas,
             };
 
-            //TODO Obtener valores de la grilla
-            
-            for (int i = 0; i <((incognitas - 1)) ; i++)
+            for (int i = 0; i < filas; i++)
             {
-                for (int c = 0; c < incognitas; c++)
+                for (int c = 0; c < columnas; c++)
                 {
-                    parametro.Matriz[i, c] = Convert.ToDecimal(Grilla_Mat);
+                    parametro.Matriz[i, c] = Convert.ToDecimal(Matriz[i, c].Text);
+                    Matriz[i, c].Text = string.Empty;
                 }
+            }
+
+            var resultado = MetodoEcuaciones.GaussJordan(parametro);
+
+            MostrarResultado(resultado);
+        }
+
+        private void MostrarResultado(ResultadoEcuaciones resultado)
+        {
+            int contador = 0;
+            int Columnas = resultado.Solucion.Count;
+            foreach (var item in resultado.Solucion)
+            {
+                Matriz[contador, contador].Text = "X" + (contador + 1);
+                Matriz[contador, Columnas].Text = item.Valor.ToString("0.0000");
+                contador += 1;
             }
         }
     }

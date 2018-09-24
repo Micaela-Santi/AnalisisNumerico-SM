@@ -10,5 +10,10 @@ namespace AnalisisNumerico.Entidades.Ecuaciones
     {
         public int NumeroIncognitas { get; set; }
         public decimal[,] Matriz { get; set; }
+
+        public ParmetroGaussJordan(int filas, int columnas)
+        {
+            Matriz = new decimal[filas, columnas];
+        }
     }
 }

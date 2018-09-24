@@ -62,21 +62,27 @@ namespace AnalisisNumerico.Test.Ecuaciones
         [TestMethod]
         public void TestMethod1()
         {
-            decimal[,] Matriz = new decimal[2,3];
-           
-            for (int i = 0; i < 2; i++)
-            {
-                for (int x = 0; x < 3; x++)
-                {
-                    Matriz[i, x] = x + i;
-                }
-            }
+            decimal[,] Matriz = new decimal[3, 4];
+
+            Matriz[0, 0] = 1;
+            Matriz[0, 1] = -3;
+            Matriz[0, 2] = 2;
+            Matriz[0, 3] = -3;
+            Matriz[1, 0] = 5;
+            Matriz[1, 1] = 6;
+            Matriz[1, 2] = -1;
+            Matriz[1, 3] = 13;
+            Matriz[2, 0] = 4;
+            Matriz[2, 1] = -1;
+            Matriz[2, 2] = 3;
+            Matriz[2, 3] = 8;
+
 
             MetodosEcuaciones metodosEcuaciones = new MetodosEcuaciones();
-            var resultado = metodosEcuaciones.GaussJordan(new Entidades.Ecuaciones.ParmetroGaussJordan()
+            var resultado = metodosEcuaciones.GaussJordan(new Entidades.Ecuaciones.ParmetroGaussJordan(3,4)
             {
                 Matriz = Matriz,
-                NumeroIncognitas = 2
+                NumeroIncognitas = 3
             });
 
             var resul1 = resultado.Solucion[0];

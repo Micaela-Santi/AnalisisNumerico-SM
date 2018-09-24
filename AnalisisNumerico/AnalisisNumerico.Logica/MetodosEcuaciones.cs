@@ -37,9 +37,10 @@ namespace AnalisisNumerico.Logica
 
         private void Normalizacion(decimal[,] matriz, int fila, int cantColumnas)
         {
+            decimal divisor = matriz[fila, fila];
             for (int i = 0; i <= cantColumnas; i++)
             {
-                matriz[fila, i] = matriz[fila, i] / matriz[fila, fila];
+                matriz[fila, i] = (matriz[fila, i] / divisor);
             }
         }
 
