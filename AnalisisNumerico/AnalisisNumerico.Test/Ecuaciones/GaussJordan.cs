@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AnalisisNumerico.Logica;
+using AnalisisNumerico.Entidades.Ecuaciones;
 
 namespace AnalisisNumerico.Test.Ecuaciones
 {
@@ -79,12 +80,14 @@ namespace AnalisisNumerico.Test.Ecuaciones
 
 
             MetodosEcuaciones metodosEcuaciones = new MetodosEcuaciones();
-            var resultado = metodosEcuaciones.GaussJordan(new Entidades.Ecuaciones.ParametroGaussJordan(3,4)
+            var resultado = metodosEcuaciones.GaussSeided(new ParametroGaussSeided(Matriz.GetLength(0),Matriz.GetLength(1))
             {
+                Iteraciones = 100,
+                Tolerancia = 0.0001,
                 Matriz = Matriz,
                 NumeroIncognitas = 3
             });
-
+            
             var resul1 = resultado.Solucion[0];
             var resul2 = resultado.Solucion[1];
             var algo = resultado;

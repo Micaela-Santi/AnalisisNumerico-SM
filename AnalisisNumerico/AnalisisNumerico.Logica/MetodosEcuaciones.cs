@@ -1,6 +1,7 @@
 ﻿using AnalisisNumerico.Entidades;
 using AnalisisNumerico.Entidades.Ecuaciones;
 using System;
+using System.Collections.Generic;
 
 namespace AnalisisNumerico.Logica
 {
@@ -92,43 +93,101 @@ namespace AnalisisNumerico.Logica
         public ResultadoEcuacionesGaussSeided GaussSeided(ParametroGaussSeided parametro)
         {
             decimal[] vector = new decimal[parametro.NumeroIncognitas];
-            //TODO ver en que empieza
-            for (int i = 0; i < parametro.NumeroIncognitas; i++)
-            {
-                vector[i] = 0;
-            }
 
+            decimal[] Anterior = new decimal[parametro.NumeroIncognitas];
             double errorRelativo;
             int contador = 0;
             var despejes = DespejarIncognitas(parametro.Matriz);
             do
             {
+                for (int i = 0; i < vector.Length; i++)
+                {
+                    Anterior[i] = vector[i];
+                }
+
                 EvaluarSoluciones(vector, despejes);
 
-            } while (errorRelativo < parametro.Tolerancia && contador < parametro.Iteraciones);
+                errorRelativo = CalculoErrorRelativo(vector, Anterior);
 
+                contador += 1;
+
+            } while (errorRelativo > parametro.Tolerancia && contador < parametro.Iteraciones);
+
+            List<Incognita> Solucion = new List<Incognita>();
+
+            for (int i = 0; i < vector.Length; i++)
+            {
+                Solucion.Add(new Incognita() { Valor = vector[i] });
+            }
+
+            return new ResultadoEcuacionesGaussSeided()
+            {
+                ErrorRelativo = errorRelativo,
+                Iteraciones = contador,
+                Solucion = Solucion
+            };
+        }
+
+        private double CalculoErrorRelativo(decimal[] vector, decimal[] anterior)
+        {
+            double errorRelativo = -1;
+            double mayor = -1;
+            for (int i = 0; i < vector.Length; i++)
+            {
+                if (vector[i] != 0)
+                {
+                    errorRelativo = Convert.ToDouble((vector[i] - anterior[i]) / vector[i]);
+                }
+
+                if (mayor < errorRelativo)
+                {
+                    mayor = errorRelativo;
+                }
+            }
+
+            return mayor;
         }
 
         private void EvaluarSoluciones(decimal[] vector, decimal[,] despejes)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < vector.Length; i++)
+            {
+                for (int c = 0; c < vector.Length; c++)
+                {
+                    vector[i] += despejes[i, c] * vector[c];
+                }
+                vector[i] += despejes[i, (despejes.GetLength(1) - 1)];
+            }
         }
 
         private decimal[,] DespejarIncognitas(decimal[,] matriz)
-        { 
+        {
             decimal divisor;
             decimal[,] despeje = new decimal[matriz.GetLength(0), matriz.GetLength(1)];
+
+            for (int i = 0; i < matriz.GetLength(0); i++)
+            {
+                for (int c = 0; c < matriz.GetLength(1); c++)
+                {
+                    despeje[i, c] = matriz[i, c];
+                }
+            }
+
             for (int i = 0; i < matriz.GetLength(0); i++)
             {
                 divisor = despeje[i, i];
-
-                for (int c = 0; c < matriz.GetLength(1); c++)
+                //TODO AGREGAR EXCEPTION 
+                if (divisor != 0)
                 {
-                    if (i != c)
+                    for (int c = 0; c < matriz.GetLength(1); c++)
                     {
-                        despeje[i, c] = ((despeje[i, c] * (-1)) / divisor);
+                        if (i != c)
+                        {
+                            despeje[i, c] = ((despeje[i, c] * (-1)) / divisor);
+                        }
                     }
                 }
+
             }
 
             return despeje;
