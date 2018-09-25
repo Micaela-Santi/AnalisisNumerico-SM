@@ -152,11 +152,19 @@ namespace AnalisisNumerico.Logica
         {
             for (int i = 0; i < vector.Length; i++)
             {
+                decimal valor = 0;
                 for (int c = 0; c < vector.Length; c++)
                 {
-                    vector[i] += despejes[i, c] * vector[c];
+
+                    if (i != c)
+                    {
+                        valor += despejes[i, c] * vector[c];
+                    }
+
                 }
-                vector[i] += despejes[i, (despejes.GetLength(1) - 1)];
+                valor += despejes[i, (despejes.GetLength(1) - 1)];
+
+                vector[i] = valor;
             }
         }
 
@@ -176,10 +184,12 @@ namespace AnalisisNumerico.Logica
             for (int i = 0; i < matriz.GetLength(0); i++)
             {
                 divisor = despeje[i, i];
+                despeje[i, i] = despeje[i, i] / divisor;
+                despeje[i,despeje.GetLength(1) - 1]= (despeje[i, despeje.GetLength(1) - 1] / divisor);
                 //TODO AGREGAR EXCEPTION 
                 if (divisor != 0)
                 {
-                    for (int c = 0; c < matriz.GetLength(1); c++)
+                    for (int c = 0; c < (matriz.GetLength(1)) - 1; c++)
                     {
                         if (i != c)
                         {
