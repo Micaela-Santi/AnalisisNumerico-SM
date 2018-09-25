@@ -79,7 +79,7 @@ namespace AnalisisNumerico.Test.Ecuaciones
 
 
             MetodosEcuaciones metodosEcuaciones = new MetodosEcuaciones();
-            var resultado = metodosEcuaciones.GaussJordan(new Entidades.Ecuaciones.ParmetroGaussJordan(3,4)
+            var resultado = metodosEcuaciones.GaussJordan(new Entidades.Ecuaciones.ParametroGaussJordan(3,4)
             {
                 Matriz = Matriz,
                 NumeroIncognitas = 3

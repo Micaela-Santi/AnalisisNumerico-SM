@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace AnalisisNumerico.Entidades
 {
-    public class ResultadoEcuaciones
+    public class ResultadoEcuacionesGaussJordan
     {
         public List<Incognita> Solucion { get; set;}
 
-        public ResultadoEcuaciones()
+        public ResultadoEcuacionesGaussJordan()
         {
             this.Solucion = new List<Incognita>();
         }

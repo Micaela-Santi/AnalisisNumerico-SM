@@ -42,16 +42,18 @@
   <ItemGroup>
     <Compile Include="Ecuaciones\IEcuaciones.cs" />
     <Compile Include="Ecuaciones\Incognita.cs" />
+    <Compile Include="Ecuaciones\ParametroGaussSeided.cs" />
+    <Compile Include="Ecuaciones\ResultadoEcuacionesGaussSeided.cs" />
     <Compile Include="Raices\NoRaizException.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Raices\IMetodosRaices.cs" />
     <Compile Include="Raices\ParametroSimple.cs" />
     <Compile Include="Raices\ParametroCompuesto.cs" />
-    <Compile Include="Ecuaciones\ParmetroGaussJordan.cs" />
+    <Compile Include="Ecuaciones\ParametroGaussJordan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Raices\Resultado.cs" />
-    <Compile Include="Ecuaciones\ResultadoEcuaciones.cs" />
+    <Compile Include="Ecuaciones\ResultadoEcuacionesGaussJordan.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

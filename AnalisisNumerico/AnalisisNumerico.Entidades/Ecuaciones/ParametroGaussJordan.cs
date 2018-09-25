@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace AnalisisNumerico.Entidades.Ecuaciones
 {
-    public class ParmetroGaussJordan
+    public class ParametroGaussJordan
     {
         public int NumeroIncognitas { get; set; }
         public decimal[,] Matriz { get; set; }
 
-        public ParmetroGaussJordan(int filas, int columnas)
+        public ParametroGaussJordan(int filas, int columnas)
         {
             Matriz = new decimal[filas, columnas];
         }

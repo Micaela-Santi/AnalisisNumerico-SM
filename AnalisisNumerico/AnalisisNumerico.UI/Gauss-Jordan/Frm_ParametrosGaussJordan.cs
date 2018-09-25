@@ -86,7 +86,7 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
             var incognitas = Convert.ToInt16(txt_NumeroIncognitas.Text);
             var filas = incognitas;
             var columnas = incognitas + 1;
-            ParmetroGaussJordan parametro = new ParmetroGaussJordan(filas, columnas)
+            ParametroGaussJordan parametro = new ParametroGaussJordan(filas, columnas)
             {
                 NumeroIncognitas = incognitas,
             };
@@ -100,12 +100,20 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
                 }
             }
 
-            var resultado = MetodoEcuaciones.GaussJordan(parametro);
+            try
+            {
+                var resultado = MetodoEcuaciones.GaussJordan(parametro);
+                MostrarResultado(resultado);
+            }
+            catch (Exception exception)
+            {
 
-            MostrarResultado(resultado);
+                MessageBox.Show(exception.Message);
+            }
+
         }
 
-        private void MostrarResultado(ResultadoEcuaciones resultado)
+        private void MostrarResultado(ResultadoEcuacionesGaussJordan resultado)
         {
             int contador = 0;
             int Columnas = resultado.Solucion.Count;
