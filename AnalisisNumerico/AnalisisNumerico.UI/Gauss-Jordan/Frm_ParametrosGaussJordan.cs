@@ -29,6 +29,7 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
 
             int incognitas;
 
+            
             Grilla_Mat.Controls.Clear();
 
             if (!int.TryParse(txt_NumeroIncognitas.Text, out incognitas))
@@ -40,7 +41,7 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
             int Columna = incognitas + 1;
             int Fila = incognitas;
             Matriz = new TextBox[Fila, Columna];
-            int TamañoText = Grilla_Mat.Width / Columna;
+            int TamañoText = ((Grilla_Mat.Width / Columna));
 
             for (int x = 0; x < Matriz.GetLength(0); x++)
             {
@@ -50,8 +51,8 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
                     Matriz[x, y] = new TextBox();
                     Matriz[x, y].Text = string.Empty;
                     Matriz[x, y].Top = (x * Matriz[x, y].Height) + 20;
-                    Matriz[x, y].Left = y * TamañoText;
-                    Matriz[x, y].Width = TamañoText + 6;
+                    Matriz[x, y].Left = y * TamañoText ;
+                    Matriz[x, y].Width = TamañoText -1 ;
                     Grilla_Mat.Controls.Add(Matriz[x, y]);
 
                 }
@@ -115,16 +116,7 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
         }
 
         private void MostrarResultado(ResultadoEcuacionesGaussJordan resultado)
-        {/*
-            int contador = 0;
-            int Columnas = resultado.Solucion.Count;
-            foreach (var item in resultado.Solucion)
-            {
-                Matriz[contador, contador].Text = item.Nombre;
-                Matriz[contador, Columnas].Text = item.Valor.ToString("0.0000");
-                contador += 1;
-            }
-            */
+        {
 
             int Columna = resultado.Solucion.Count;
 
@@ -150,13 +142,30 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
 
                     ResultadoMat[x, y].Top = (x * Matriz[x, y].Height) + 20;
                     ResultadoMat[x, y].Left = y * TamañoText;
-                    ResultadoMat[x, y].Width = TamañoText + 6;
-
+                    ResultadoMat[x, y].Width = TamañoText -2 ;
                     Grilla_Res.Controls.Add(ResultadoMat[x, y]);
                 }
 
             }
 
+        }
+
+        int posX = 0;
+        int posY = 0;
+
+        private void Frm_ParametrosGaussJordan_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            if (e.Button != MouseButtons.Left)
+            {
+                posX = e.X;
+                posY = e.Y;
+            }
+            else
+            {
+                Left = Left + (e.X - posX);
+                Top = Top + (e.Y - posY);
+            }
         }
     }
 }

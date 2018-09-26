@@ -53,10 +53,8 @@
             this.btn_Calcular = new System.Windows.Forms.Button();
             this.btn_Limpiar = new System.Windows.Forms.Button();
             this.lbl_NombreMetodo = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -273,21 +271,12 @@
             this.lbl_NombreMetodo.Size = new System.Drawing.Size(0, 18);
             this.lbl_NombreMetodo.TabIndex = 21;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(473, 51);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox2.TabIndex = 22;
-            this.pictureBox2.TabStop = false;
-            // 
             // Frm_MetodosCompuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(700, 360);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lbl_NombreMetodo);
             this.Controls.Add(this.btn_Limpiar);
             this.Controls.Add(this.btn_Calcular);
@@ -316,11 +305,9 @@
             this.Name = "Frm_MetodosCompuesto";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "v";
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MetodosCerrados_MouseMove);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,6 +339,5 @@
         private System.Windows.Forms.Button btn_Calcular;
         private System.Windows.Forms.Button btn_Limpiar;
         private System.Windows.Forms.Label lbl_NombreMetodo;
-        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

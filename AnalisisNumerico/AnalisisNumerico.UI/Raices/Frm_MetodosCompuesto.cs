@@ -166,6 +166,5 @@ namespace AnalisisNumerico.UI
             txt_ValorXd.Text = string.Empty;
             txt_ValorXi.Text = string.Empty;
         }
-
     }
 }

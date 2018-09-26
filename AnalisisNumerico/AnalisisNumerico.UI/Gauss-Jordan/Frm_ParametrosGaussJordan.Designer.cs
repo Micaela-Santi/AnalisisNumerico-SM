@@ -41,6 +41,7 @@
             this.Grilla_Mat = new System.Windows.Forms.GroupBox();
             this.btn_Calcular = new System.Windows.Forms.Button();
             this.Grilla_Res = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -129,12 +130,14 @@
             // Grilla_Mat
             // 
             this.Grilla_Mat.AutoSize = true;
+            this.Grilla_Mat.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grilla_Mat.Location = new System.Drawing.Point(54, 89);
             this.Grilla_Mat.Name = "Grilla_Mat";
             this.Grilla_Mat.Size = new System.Drawing.Size(587, 275);
             this.Grilla_Mat.TabIndex = 18;
             this.Grilla_Mat.TabStop = false;
             this.Grilla_Mat.Text = "Matriz";
+            this.Grilla_Mat.UseCompatibleTextRendering = true;
             // 
             // btn_Calcular
             // 
@@ -149,6 +152,7 @@
             // Grilla_Res
             // 
             this.Grilla_Res.AutoSize = true;
+            this.Grilla_Res.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grilla_Res.Location = new System.Drawing.Point(54, 398);
             this.Grilla_Res.Name = "Grilla_Res";
             this.Grilla_Res.Size = new System.Drawing.Size(587, 100);
@@ -156,11 +160,22 @@
             this.Grilla_Res.TabStop = false;
             this.Grilla_Res.Text = "Resultado";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(662, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 23);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Gauss Jordan";
+            // 
             // Frm_ParametrosGaussJordan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 530);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Grilla_Res);
             this.Controls.Add(this.btn_Calcular);
             this.Controls.Add(this.Grilla_Mat);
@@ -178,6 +193,7 @@
             this.Name = "Frm_ParametrosGaussJordan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ParametrosGaussJordan";
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_ParametrosGaussJordan_MouseMove);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -199,5 +215,6 @@
         private System.Windows.Forms.GroupBox Grilla_Mat;
         private System.Windows.Forms.Button btn_Calcular;
         private System.Windows.Forms.GroupBox Grilla_Res;
+        private System.Windows.Forms.Label label1;
     }
 }

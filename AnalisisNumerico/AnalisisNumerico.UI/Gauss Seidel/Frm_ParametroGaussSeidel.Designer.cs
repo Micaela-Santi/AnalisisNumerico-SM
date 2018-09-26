@@ -45,6 +45,7 @@
             this.lbl_ErrorRelativo = new System.Windows.Forms.Label();
             this.txt_Iteraciones = new System.Windows.Forms.TextBox();
             this.txt_ErrorRelativo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -204,11 +205,22 @@
             this.txt_ErrorRelativo.Size = new System.Drawing.Size(131, 27);
             this.txt_ErrorRelativo.TabIndex = 35;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(789, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(161, 25);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Gauss Seidel";
+            // 
             // Frm_ParametroGaussSeidel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 560);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_ErrorRelativo);
             this.Controls.Add(this.txt_Iteraciones);
             this.Controls.Add(this.lbl_ErrorRelativo);
@@ -228,6 +240,7 @@
             this.Name = "Frm_ParametroGaussSeidel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_ParametroGaussSeidel";
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_ParametroGaussSeidel_MouseMove);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -253,5 +266,6 @@
         private System.Windows.Forms.Label lbl_ErrorRelativo;
         private System.Windows.Forms.TextBox txt_Iteraciones;
         private System.Windows.Forms.TextBox txt_ErrorRelativo;
+        private System.Windows.Forms.Label label1;
     }
 }
