@@ -43,7 +43,6 @@
             this.secanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uNIDAD2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gaussJordanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vonMissesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gaussSeidelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uNIDAD3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regresionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -194,7 +193,6 @@
             // 
             this.uNIDAD2ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gaussJordanToolStripMenuItem,
-            this.vonMissesToolStripMenuItem,
             this.gaussSeidelToolStripMenuItem});
             this.uNIDAD2ToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uNIDAD2ToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
@@ -210,19 +208,13 @@
             this.gaussJordanToolStripMenuItem.Text = "Gauss Jordan";
             this.gaussJordanToolStripMenuItem.Click += new System.EventHandler(this.gaussJordanToolStripMenuItem_Click);
             // 
-            // vonMissesToolStripMenuItem
-            // 
-            this.vonMissesToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vonMissesToolStripMenuItem.Name = "vonMissesToolStripMenuItem";
-            this.vonMissesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.vonMissesToolStripMenuItem.Text = "Von Misses";
-            // 
             // gaussSeidelToolStripMenuItem
             // 
             this.gaussSeidelToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gaussSeidelToolStripMenuItem.Name = "gaussSeidelToolStripMenuItem";
             this.gaussSeidelToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.gaussSeidelToolStripMenuItem.Text = "Gauss - Seidel";
+            this.gaussSeidelToolStripMenuItem.Click += new System.EventHandler(this.gaussSeidelToolStripMenuItem_Click);
             // 
             // uNIDAD3ToolStripMenuItem
             // 
@@ -329,26 +321,26 @@
             // unidad1ToolStripMenuItem1
             // 
             this.unidad1ToolStripMenuItem1.Name = "unidad1ToolStripMenuItem1";
-            this.unidad1ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.unidad1ToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.unidad1ToolStripMenuItem1.Text = "Unidad 1";
             this.unidad1ToolStripMenuItem1.Click += new System.EventHandler(this.unidad1ToolStripMenuItem1_Click);
             // 
             // unidad2ToolStripMenuItem1
             // 
             this.unidad2ToolStripMenuItem1.Name = "unidad2ToolStripMenuItem1";
-            this.unidad2ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.unidad2ToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.unidad2ToolStripMenuItem1.Text = "Unidad 2";
             // 
             // unidad3ToolStripMenuItem1
             // 
             this.unidad3ToolStripMenuItem1.Name = "unidad3ToolStripMenuItem1";
-            this.unidad3ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.unidad3ToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.unidad3ToolStripMenuItem1.Text = "Unidad 3";
             // 
             // unidad4ToolStripMenuItem1
             // 
             this.unidad4ToolStripMenuItem1.Name = "unidad4ToolStripMenuItem1";
-            this.unidad4ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.unidad4ToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.unidad4ToolStripMenuItem1.Text = "Unidad 4";
             // 
             // pictureBox2
@@ -405,7 +397,6 @@
         private System.Windows.Forms.ToolStripMenuItem secanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uNIDAD2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gaussJordanToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vonMissesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gaussSeidelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uNIDAD3ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem regresionToolStripMenuItem;

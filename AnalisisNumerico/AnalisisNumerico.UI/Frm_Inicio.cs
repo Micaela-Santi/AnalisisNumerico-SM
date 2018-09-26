@@ -1,4 +1,5 @@
 ﻿using AnalisisNumerico.UI.Gauss_Jordan;
+using AnalisisNumerico.UI.Gauss_Seidel;
 using AnalisisNumerico.UI.Teoria;
 using System;
 using System.Windows.Forms;
@@ -70,8 +71,16 @@ namespace AnalisisNumerico.UI
 
         private void unidad1ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Frm_Unidad1 Unidad1 = new Frm_Unidad1();
-            Unidad1.Show();
+
+            var form = Program.container.GetInstance<Frm_Unidad1>();
+            form.Show();
+          
+        }
+
+        private void gaussSeidelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Program.container.GetInstance<Frm_ParametroGaussSeidel>();
+            form.Show();
         }
     }
 }
