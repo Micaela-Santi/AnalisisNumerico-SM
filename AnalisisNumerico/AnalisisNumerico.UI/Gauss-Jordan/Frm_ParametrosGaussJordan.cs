@@ -22,6 +22,7 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
             InitializeComponent();
         }
         private TextBox[,] Matriz;
+        private TextBox[,] ResultadoMat;
 
         private void Graficar()
         {
@@ -70,6 +71,7 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
         private void btn_limpiar_Click(object sender, EventArgs e)
         {
             Grilla_Mat.Controls.Clear();
+            Grilla_Res.Controls.Clear();
             txt_NumeroIncognitas.Text = string.Empty;
         }
 
@@ -96,7 +98,6 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
                 for (int c = 0; c < columnas; c++)
                 {
                     parametro.Matriz[i, c] = Convert.ToDecimal(Matriz[i, c].Text);
-                    Matriz[i, c].Text = string.Empty;
                 }
             }
 
@@ -114,7 +115,7 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
         }
 
         private void MostrarResultado(ResultadoEcuacionesGaussJordan resultado)
-        {
+        {/*
             int contador = 0;
             int Columnas = resultado.Solucion.Count;
             foreach (var item in resultado.Solucion)
@@ -123,6 +124,39 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
                 Matriz[contador, Columnas].Text = item.Valor.ToString("0.0000");
                 contador += 1;
             }
+            */
+
+            int Columna = resultado.Solucion.Count;
+
+            ResultadoMat = new TextBox[2, Columna];
+
+            int TamañoText = Grilla_Res.Width / Columna;
+
+
+            for (int y = 0; y < ResultadoMat.GetLength(1); y++)
+            {
+                for (int x = 0; x < ResultadoMat.GetLength(0); x++)
+                {
+                    ResultadoMat[x, y] = new TextBox();
+
+                    if (x == 0)
+                    {
+                        ResultadoMat[x, y].Text = resultado.Solucion[y].Nombre;
+                    }
+                    else
+                    {
+                        ResultadoMat[x, y].Text = resultado.Solucion[y].Valor.ToString("0.0000");
+                    }
+
+                    ResultadoMat[x, y].Top = (x * Matriz[x, y].Height) + 20;
+                    ResultadoMat[x, y].Left = y * TamañoText;
+                    ResultadoMat[x, y].Width = TamañoText + 6;
+
+                    Grilla_Res.Controls.Add(ResultadoMat[x, y]);
+                }
+
+            }
+
         }
     }
 }

@@ -40,6 +40,7 @@
             this.btn_Limpiar = new System.Windows.Forms.Button();
             this.Grilla_Mat = new System.Windows.Forms.GroupBox();
             this.btn_Calcular = new System.Windows.Forms.Button();
+            this.Grilla_Res = new System.Windows.Forms.GroupBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -130,7 +131,7 @@
             this.Grilla_Mat.AutoSize = true;
             this.Grilla_Mat.Location = new System.Drawing.Point(54, 89);
             this.Grilla_Mat.Name = "Grilla_Mat";
-            this.Grilla_Mat.Size = new System.Drawing.Size(566, 376);
+            this.Grilla_Mat.Size = new System.Drawing.Size(587, 275);
             this.Grilla_Mat.TabIndex = 18;
             this.Grilla_Mat.TabStop = false;
             this.Grilla_Mat.Text = "Matriz";
@@ -145,11 +146,22 @@
             this.btn_Calcular.UseVisualStyleBackColor = true;
             this.btn_Calcular.Click += new System.EventHandler(this.btn_Calcular_Click);
             // 
+            // Grilla_Res
+            // 
+            this.Grilla_Res.AutoSize = true;
+            this.Grilla_Res.Location = new System.Drawing.Point(54, 398);
+            this.Grilla_Res.Name = "Grilla_Res";
+            this.Grilla_Res.Size = new System.Drawing.Size(587, 100);
+            this.Grilla_Res.TabIndex = 19;
+            this.Grilla_Res.TabStop = false;
+            this.Grilla_Res.Text = "Resultado";
+            // 
             // Frm_ParametrosGaussJordan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 530);
+            this.Controls.Add(this.Grilla_Res);
             this.Controls.Add(this.btn_Calcular);
             this.Controls.Add(this.Grilla_Mat);
             this.Controls.Add(this.btn_Limpiar);
@@ -186,5 +198,6 @@
         private System.Windows.Forms.Button btn_Limpiar;
         private System.Windows.Forms.GroupBox Grilla_Mat;
         private System.Windows.Forms.Button btn_Calcular;
+        private System.Windows.Forms.GroupBox Grilla_Res;
     }
 }
