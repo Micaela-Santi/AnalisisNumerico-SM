@@ -119,7 +119,7 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
             int Columnas = resultado.Solucion.Count;
             foreach (var item in resultado.Solucion)
             {
-                Matriz[contador, contador].Text = "X" + (contador + 1);
+                Matriz[contador, contador].Text = item.Nombre;
                 Matriz[contador, Columnas].Text = item.Valor.ToString("0.0000");
                 contador += 1;
             }

@@ -27,6 +27,7 @@ namespace AnalisisNumerico.Logica
             for (int i = 0; i < parametro.NumeroIncognitas; i++)
             {
                 Incognita incognita = new Incognita();
+                incognita.Nombre = "X" + (i + 1);
                 incognita.Valor = parametro.Matriz[i, columna];
                 resultado.Solucion.Add(incognita);
             }
@@ -48,7 +49,7 @@ namespace AnalisisNumerico.Logica
                 }
             }
 
-            if (Mayor == -1)
+            if (Mayor == 0)
             {
                 throw new Exception("El sistema NO es normal");
             }
@@ -117,7 +118,7 @@ namespace AnalisisNumerico.Logica
 
             for (int i = 0; i < vector.Length; i++)
             {
-                Solucion.Add(new Incognita() { Valor = vector[i] });
+                Solucion.Add(new Incognita() { Valor = vector[i], Nombre = "X" + (i+1)});
             }
 
             return new ResultadoEcuacionesGaussSeided()
