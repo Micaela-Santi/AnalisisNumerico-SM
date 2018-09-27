@@ -70,14 +70,12 @@ namespace AnalisisNumerico.UI.Gauss_Seidel
             {
                 for (int y = 0; y < Matriz.GetLength(1); y++)
                 {
-
                     Matriz[x, y] = new TextBox();
                     Matriz[x, y].Text = string.Empty;
                     Matriz[x, y].Top = (x * Matriz[x, y].Height) + 20;
                     Matriz[x, y].Left = y * TamañoText;
                     Matriz[x, y].Width = TamañoText - 1;
                     Grilla_Mat.Controls.Add(Matriz[x, y]);
-
                 }
             }
         }
@@ -86,7 +84,6 @@ namespace AnalisisNumerico.UI.Gauss_Seidel
         {
             this.Graficar();
         }
-
 
         private void btn_Calcular_Click(object sender, EventArgs e)
         {
@@ -110,7 +107,6 @@ namespace AnalisisNumerico.UI.Gauss_Seidel
                     parametro.Matriz[i, c] = Convert.ToDecimal(Matriz[i, c].Text);
                 }
             }
-
             try
             {
                 var resultado = MetodosEcuaciones.GaussSeided(parametro);
@@ -121,7 +117,6 @@ namespace AnalisisNumerico.UI.Gauss_Seidel
 
                 MessageBox.Show(exception.Message);
             }
-
         }
 
         private void MostrarResultado(ResultadoEcuacionesGaussSeided resultado)
@@ -134,7 +129,6 @@ namespace AnalisisNumerico.UI.Gauss_Seidel
 
             txt_Iteraciones.Text = resultado.Iteraciones.ToString();
             txt_ErrorRelativo.Text = resultado.ErrorRelativo.ToString("0.00000000");
-
 
             for (int y = 0; y < ResultadoMat.GetLength(1); y++)
             {
@@ -156,7 +150,6 @@ namespace AnalisisNumerico.UI.Gauss_Seidel
                     ResultadoMat[x, y].Width = TamañoText - 2;
                     Grilla_Res.Controls.Add(ResultadoMat[x, y]);
                 }
-
             }
         }
 

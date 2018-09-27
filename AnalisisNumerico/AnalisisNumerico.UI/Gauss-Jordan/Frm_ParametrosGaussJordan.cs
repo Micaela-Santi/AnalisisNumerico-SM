@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AnalisisNumerico.Entidades;
 using AnalisisNumerico.Entidades.Ecuaciones;
@@ -21,6 +14,7 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
             MetodoEcuaciones = ecuaciones;
             InitializeComponent();
         }
+
         private TextBox[,] Matriz;
         private TextBox[,] ResultadoMat;
 
@@ -28,7 +22,7 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
         {
 
             int incognitas;
-            
+
             Grilla_Mat.Controls.Clear();
 
             if (!int.TryParse(txt_NumeroIncognitas.Text, out incognitas))
@@ -46,14 +40,12 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
             {
                 for (int y = 0; y < Matriz.GetLength(1); y++)
                 {
-
                     Matriz[x, y] = new TextBox();
                     Matriz[x, y].Text = string.Empty;
                     Matriz[x, y].Top = (x * Matriz[x, y].Height) + 20;
-                    Matriz[x, y].Left = y * TamañoText ;
-                    Matriz[x, y].Width = TamañoText -1 ;
+                    Matriz[x, y].Left = y * TamañoText;
+                    Matriz[x, y].Width = TamañoText - 1;
                     Grilla_Mat.Controls.Add(Matriz[x, y]);
-
                 }
             }
         }
@@ -141,7 +133,7 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
 
                     ResultadoMat[x, y].Top = (x * Matriz[x, y].Height) + 20;
                     ResultadoMat[x, y].Left = y * TamañoText;
-                    ResultadoMat[x, y].Width = TamañoText -2 ;
+                    ResultadoMat[x, y].Width = TamañoText - 2;
                     Grilla_Res.Controls.Add(ResultadoMat[x, y]);
                 }
 

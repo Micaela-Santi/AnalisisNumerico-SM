@@ -32,7 +32,6 @@ namespace AnalisisNumerico.Logica
                 resultado.Solucion.Add(incognita);
             }
 
-
             return resultado;
         }
 
@@ -40,6 +39,7 @@ namespace AnalisisNumerico.Logica
         {
             decimal Mayor = -1;
             int FilaMayor = 0;
+
             for (int i = incognitaActual; i <= filas; i++)
             {
                 if (Mayor < Math.Abs(matriz[i, incognitaActual]))
@@ -56,18 +56,16 @@ namespace AnalisisNumerico.Logica
 
             for (int c = 0; c <= columnas; c++)
             {
-
                 var Aux = matriz[incognitaActual, c];
                 matriz[incognitaActual, c] = matriz[FilaMayor, c];
                 matriz[FilaMayor, c] = Aux;
-
             }
-
         }
 
         private void Normalizacion(decimal[,] matriz, int fila, int cantColumnas)
         {
             decimal divisor = matriz[fila, fila];
+
             for (int i = 0; i <= cantColumnas; i++)
             {
                 matriz[fila, i] = (matriz[fila, i] / divisor);
@@ -79,6 +77,7 @@ namespace AnalisisNumerico.Logica
             for (int i = 0; i <= cantFilas; i++)
             {
                 var multiplicar = matriz[i, filaActual];
+
                 if (i != filaActual && matriz[i, filaActual] != 0)
                 {
                     for (int x = 0; x <= cantColumnas; x++)
@@ -87,7 +86,6 @@ namespace AnalisisNumerico.Logica
                     }
                 }
             }
-
 
         }
 
@@ -99,6 +97,7 @@ namespace AnalisisNumerico.Logica
             double errorRelativo;
             int contador = 0;
             var despejes = DespejarIncognitas(parametro.Matriz);
+
             do
             {
                 for (int i = 0; i < vector.Length; i++)
@@ -118,7 +117,7 @@ namespace AnalisisNumerico.Logica
 
             for (int i = 0; i < vector.Length; i++)
             {
-                Solucion.Add(new Incognita() { Valor = vector[i], Nombre = "X" + (i+1)});
+                Solucion.Add(new Incognita() { Valor = vector[i], Nombre = "X" + (i + 1) });
             }
 
             return new ResultadoEcuacionesGaussSeided()
@@ -133,6 +132,7 @@ namespace AnalisisNumerico.Logica
         {
             double errorRelativo = -1;
             double mayor = -1;
+
             for (int i = 0; i < vector.Length; i++)
             {
                 if (vector[i] != 0)
@@ -154,6 +154,7 @@ namespace AnalisisNumerico.Logica
             for (int i = 0; i < vector.Length; i++)
             {
                 decimal valor = 0;
+
                 for (int c = 0; c < vector.Length; c++)
                 {
 
@@ -163,6 +164,7 @@ namespace AnalisisNumerico.Logica
                     }
 
                 }
+
                 valor += despejes[i, (despejes.GetLength(1) - 1)];
 
                 vector[i] = valor;
@@ -186,7 +188,7 @@ namespace AnalisisNumerico.Logica
             {
                 divisor = despeje[i, i];
                 despeje[i, i] = despeje[i, i] / divisor;
-                despeje[i,despeje.GetLength(1) - 1]= (despeje[i, despeje.GetLength(1) - 1] / divisor);
+                despeje[i, despeje.GetLength(1) - 1] = (despeje[i, despeje.GetLength(1) - 1] / divisor);
                 //TODO AGREGAR EXCEPTION 
                 if (divisor != 0)
                 {

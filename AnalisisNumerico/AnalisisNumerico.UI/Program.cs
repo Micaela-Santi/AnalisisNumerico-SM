@@ -19,19 +19,18 @@ namespace AnalisisNumerico.UI
             Application.SetCompatibleTextRenderingDefault(false);
             Bootstrap();
             Application.Run(container.GetInstance<Frm_Inicio>());
-
         }
 
         private static void Bootstrap()
         {
             container = new Container();
-            container.Register<IMetodosRaices,MetodosRaices>();
+            container.Register<IMetodosRaices, MetodosRaices>();
             container.Register<IEcuaciones, MetodosEcuaciones>();
             container.Register<Frm_ParametrosGaussJordan>();
             container.Register<Frm_Inicio>();
             container.Register<Frm_MetodosCompuesto>();
             container.Register<Frm_MetodosSimple>();
             container.Register<Frm_ParametroGaussSeidel>();
-        } 
+        }
     }
 }
