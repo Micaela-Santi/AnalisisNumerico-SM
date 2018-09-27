@@ -166,5 +166,13 @@ namespace AnalisisNumerico.UI.Gauss_Seidel
 
             }
         }
+
+        private void txt_NumeroIncognitas_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Graficar();
+            }
+        }
     }
 }

@@ -53,7 +53,7 @@
             // Grilla_Res
             // 
             this.Grilla_Res.AutoSize = true;
-            this.Grilla_Res.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Grilla_Res.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold);
             this.Grilla_Res.Location = new System.Drawing.Point(54, 399);
             this.Grilla_Res.Name = "Grilla_Res";
             this.Grilla_Res.Size = new System.Drawing.Size(587, 128);
@@ -75,7 +75,7 @@
             // Grilla_Mat
             // 
             this.Grilla_Mat.AutoSize = true;
-            this.Grilla_Mat.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Grilla_Mat.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Bold);
             this.Grilla_Mat.Location = new System.Drawing.Point(54, 90);
             this.Grilla_Mat.Name = "Grilla_Mat";
             this.Grilla_Mat.Size = new System.Drawing.Size(587, 275);
@@ -121,6 +121,7 @@
             this.txt_NumeroIncognitas.Name = "txt_NumeroIncognitas";
             this.txt_NumeroIncognitas.Size = new System.Drawing.Size(100, 27);
             this.txt_NumeroIncognitas.TabIndex = 1;
+            this.txt_NumeroIncognitas.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_NumeroIncognitas_KeyUp);
             // 
             // lbl_NumIncognitas
             // 
