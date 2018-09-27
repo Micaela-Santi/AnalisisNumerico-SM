@@ -112,7 +112,7 @@ namespace AnalisisNumerico.Logica
 
                 contador += 1;
 
-            } while (errorRelativo > parametro.Tolerancia && contador < parametro.Iteraciones);
+            } while (Math.Abs(errorRelativo) > parametro.Tolerancia && contador < parametro.Iteraciones);
 
             List<Incognita> Solucion = new List<Incognita>();
 

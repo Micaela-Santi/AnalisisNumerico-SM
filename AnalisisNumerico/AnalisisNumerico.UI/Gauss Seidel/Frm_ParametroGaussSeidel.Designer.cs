@@ -70,6 +70,7 @@
             this.btn_Calcular.TabIndex = 3;
             this.btn_Calcular.Text = "CALCULAR";
             this.btn_Calcular.UseVisualStyleBackColor = true;
+            this.btn_Calcular.Click += new System.EventHandler(this.btn_Calcular_Click);
             // 
             // Grilla_Mat
             // 
@@ -111,6 +112,7 @@
             this.btn_Graficar.TabIndex = 2;
             this.btn_Graficar.Text = "GRAFICAR";
             this.btn_Graficar.UseVisualStyleBackColor = true;
+            this.btn_Graficar.Click += new System.EventHandler(this.btn_Graficar_Click);
             // 
             // txt_NumeroIncognitas
             // 

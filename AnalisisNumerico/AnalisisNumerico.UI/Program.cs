@@ -4,6 +4,7 @@ using AnalisisNumerico.Entidades;
 using AnalisisNumerico.Logica;
 using SimpleInjector;
 using AnalisisNumerico.UI.Gauss_Jordan;
+using AnalisisNumerico.UI.Gauss_Seidel;
 
 namespace AnalisisNumerico.UI
 {
@@ -30,6 +31,7 @@ namespace AnalisisNumerico.UI
             container.Register<Frm_Inicio>();
             container.Register<Frm_MetodosCompuesto>();
             container.Register<Frm_MetodosSimple>();
+            container.Register<Frm_ParametroGaussSeidel>();
         } 
     }
 }

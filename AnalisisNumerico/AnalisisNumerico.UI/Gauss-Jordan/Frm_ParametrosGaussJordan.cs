@@ -28,7 +28,6 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
         {
 
             int incognitas;
-
             
             Grilla_Mat.Controls.Clear();
 
