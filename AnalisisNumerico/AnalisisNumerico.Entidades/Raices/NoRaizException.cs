@@ -12,7 +12,5 @@ namespace AnalisisNumerico.Entidades
             this.Valor = valor;
             this.Iteraciones = iteraciones;
         }
-
     }
-
 }

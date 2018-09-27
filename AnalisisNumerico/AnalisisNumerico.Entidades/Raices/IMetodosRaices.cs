@@ -7,5 +7,4 @@
         Resultado NewtonRaphson(ParametroSimple parametros);
         Resultado Secante(ParametroCompuesto parametros);
     }
-
 }

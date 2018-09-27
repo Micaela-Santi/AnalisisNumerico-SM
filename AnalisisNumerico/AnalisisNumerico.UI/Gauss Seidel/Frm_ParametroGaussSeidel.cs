@@ -1,13 +1,6 @@
 ﻿using AnalisisNumerico.Entidades;
 using AnalisisNumerico.Entidades.Ecuaciones;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AnalisisNumerico.UI.Gauss_Seidel
@@ -52,7 +45,6 @@ namespace AnalisisNumerico.UI.Gauss_Seidel
                 Left = Left + (e.X - posX);
                 Top = Top + (e.Y - posY);
             }
-
         }
 
         private void Graficar()
@@ -65,6 +57,7 @@ namespace AnalisisNumerico.UI.Gauss_Seidel
             if (!int.TryParse(txt_NumeroIncognitas.Text, out incognitas))
             {
                 MessageBox.Show("El numero de incognitas es nula.", "Error");
+
                 return;
             }
 
@@ -103,7 +96,7 @@ namespace AnalisisNumerico.UI.Gauss_Seidel
             var Tolerancia = Convert.ToDouble(txt_ErrorRelativo.Text);
             var iteraciones = Convert.ToInt16(txt_Iteraciones.Text);
 
-            ParametroGaussSeided parametro = new ParametroGaussSeided(filas,columnas)
+            ParametroGaussSeided parametro = new ParametroGaussSeided(filas, columnas)
             {
                 Tolerancia = Tolerancia,
                 Iteraciones = iteraciones,

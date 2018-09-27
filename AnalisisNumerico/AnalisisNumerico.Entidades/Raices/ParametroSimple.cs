@@ -7,5 +7,4 @@
         public double Xi { get; set; }
         public string Funcion { get; set; }
     }
-
 }
