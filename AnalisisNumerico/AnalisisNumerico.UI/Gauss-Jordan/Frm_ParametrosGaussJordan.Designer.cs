@@ -189,6 +189,7 @@
             this.Controls.Add(this.panel4);
             this.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.Name = "Frm_ParametrosGaussJordan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

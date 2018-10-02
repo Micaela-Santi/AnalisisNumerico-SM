@@ -89,5 +89,11 @@ namespace AnalisisNumerico.UI
             var form = Program.container.GetInstance<Frm_MinimosCuadrados>();
             form.Show();
         }
+
+        private void determinanteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Program.container.GetInstance<Frm_Determinante>();
+            form.Show();
+        }
     }
 }

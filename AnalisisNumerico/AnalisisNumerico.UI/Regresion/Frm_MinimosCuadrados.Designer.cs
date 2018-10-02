@@ -215,6 +215,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_MinimosCuadrados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MinimosCuadrados_MouseMove);

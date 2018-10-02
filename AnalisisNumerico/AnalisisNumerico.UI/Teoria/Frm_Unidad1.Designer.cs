@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.TextBox textBox1;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Unidad1));
             System.Windows.Forms.TextBox textBox2;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Unidad1));
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -72,6 +72,24 @@
     "ción es relativamente sencilla\r\n";
             textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             textBox1.WordWrap = false;
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = System.Drawing.SystemColors.Control;
+            textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            textBox2.CausesValidation = false;
+            textBox2.Cursor = System.Windows.Forms.Cursors.Default;
+            textBox2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            textBox2.ForeColor = System.Drawing.Color.Black;
+            textBox2.Location = new System.Drawing.Point(309, 364);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new System.Drawing.Size(225, 51);
+            textBox2.TabIndex = 23;
+            textBox2.Text = "• Por lo general la convergencia es lenta.\r\n";
+            textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            textBox2.WordWrap = false;
             // 
             // panel3
             // 
@@ -233,24 +251,6 @@
             this.label7.TabIndex = 22;
             this.label7.Text = "Desventajas";
             // 
-            // textBox2
-            // 
-            textBox2.BackColor = System.Drawing.SystemColors.Control;
-            textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            textBox2.CausesValidation = false;
-            textBox2.Cursor = System.Windows.Forms.Cursors.Default;
-            textBox2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            textBox2.ForeColor = System.Drawing.Color.Black;
-            textBox2.Location = new System.Drawing.Point(309, 364);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new System.Drawing.Size(225, 51);
-            textBox2.TabIndex = 23;
-            textBox2.Text = "• Por lo general la convergencia es lenta.\r\n";
-            textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            textBox2.WordWrap = false;
-            // 
             // Frm_Unidad1
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -278,6 +278,7 @@
             this.Controls.Add(this.panel3);
             this.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "Frm_Unidad1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
