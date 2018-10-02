@@ -233,6 +233,7 @@
             this.regresionToolStripMenuItem.Name = "regresionToolStripMenuItem";
             this.regresionToolStripMenuItem.Size = new System.Drawing.Size(305, 22);
             this.regresionToolStripMenuItem.Text = "Regresión";
+            this.regresionToolStripMenuItem.Click += new System.EventHandler(this.regresionToolStripMenuItem_Click);
             // 
             // polinomiosDeInterpolacionToolStripMenuItem
             // 
@@ -260,7 +261,7 @@
             this.multipleToolStripMenuItem});
             this.trapeciosToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trapeciosToolStripMenuItem.Name = "trapeciosToolStripMenuItem";
-            this.trapeciosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.trapeciosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.trapeciosToolStripMenuItem.Text = "Trapecios";
             // 
             // simpleToolStripMenuItem
@@ -284,7 +285,7 @@
             this.multipleToolStripMenuItem1});
             this.simpson13ToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpson13ToolStripMenuItem.Name = "simpson13ToolStripMenuItem";
-            this.simpson13ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.simpson13ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.simpson13ToolStripMenuItem.Text = "Simpson 1/3";
             // 
             // simpleToolStripMenuItem1
@@ -303,7 +304,7 @@
             // 
             this.simpson38ToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpson38ToolStripMenuItem.Name = "simpson38ToolStripMenuItem";
-            this.simpson38ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.simpson38ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.simpson38ToolStripMenuItem.Text = "Simpson 3/8";
             // 
             // tEORIAToolStripMenuItem

@@ -54,6 +54,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Raices\Resultado.cs" />
     <Compile Include="Ecuaciones\ResultadoEcuacionesGaussJordan.cs" />
+    <Compile Include="Regresion\IRegresion.cs" />
+    <Compile Include="Regresion\ParametroRegresionLineal.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

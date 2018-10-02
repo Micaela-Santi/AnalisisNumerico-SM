@@ -1,8 +1,9 @@
-﻿using AnalisisNumerico.UI.Gauss_Jordan;
-using AnalisisNumerico.UI.Gauss_Seidel;
-using AnalisisNumerico.UI.Teoria;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using AnalisisNumerico.UI.Gauss_Jordan;
+using AnalisisNumerico.UI.Gauss_Seidel;
+using AnalisisNumerico.UI.Regresion;
+using AnalisisNumerico.UI.Teoria;
 
 namespace AnalisisNumerico.UI
 {
@@ -74,12 +75,18 @@ namespace AnalisisNumerico.UI
 
             var form = Program.container.GetInstance<Frm_Unidad1>();
             form.Show();
-          
+
         }
 
         private void gaussSeidelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Program.container.GetInstance<Frm_ParametroGaussSeidel>();
+            form.Show();
+        }
+
+        private void regresionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Program.container.GetInstance<Frm_MinimosCuadrados>();
             form.Show();
         }
     }

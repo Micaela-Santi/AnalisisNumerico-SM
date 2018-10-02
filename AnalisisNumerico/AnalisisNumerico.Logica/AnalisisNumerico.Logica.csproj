@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="MetodosEcuaciones.cs" />
     <Compile Include="MetodosRaices.cs" />
+    <Compile Include="MetodosRegresion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
