@@ -61,7 +61,6 @@
             this.unidad3ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.unidad4ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.determinanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Menu.SuspendLayout();
@@ -194,8 +193,7 @@
             // 
             this.uNIDAD2ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gaussJordanToolStripMenuItem,
-            this.gaussSeidelToolStripMenuItem,
-            this.determinanteToolStripMenuItem});
+            this.gaussSeidelToolStripMenuItem});
             this.uNIDAD2ToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uNIDAD2ToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.uNIDAD2ToolStripMenuItem.Name = "uNIDAD2ToolStripMenuItem";
@@ -357,14 +355,6 @@
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
-            // determinanteToolStripMenuItem
-            // 
-            this.determinanteToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.determinanteToolStripMenuItem.Name = "determinanteToolStripMenuItem";
-            this.determinanteToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.determinanteToolStripMenuItem.Text = "Determinante";
-            this.determinanteToolStripMenuItem.Click += new System.EventHandler(this.determinanteToolStripMenuItem_Click);
-            // 
             // Frm_Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -427,7 +417,6 @@
         private System.Windows.Forms.ToolStripMenuItem unidad2ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem unidad3ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem unidad4ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem determinanteToolStripMenuItem;
     }
 }
 
