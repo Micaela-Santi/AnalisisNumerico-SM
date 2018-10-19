@@ -4,13 +4,13 @@ namespace AnalisisNumerico.Entidades.Regresion
 {
     public class ParametroRegresionLineal
     {
-        public List<decimal> ValoresX { get; set; }
-        public List<decimal> ValoresY { get; set; }
+        public List<double> ValoresX { get; set; }
+        public List<double> ValoresY { get; set; }
 
         public ParametroRegresionLineal()
         {
-            ValoresX = new List<decimal>();
-            ValoresY = new List<decimal>();
+            ValoresX = new List<double>();
+            ValoresY = new List<double>();
         }
     }
 }

@@ -32,7 +32,7 @@ namespace AnalisisNumerico.UI
                 Funcion = txt_Funcion.Text
             };
 
-            Resultado resultado;
+            ResultadoRegresion resultado;
             
             try
             {

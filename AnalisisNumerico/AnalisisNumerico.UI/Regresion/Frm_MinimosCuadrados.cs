@@ -65,6 +65,7 @@ namespace AnalisisNumerico.UI.Regresion
         {
             Grilla_PuntosMC.Controls.Clear();
             txt_CantidadPuntos.Text = string.Empty;
+            Grilla_Res.Controls.Clear();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -74,6 +75,7 @@ namespace AnalisisNumerico.UI.Regresion
 
         int posX = 0;
         int posY = 0;
+        private TextBox[,] ResultadoMat;
 
         private void Frm_MinimosCuadrados_MouseMove(object sender, MouseEventArgs e)
         {
@@ -90,26 +92,56 @@ namespace AnalisisNumerico.UI.Regresion
 
         }
 
-        private void btn_Calcular_Click(object sender, EventArgs e)
+        private void btn_RegresionLineal_Click(object sender, EventArgs e)
         {
             try
             {
                 ParametroRegresionLineal parametro = new ParametroRegresionLineal();
                 for (int i = 0; i < Convert.ToInt16(txt_CantidadPuntos.Text); i++)
                 {
-                    parametro.ValoresX.Add(Convert.ToDecimal(Matriz[i,0].Text));
-                    parametro.ValoresY.Add(Convert.ToDecimal(Matriz[i, 1].Text));
+                    parametro.ValoresX.Add(Convert.ToDouble(Matriz[i, 0].Text));
+                    parametro.ValoresY.Add(Convert.ToDouble(Matriz[i, 1].Text));
                 }
 
                 var resultado = MetodoRegresion.MetodoMinimosCuadrados(parametro);
-                txt_Pendiente.Text = resultado[0].ToString("0.000000");
-                txt_Ordenada.Text = resultado[1].ToString("0.000000");
+                MostrarResultado(resultado);
             }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
-                
             }
-        } 
+        }
+
+        private void MostrarResultado(ResultadoRegresion resultado)
+        {
+            int Columna = 2;
+
+            ResultadoMat = new TextBox[resultado.Resultado.Count, Columna];
+            int TamañoText = Grilla_Res.Width / Columna;
+
+            for (int y = 0; y < Columna; y++)
+            {
+                for (int x = 0; x < resultado.Resultado.Count; x++)
+                {
+                    ResultadoMat[x, y] = new TextBox();
+                    if (y == 1 )
+                    {
+                        ResultadoMat[x, y].Text = resultado.Resultado[x].ToString("0.0000");
+                    }
+                    else
+                    {
+                        ResultadoMat[x, y].Text = "A" + x;
+                    }
+                    
+                    ResultadoMat[x, y].Top = (x * Matriz[x, y].Height) + 20;
+                    ResultadoMat[x, y].Left = y * TamañoText;
+                    ResultadoMat[x, y].Width = TamañoText - 2;
+                    Grilla_Res.Controls.Add(ResultadoMat[x, y]);
+                }
+            }
+
+            txt_Coeficiente.Text = resultado.CoeficienteCorrelacion.ToString();
+        }
+
     }
 }

@@ -29,19 +29,19 @@ namespace AnalisisNumerico.Logica
             return expresion.calculate();
         }
 
-        public Resultado Biseccion(ParametroCompuesto parametros)
+        public ResultadoRegresion Biseccion(ParametroCompuesto parametros)
         {
             return this.MetodosCerrados(parametros, CalcularXrBiseccion);
         }
 
-        public Resultado ReglaFalsa(ParametroCompuesto parametros)
+        public ResultadoRegresion ReglaFalsa(ParametroCompuesto parametros)
         {
             return this.MetodosCerrados(parametros, CalcularXrReglaFalsa);
         }
 
-        private Resultado MetodosCerrados(ParametroCompuesto parametros, MetodoCerradoDelegate calcularXr)
+        private ResultadoRegresion MetodosCerrados(ParametroCompuesto parametros, MetodoCerradoDelegate calcularXr)
         {
-            Resultado resultado = new Resultado();
+            ResultadoRegresion resultado = new ResultadoRegresion();
             var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
             var resultadoxd = EvaluarFuncion(parametros.Funcion, parametros.Xd);
 
@@ -74,9 +74,9 @@ namespace AnalisisNumerico.Logica
             return this.BuscarRaicesCerrados(parametros, calcularXr);
         }
 
-        private Resultado BuscarRaicesCerrados(ParametroCompuesto parametros, MetodoCerradoDelegate calcularXr)
+        private ResultadoRegresion BuscarRaicesCerrados(ParametroCompuesto parametros, MetodoCerradoDelegate calcularXr)
         {
-            Resultado resultado = new Resultado
+            ResultadoRegresion resultado = new ResultadoRegresion
             {
                 ErrorRelativo = 0,
                 Iteraciones = 0
@@ -126,9 +126,9 @@ namespace AnalisisNumerico.Logica
             return resultado;
         }
 
-        public Resultado NewtonRaphson(ParametroSimple parametros)
+        public ResultadoRegresion NewtonRaphson(ParametroSimple parametros)
         {
-            Resultado resultado = new Resultado()
+            ResultadoRegresion resultado = new ResultadoRegresion()
             {
                 Iteraciones = 0,
                 ErrorRelativo = 0
@@ -200,9 +200,9 @@ namespace AnalisisNumerico.Logica
             return resultado;
         }
 
-        public Resultado Secante(ParametroCompuesto parametros)
+        public ResultadoRegresion Secante(ParametroCompuesto parametros)
         {
-            Resultado resultado = new Resultado()
+            ResultadoRegresion resultado = new ResultadoRegresion()
             {
                 Iteraciones = 0,
                 ErrorRelativo = 0

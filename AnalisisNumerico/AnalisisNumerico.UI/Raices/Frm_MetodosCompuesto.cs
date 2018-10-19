@@ -55,7 +55,7 @@ namespace AnalisisNumerico.UI
             parametros.Xi = Convert.ToDouble(txt_ValorXi.Text);
             parametros.Xd = Convert.ToDouble(txt_ValorXd.Text);
 
-            Resultado Resultado = null;
+            ResultadoRegresion Resultado = null;
             switch (MetodoActual)
             {
                 case EMetodo.Biseccion:

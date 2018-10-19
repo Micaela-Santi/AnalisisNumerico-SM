@@ -1,6 +1,6 @@
 ﻿namespace AnalisisNumerico.Entidades
 {
-    public class Resultado
+    public class ResultadoRegresion
     {
         public double Raiz { get; set; }
         public int Iteraciones { get; set; }

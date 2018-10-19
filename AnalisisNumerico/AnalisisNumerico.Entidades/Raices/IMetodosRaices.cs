@@ -2,9 +2,9 @@
 {
     public interface IMetodosRaices
     {
-        Resultado Biseccion(ParametroCompuesto parametos);
-        Resultado ReglaFalsa(ParametroCompuesto parametos);
-        Resultado NewtonRaphson(ParametroSimple parametros);
-        Resultado Secante(ParametroCompuesto parametros);
+        ResultadoRegresion Biseccion(ParametroCompuesto parametos);
+        ResultadoRegresion ReglaFalsa(ParametroCompuesto parametos);
+        ResultadoRegresion NewtonRaphson(ParametroSimple parametros);
+        ResultadoRegresion Secante(ParametroCompuesto parametros);
     }
 }
