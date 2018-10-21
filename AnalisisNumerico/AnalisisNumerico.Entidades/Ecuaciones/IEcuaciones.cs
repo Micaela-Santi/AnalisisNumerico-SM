@@ -1,6 +1,6 @@
 ﻿using AnalisisNumerico.Entidades.Ecuaciones;
 
-namespace AnalisisNumerico.Entidades
+namespace AnalisisNumerico.Entidades.Ecuaciones
 {
     public interface IEcuaciones
     {

@@ -35,9 +35,9 @@ namespace AnalisisNumerico.Logica
             return resultado;
         }
 
-        private void AcomodarFilas(decimal[,] matriz, int incognitaActual, int filas, int columnas)
+        private void AcomodarFilas(double[,] matriz, int incognitaActual, int filas, int columnas)
         {
-            decimal Mayor = -1;
+            double Mayor = -1;
             int FilaMayor = 0;
 
             for (int i = incognitaActual; i <= filas; i++)
@@ -62,9 +62,9 @@ namespace AnalisisNumerico.Logica
             }
         }
 
-        private void Normalizacion(decimal[,] matriz, int fila, int cantColumnas)
+        private void Normalizacion(double[,] matriz, int fila, int cantColumnas)
         {
-            decimal divisor = matriz[fila, fila];
+            Double divisor = matriz[fila, fila];
 
             for (int i = 0; i <= cantColumnas; i++)
             {
@@ -72,7 +72,7 @@ namespace AnalisisNumerico.Logica
             }
         }
 
-        private void HacerCero(decimal[,] matriz, int filaActual, int cantFilas, int cantColumnas)
+        private void HacerCero(double[,] matriz, int filaActual, int cantFilas, int cantColumnas)
         {
             for (int i = 0; i <= cantFilas; i++)
             {
@@ -91,9 +91,9 @@ namespace AnalisisNumerico.Logica
 
         public ResultadoEcuacionesGaussSeided GaussSeided(ParametroGaussSeided parametro)
         {
-            decimal[] vector = new decimal[parametro.NumeroIncognitas];
+            double[] vector = new double[parametro.NumeroIncognitas];
 
-            decimal[] Anterior = new decimal[parametro.NumeroIncognitas];
+            double[] Anterior = new double[parametro.NumeroIncognitas];
             double errorRelativo;
             int contador = 0;
             var despejes = DespejarIncognitas(parametro.Matriz);
@@ -128,7 +128,7 @@ namespace AnalisisNumerico.Logica
             };
         }
 
-        private double CalculoErrorRelativo(decimal[] vector, decimal[] anterior)
+        private double CalculoErrorRelativo(double[] vector, double[] anterior)
         {
             double errorRelativo = -1;
             double mayor = -1;
@@ -149,11 +149,11 @@ namespace AnalisisNumerico.Logica
             return mayor;
         }
 
-        private void EvaluarSoluciones(decimal[] vector, decimal[,] despejes)
+        private void EvaluarSoluciones(double[] vector, double[,] despejes)
         {
             for (int i = 0; i < vector.Length; i++)
             {
-                decimal valor = 0;
+                double valor = 0;
 
                 for (int c = 0; c < vector.Length; c++)
                 {
@@ -171,10 +171,10 @@ namespace AnalisisNumerico.Logica
             }
         }
 
-        private decimal[,] DespejarIncognitas(decimal[,] matriz)
+        private double[,] DespejarIncognitas(double[,] matriz)
         {
-            decimal divisor;
-            decimal[,] despeje = new decimal[matriz.GetLength(0), matriz.GetLength(1)];
+            double divisor;
+            double[,] despeje = new double[matriz.GetLength(0), matriz.GetLength(1)];
 
             for (int i = 0; i < matriz.GetLength(0); i++)
             {

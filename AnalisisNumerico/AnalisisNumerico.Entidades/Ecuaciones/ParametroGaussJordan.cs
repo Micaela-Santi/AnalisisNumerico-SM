@@ -3,11 +3,11 @@
     public class ParametroGaussJordan
     {
         public int NumeroIncognitas { get; set; }
-        public decimal[,] Matriz { get; set; }
+        public double[,] Matriz { get; set; }
 
         public ParametroGaussJordan(int filas, int columnas)
         {
-            Matriz = new decimal[filas, columnas];
+            Matriz = new double[filas, columnas];
         }
     }
 }

@@ -7,6 +7,7 @@ using AnalisisNumerico.UI.Gauss_Jordan;
 using AnalisisNumerico.UI.Gauss_Seidel;
 using AnalisisNumerico.Entidades.Regresion;
 using AnalisisNumerico.UI.Regresion;
+using AnalisisNumerico.Entidades.Ecuaciones;
 
 namespace AnalisisNumerico.UI
 {

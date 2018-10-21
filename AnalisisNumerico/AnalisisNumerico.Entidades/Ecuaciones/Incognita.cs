@@ -2,7 +2,7 @@
 {
     public class Incognita
     {
-        public decimal Valor { get; set; }
+        public double Valor { get; set; }
         public string Nombre { get; set; }
     }
 }

@@ -104,7 +104,7 @@ namespace AnalisisNumerico.UI.Gauss_Seidel
             {
                 for (int c = 0; c < columnas; c++)
                 {
-                    parametro.Matriz[i, c] = Convert.ToDecimal(Matriz[i, c].Text);
+                    parametro.Matriz[i, c] = Convert.ToDouble(Matriz[i, c].Text);
                 }
             }
             try
