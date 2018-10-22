@@ -121,6 +121,8 @@ namespace AnalisisNumerico.UI.Gauss_Seidel
 
         private void MostrarResultado(ResultadoEcuacionesGaussSeided resultado)
         {
+            Grilla_Res.Controls.Clear();
+
             int Columna = resultado.Solucion.Count;
 
             ResultadoMat = new TextBox[2, Columna];

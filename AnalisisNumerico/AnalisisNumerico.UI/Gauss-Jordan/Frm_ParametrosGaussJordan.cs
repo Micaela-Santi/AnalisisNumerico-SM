@@ -108,6 +108,8 @@ namespace AnalisisNumerico.UI.Gauss_Jordan
 
         private void MostrarResultado(ResultadoEcuacionesGaussJordan resultado)
         {
+            Grilla_Res.Controls.Clear();
+
 
             int Columna = resultado.Solucion.Count;
 

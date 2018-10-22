@@ -2,12 +2,12 @@
 
 namespace AnalisisNumerico.Entidades.Regresion
 {
-    public class ParametroRegresionLineal
+    public class ParametroRegresion
     {
         public List<double> ValoresX { get; set; }
         public List<double> ValoresY { get; set; }
 
-        public ParametroRegresionLineal()
+        public ParametroRegresion()
         {
             ValoresX = new List<double>();
             ValoresY = new List<double>();

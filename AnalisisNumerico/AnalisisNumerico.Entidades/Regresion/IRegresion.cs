@@ -3,6 +3,7 @@ namespace AnalisisNumerico.Entidades.Regresion
 {
     public interface IRegresion
     {
-      ResultadoRegresion MetodoMinimosCuadrados(ParametroRegresionLineal parametro);
+        ResultadoRegresion MetodoRegresionLineal(ParametroRegresion parametro);
+        ResultadoRegresion MetodoPolinomial(ParametroRegresion parametro);
     }
 }

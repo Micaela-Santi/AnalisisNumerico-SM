@@ -16,7 +16,7 @@ namespace AnalisisNumerico.Logica
         }
 
 
-        public ResultadoRegresion MetodoMinimosCuadrados(ParametroRegresionLineal parametro)
+        public ResultadoRegresion MetodoRegresionLineal(ParametroRegresion parametro)
         {
             ResultadoRegresion Devolver = new ResultadoRegresion();
 
@@ -38,36 +38,40 @@ namespace AnalisisNumerico.Logica
 
             Devolver.Resultado.Add(A0);
             Devolver.Resultado.Add(A1);
-            Devolver.CoeficienteCorrelacion = this.CalcularCoeficienteDeCorrelacion(parametro, PromedioY, new List<double>() {A0, A1});
+            Devolver.CoeficienteCorrelacion = this.CalcularCoeficienteDeCorrelacion(parametro, PromedioY, new List<double>() { A0, A1 });
 
 
             return Devolver;
         }
 
 
-        public ResultadoRegresion MetodoPolinomial(ParametroRegresionLineal parametro)
+        public ResultadoRegresion MetodoPolinomial(ParametroRegresion parametro)
         {
             var n = parametro.ValoresX.Count();
-            double[,] Matriz = new double[n + 1, n + 1];
+            int filas = n + 1;
+            int columnas = n + 2;
+            double[,] Matriz = new double[filas, columnas];
             double celda = 0;
-            Matriz[0, 0] = n;
+
             int contador = 0;
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i <= n; i++)
             {
-                Matriz[i, n] = CalcularSumatoriaConXElevado(parametro.ValoresX, parametro.ValoresY, i);
+                Matriz[i, n+1] = CalcularSumatoriaConXElevado(parametro.ValoresX, parametro.ValoresY, i);
 
-                for (int c = 0; c < (n - 1); c++)
+                contador = i;
+
+                for (int c = 0; c <= n; c++)
                 {
+
                     Matriz[i, c] = CalcularSumatoriaConXElevado(parametro.ValoresX, contador);
 
                     contador += 1;
                 }
 
-                contador = i;
             }
-
-            var resultado = Ecuaciones.GaussJordan(new ParametroGaussJordan(n + 1, n + 1)
+            Matriz[0, 0] = n;
+            var resultado = Ecuaciones.GaussJordan(new ParametroGaussJordan(filas, columnas)
             {
                 Matriz = Matriz,
                 NumeroIncognitas = n
@@ -83,7 +87,7 @@ namespace AnalisisNumerico.Logica
             {
                 Resultado = ResultadoA,
 
-                CoeficienteCorrelacion = CalcularCoeficienteDeCorrelacion(parametro, promY,ResultadoA)
+                CoeficienteCorrelacion = CalcularCoeficienteDeCorrelacion(parametro, promY, ResultadoA)
 
             };
 
@@ -107,7 +111,7 @@ namespace AnalisisNumerico.Logica
         }
 
 
-        private double CalcularCoeficienteDeCorrelacion(ParametroRegresionLineal parametro, double PromedioY,List<double> A)
+        private double CalcularCoeficienteDeCorrelacion(ParametroRegresion parametro, double PromedioY, List<double> A)
         {
             double St = parametro.ValoresY.Sum(x => Math.Abs(PromedioY - x));
             double Sr = 0;
@@ -116,7 +120,7 @@ namespace AnalisisNumerico.Logica
             {
                 double sumA = 0;
 
-                for (int c = (A.Count-1) ; c != 0 ; c--)
+                for (int c = (A.Count - 1); c != 0; c--)
                 {
                     sumA += A[c] * Math.Pow(parametro.ValoresX[i], c);
                 }
@@ -125,9 +129,9 @@ namespace AnalisisNumerico.Logica
                 Sr += Math.Pow(Aux, 2);
             }
 
-            double Coeficiente = ((St - Sr) / St);
+            double Coeficiente = Math.Abs((St - Sr) / St);
 
-            return Math.Sqrt(Coeficiente);
+            return Math.Sqrt(Coeficiente)* 100;
         }
     }
 }

@@ -41,7 +41,7 @@
             this.btn_RegresionLineal = new System.Windows.Forms.Button();
             this.txt_Coeficiente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_RegresionPolinomial = new System.Windows.Forms.Button();
             this.Grilla_PuntosMC = new System.Windows.Forms.GroupBox();
             this.Grilla_Res = new System.Windows.Forms.GroupBox();
             this.panel3.SuspendLayout();
@@ -166,15 +166,16 @@
             this.label2.TabIndex = 42;
             this.label2.Text = "Coeficiente de Correlacion";
             // 
-            // button1
+            // btn_RegresionPolinomial
             // 
-            this.button1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(452, 269);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 45);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "REGRESION POLINOMIAL";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_RegresionPolinomial.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_RegresionPolinomial.Location = new System.Drawing.Point(452, 269);
+            this.btn_RegresionPolinomial.Name = "btn_RegresionPolinomial";
+            this.btn_RegresionPolinomial.Size = new System.Drawing.Size(148, 45);
+            this.btn_RegresionPolinomial.TabIndex = 4;
+            this.btn_RegresionPolinomial.Text = "REGRESION POLINOMIAL";
+            this.btn_RegresionPolinomial.UseVisualStyleBackColor = true;
+            this.btn_RegresionPolinomial.Click += new System.EventHandler(this.btn_RegresionPolinomial_Click);
             // 
             // Grilla_PuntosMC
             // 
@@ -204,7 +205,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 660);
             this.Controls.Add(this.Grilla_Res);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_RegresionPolinomial);
             this.Controls.Add(this.txt_Coeficiente);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_RegresionLineal);
@@ -243,7 +244,7 @@
         private System.Windows.Forms.Button btn_RegresionLineal;
         private System.Windows.Forms.TextBox txt_Coeficiente;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_RegresionPolinomial;
         private System.Windows.Forms.GroupBox Grilla_PuntosMC;
         private System.Windows.Forms.GroupBox Grilla_Res;
     }

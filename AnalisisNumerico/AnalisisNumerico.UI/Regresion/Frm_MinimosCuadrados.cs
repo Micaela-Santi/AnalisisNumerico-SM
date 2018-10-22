@@ -96,14 +96,14 @@ namespace AnalisisNumerico.UI.Regresion
         {
             try
             {
-                ParametroRegresionLineal parametro = new ParametroRegresionLineal();
+                ParametroRegresion parametro = new ParametroRegresion();
                 for (int i = 0; i < Convert.ToInt16(txt_CantidadPuntos.Text); i++)
                 {
                     parametro.ValoresX.Add(Convert.ToDouble(Matriz[i, 0].Text));
                     parametro.ValoresY.Add(Convert.ToDouble(Matriz[i, 1].Text));
                 }
 
-                var resultado = MetodoRegresion.MetodoMinimosCuadrados(parametro);
+                var resultado = MetodoRegresion.MetodoRegresionLineal(parametro);
                 MostrarResultado(resultado);
             }
             catch (Exception exception)
@@ -114,6 +114,8 @@ namespace AnalisisNumerico.UI.Regresion
 
         private void MostrarResultado(ResultadoRegresion resultado)
         {
+            Grilla_Res.Controls.Clear();
+
             int Columna = 2;
 
             ResultadoMat = new TextBox[resultado.Resultado.Count, Columna];
@@ -143,5 +145,24 @@ namespace AnalisisNumerico.UI.Regresion
             txt_Coeficiente.Text = resultado.CoeficienteCorrelacion.ToString();
         }
 
+        private void btn_RegresionPolinomial_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ParametroRegresion parametro = new ParametroRegresion();
+                for (int i = 0; i < Convert.ToInt16(txt_CantidadPuntos.Text); i++)
+                {
+                    parametro.ValoresX.Add(Convert.ToDouble(Matriz[i, 0].Text));
+                    parametro.ValoresY.Add(Convert.ToDouble(Matriz[i, 1].Text));
+                }
+
+                var resultado = MetodoRegresion.MetodoPolinomial(parametro);
+                MostrarResultado(resultado);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
     }
 }
