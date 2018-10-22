@@ -156,7 +156,7 @@ namespace AnalisisNumerico.UI.Regresion
                     parametro.ValoresY.Add(Convert.ToDouble(Matriz[i, 1].Text));
                 }
 
-                var resultado = MetodoRegresion.MetodoPolinomial(parametro);
+                var resultado = MetodoRegresion.MetodoPolinomial(parametro,Convert.ToInt32(Txt_Grado.Text));
                 MostrarResultado(resultado);
             }
             catch (Exception exception)

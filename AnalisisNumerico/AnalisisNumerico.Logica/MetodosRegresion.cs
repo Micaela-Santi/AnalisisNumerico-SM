@@ -45,23 +45,22 @@ namespace AnalisisNumerico.Logica
         }
 
 
-        public ResultadoRegresion MetodoPolinomial(ParametroRegresion parametro)
+        public ResultadoRegresion MetodoPolinomial(ParametroRegresion parametro, int grado)
         {
-            var n = parametro.ValoresX.Count();
+            var n = grado;
             int filas = n + 1;
             int columnas = n + 2;
             double[,] Matriz = new double[filas, columnas];
-            double celda = 0;
 
             int contador = 0;
 
-            for (int i = 0; i <= n; i++)
+            for (int i = 0; i < filas; i++)
             {
-                Matriz[i, n+1] = CalcularSumatoriaConXElevado(parametro.ValoresX, parametro.ValoresY, i);
+                Matriz[i, columnas -1] = CalcularSumatoriaConXElevado(parametro.ValoresX, parametro.ValoresY, i);
 
                 contador = i;
 
-                for (int c = 0; c <= n; c++)
+                for (int c = 0; c < columnas -1; c++)
                 {
 
                     Matriz[i, c] = CalcularSumatoriaConXElevado(parametro.ValoresX, contador);
@@ -70,11 +69,11 @@ namespace AnalisisNumerico.Logica
                 }
 
             }
-            Matriz[0, 0] = n;
+            Matriz[0, 0] = parametro.ValoresX.Count;
             var resultado = Ecuaciones.GaussJordan(new ParametroGaussJordan(filas, columnas)
             {
                 Matriz = Matriz,
-                NumeroIncognitas = n
+                NumeroIncognitas = grado + 1
             });
 
 

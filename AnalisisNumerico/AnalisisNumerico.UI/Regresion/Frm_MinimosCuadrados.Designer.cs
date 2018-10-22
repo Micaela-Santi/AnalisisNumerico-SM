@@ -44,6 +44,8 @@
             this.btn_RegresionPolinomial = new System.Windows.Forms.Button();
             this.Grilla_PuntosMC = new System.Windows.Forms.GroupBox();
             this.Grilla_Res = new System.Windows.Forms.GroupBox();
+            this.Txt_Grado = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -199,11 +201,31 @@
             this.Grilla_Res.TabStop = false;
             this.Grilla_Res.Text = "Resultado";
             // 
+            // Txt_Grado
+            // 
+            this.Txt_Grado.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_Grado.Location = new System.Drawing.Point(674, 68);
+            this.Txt_Grado.Name = "Txt_Grado";
+            this.Txt_Grado.Size = new System.Drawing.Size(88, 27);
+            this.Txt_Grado.TabIndex = 45;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(448, 68);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 23);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "Grado";
+            // 
             // Frm_MinimosCuadrados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 660);
+            this.Controls.Add(this.Txt_Grado);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Grilla_Res);
             this.Controls.Add(this.btn_RegresionPolinomial);
             this.Controls.Add(this.txt_Coeficiente);
@@ -247,5 +269,7 @@
         private System.Windows.Forms.Button btn_RegresionPolinomial;
         private System.Windows.Forms.GroupBox Grilla_PuntosMC;
         private System.Windows.Forms.GroupBox Grilla_Res;
+        private System.Windows.Forms.TextBox Txt_Grado;
+        private System.Windows.Forms.Label label1;
     }
 }
