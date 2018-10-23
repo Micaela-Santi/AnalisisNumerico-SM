@@ -46,6 +46,9 @@
             this.Grilla_Res = new System.Windows.Forms.GroupBox();
             this.Txt_Grado = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_Lagrange = new System.Windows.Forms.Button();
+            this.txt_ValorX = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -122,7 +125,7 @@
             this.btn_Graficar.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Graficar.Location = new System.Drawing.Point(452, 117);
             this.btn_Graficar.Name = "btn_Graficar";
-            this.btn_Graficar.Size = new System.Drawing.Size(148, 32);
+            this.btn_Graficar.Size = new System.Drawing.Size(170, 32);
             this.btn_Graficar.TabIndex = 2;
             this.btn_Graficar.Text = "GRAFICAR";
             this.btn_Graficar.UseVisualStyleBackColor = true;
@@ -131,9 +134,9 @@
             // btn_Limpiar
             // 
             this.btn_Limpiar.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Limpiar.Location = new System.Drawing.Point(452, 358);
+            this.btn_Limpiar.Location = new System.Drawing.Point(452, 434);
             this.btn_Limpiar.Name = "btn_Limpiar";
-            this.btn_Limpiar.Size = new System.Drawing.Size(148, 32);
+            this.btn_Limpiar.Size = new System.Drawing.Size(170, 32);
             this.btn_Limpiar.TabIndex = 5;
             this.btn_Limpiar.Text = "LIMPIAR";
             this.btn_Limpiar.UseVisualStyleBackColor = true;
@@ -144,7 +147,7 @@
             this.btn_RegresionLineal.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_RegresionLineal.Location = new System.Drawing.Point(452, 188);
             this.btn_RegresionLineal.Name = "btn_RegresionLineal";
-            this.btn_RegresionLineal.Size = new System.Drawing.Size(148, 49);
+            this.btn_RegresionLineal.Size = new System.Drawing.Size(170, 49);
             this.btn_RegresionLineal.TabIndex = 3;
             this.btn_RegresionLineal.Text = "REGRESION LINEAL";
             this.btn_RegresionLineal.UseVisualStyleBackColor = true;
@@ -173,7 +176,7 @@
             this.btn_RegresionPolinomial.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_RegresionPolinomial.Location = new System.Drawing.Point(452, 269);
             this.btn_RegresionPolinomial.Name = "btn_RegresionPolinomial";
-            this.btn_RegresionPolinomial.Size = new System.Drawing.Size(148, 45);
+            this.btn_RegresionPolinomial.Size = new System.Drawing.Size(170, 45);
             this.btn_RegresionPolinomial.TabIndex = 4;
             this.btn_RegresionPolinomial.Text = "REGRESION POLINOMIAL";
             this.btn_RegresionPolinomial.UseVisualStyleBackColor = true;
@@ -204,7 +207,7 @@
             // Txt_Grado
             // 
             this.Txt_Grado.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_Grado.Location = new System.Drawing.Point(674, 68);
+            this.Txt_Grado.Location = new System.Drawing.Point(534, 64);
             this.Txt_Grado.Name = "Txt_Grado";
             this.Txt_Grado.Size = new System.Drawing.Size(88, 27);
             this.Txt_Grado.TabIndex = 45;
@@ -219,11 +222,43 @@
             this.label1.TabIndex = 46;
             this.label1.Text = "Grado";
             // 
+            // btn_Lagrange
+            // 
+            this.btn_Lagrange.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Lagrange.Location = new System.Drawing.Point(452, 349);
+            this.btn_Lagrange.Name = "btn_Lagrange";
+            this.btn_Lagrange.Size = new System.Drawing.Size(170, 45);
+            this.btn_Lagrange.TabIndex = 47;
+            this.btn_Lagrange.Text = "INTERPOLACION LAGRANGE";
+            this.btn_Lagrange.UseVisualStyleBackColor = true;
+            this.btn_Lagrange.Click += new System.EventHandler(this.btn_Lagrange_Click);
+            // 
+            // txt_ValorX
+            // 
+            this.txt_ValorX.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ValorX.Location = new System.Drawing.Point(763, 64);
+            this.txt_ValorX.Name = "txt_ValorX";
+            this.txt_ValorX.Size = new System.Drawing.Size(88, 27);
+            this.txt_ValorX.TabIndex = 48;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(668, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 23);
+            this.label3.TabIndex = 49;
+            this.label3.Text = "Valor X";
+            // 
             // Frm_MinimosCuadrados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 660);
+            this.Controls.Add(this.txt_ValorX);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btn_Lagrange);
             this.Controls.Add(this.Txt_Grado);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Grilla_Res);
@@ -271,5 +306,8 @@
         private System.Windows.Forms.GroupBox Grilla_Res;
         private System.Windows.Forms.TextBox Txt_Grado;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_Lagrange;
+        private System.Windows.Forms.TextBox txt_ValorX;
+        private System.Windows.Forms.Label label3;
     }
 }

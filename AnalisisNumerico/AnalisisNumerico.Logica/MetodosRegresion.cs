@@ -92,6 +92,36 @@ namespace AnalisisNumerico.Logica
 
         }
 
+
+        public ResultadoRegresion MetodoLagrange(ParametroRegresion parametro, double ValorX)
+        {
+            int CantPuntos = parametro.ValoresX.Count;
+            double Resultado = 0;
+
+            for (int j = 0; j < CantPuntos ; j++)
+            {
+                double Productoria = 1;
+
+                for (int i = 0; i < CantPuntos; i++)
+                {
+                    if (j!= i)
+                    {
+                        Productoria = Productoria * ((ValorX - parametro.ValoresX[i]) / (parametro.ValoresX[j] - parametro.ValoresX[i]));  
+                    }
+                }
+
+                Resultado += Productoria * parametro.ValoresY[j];
+            }
+
+            ResultadoRegresion retornar = new ResultadoRegresion();
+
+            retornar.Resultado.Add(Resultado);
+            retornar.CoeficienteCorrelacion = 0;
+
+            return retornar;
+        }
+
+
         private double CalcularSumatoriaConXElevado(List<double> valoresX, List<double> valoresY, int exponente)
         {
             double resultado = 0;

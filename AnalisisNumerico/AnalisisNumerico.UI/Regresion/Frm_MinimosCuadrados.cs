@@ -132,7 +132,14 @@ namespace AnalisisNumerico.UI.Regresion
                     }
                     else
                     {
-                        ResultadoMat[x, y].Text = "A" + x;
+                        if (resultado.Resultado.Count == 1)
+                        {
+                            ResultadoMat[x, y].Text = "F(x)";
+                        }
+                        else
+                        {
+                            ResultadoMat[x, y].Text = "A" + x;
+                        }
                     }
                     
                     ResultadoMat[x, y].Top = (x * Matriz[x, y].Height) + 20;
@@ -157,6 +164,26 @@ namespace AnalisisNumerico.UI.Regresion
                 }
 
                 var resultado = MetodoRegresion.MetodoPolinomial(parametro,Convert.ToInt32(Txt_Grado.Text));
+                MostrarResultado(resultado);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
+        private void btn_Lagrange_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ParametroRegresion parametro = new ParametroRegresion();
+                for (int i = 0; i < Convert.ToInt16(txt_CantidadPuntos.Text); i++)
+                {
+                    parametro.ValoresX.Add(Convert.ToDouble(Matriz[i, 0].Text));
+                    parametro.ValoresY.Add(Convert.ToDouble(Matriz[i, 1].Text));
+                }
+
+                var resultado = MetodoRegresion.MetodoLagrange(parametro, Convert.ToInt32(txt_ValorX.Text));
                 MostrarResultado(resultado);
             }
             catch (Exception exception)
