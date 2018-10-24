@@ -142,12 +142,14 @@ namespace AnalisisNumerico.Logica
 
         private double CalcularCoeficienteDeCorrelacion(ParametroRegresion parametro, double PromedioY, List<double> A)
         {
-            double St = parametro.ValoresY.Sum(x => Math.Abs(PromedioY - x));
+            double St = parametro.ValoresY.Sum(x => Math.Pow(PromedioY - x,2));
             double Sr = 0;
             double Aux = 0;
+
             for (int i = 0; i < parametro.ValoresX.Count; i++)
             {
                 double sumA = 0;
+                Aux = 0;
 
                 for (int c = (A.Count - 1); c != 0; c--)
                 {
