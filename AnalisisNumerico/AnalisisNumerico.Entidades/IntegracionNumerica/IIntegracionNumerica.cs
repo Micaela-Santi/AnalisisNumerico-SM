@@ -8,5 +8,8 @@ namespace AnalisisNumerico.Entidades.IntegracionNumerica
 {
     public interface IIntegracionNumerica
     {
+        ResultadoIntegracionNumerica MetodoDelTrapecioSimple(ParametroTrapecioSimple parametro);
+        ResultadoIntegracionNumerica MetodoDelTrapecioMultiple(ParametroTrapecioMultiple parametro);
     }
+
 }
