@@ -92,7 +92,7 @@ namespace AnalisisNumerico.Logica
 
             return new ResultadoIntegracionNumerica
             {
-                Valor = area;
+                Valor = area
             };
 
             throw new NotImplementedException();
