@@ -12,6 +12,7 @@ namespace AnalisisNumerico.Entidades.IntegracionNumerica
         ResultadoIntegracionNumerica MetodoDelTrapecioMultiple(ParametroTrapecioMultiple parametro);
         ResultadoIntegracionNumerica SimpsonUnTercio(ParametroSimpsonUnTercio parametro);
         ResultadoIntegracionNumerica SimpsonUnTercioMultiple(ParametroSimpsonUnTercioMultiple parametro);
+        ResultadoIntegracionNumerica SimpsonTresOctavos(ParametroSimpsonUnTercioMultiple parametro);
     }
 
 }

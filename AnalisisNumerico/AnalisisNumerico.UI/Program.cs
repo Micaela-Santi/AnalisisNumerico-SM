@@ -8,6 +8,7 @@ using AnalisisNumerico.UI.Gauss_Seidel;
 using AnalisisNumerico.Entidades.Regresion;
 using AnalisisNumerico.UI.Regresion;
 using AnalisisNumerico.Entidades.Ecuaciones;
+using AnalisisNumerico.Entidades.IntegracionNumerica;
 
 namespace AnalisisNumerico.UI
 {
@@ -30,6 +31,8 @@ namespace AnalisisNumerico.UI
             container.Register<IMetodosRaices, MetodosRaices>();
             container.Register<IEcuaciones, MetodosEcuaciones>();
             container.Register<IRegresion, MetodosRegresion>();
+            container.Register<IIntegracionNumerica, MetodosIntegracionNumerica>();
+            container.Register<IUtilidad, Utilidad>();
             container.Register<Frm_ParametrosGaussJordan>();
             container.Register<Frm_Inicio>();
             container.Register<Frm_MetodosCompuesto>();
