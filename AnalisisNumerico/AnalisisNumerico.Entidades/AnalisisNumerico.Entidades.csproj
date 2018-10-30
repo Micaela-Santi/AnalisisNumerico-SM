@@ -45,6 +45,8 @@
     <Compile Include="Ecuaciones\ParametroGaussSeided.cs" />
     <Compile Include="Ecuaciones\ResultadoEcuacionesGaussSeided.cs" />
     <Compile Include="IntegracionNumerica\IIntegracionNumerica.cs" />
+    <Compile Include="IntegracionNumerica\ParametroSimpsonUnTercio.cs" />
+    <Compile Include="IntegracionNumerica\ParametroSimpsonUnTercioMultiple.cs" />
     <Compile Include="IntegracionNumerica\ParametroTrapecioMultiple.cs" />
     <Compile Include="IntegracionNumerica\ParametroTrapecioSimple.cs" />
     <Compile Include="IntegracionNumerica\ResultadoIntegracionNumerica.cs" />

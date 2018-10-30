@@ -15,7 +15,6 @@ namespace AnalisisNumerico.Logica
             Ecuaciones = ecuaciones;
         }
 
-
         public ResultadoRegresion MetodoRegresionLineal(ParametroRegresion parametro)
         {
             ResultadoRegresion Devolver = new ResultadoRegresion();
@@ -43,7 +42,6 @@ namespace AnalisisNumerico.Logica
 
             return Devolver;
         }
-
 
         public ResultadoRegresion MetodoPolinomial(ParametroRegresion parametro, int grado)
         {
@@ -92,7 +90,6 @@ namespace AnalisisNumerico.Logica
 
         }
 
-
         public ResultadoRegresion MetodoLagrange(ParametroRegresion parametro, double ValorX)
         {
             int CantPuntos = parametro.ValoresX.Count;
@@ -121,7 +118,6 @@ namespace AnalisisNumerico.Logica
             return retornar;
         }
 
-
         private double CalcularSumatoriaConXElevado(List<double> valoresX, List<double> valoresY, int exponente)
         {
             double resultado = 0;
@@ -138,7 +134,6 @@ namespace AnalisisNumerico.Logica
         {
             return valoresX.Sum(x => Math.Pow(x, exponente));
         }
-
 
         private double CalcularCoeficienteDeCorrelacion(ParametroRegresion parametro, double PromedioY, List<double> A)
         {
@@ -164,5 +159,6 @@ namespace AnalisisNumerico.Logica
 
             return Math.Sqrt(Coeficiente)* 100;
         }
+
     }
 }

@@ -1,10 +1,6 @@
 ﻿using AnalisisNumerico.Entidades.IntegracionNumerica;
 using org.mariuszgromada.math.mxparser;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnalisisNumerico.Logica
 {
@@ -21,7 +17,7 @@ namespace AnalisisNumerico.Logica
 
             while (X < parametro.ValorB)
             {
-                sumatoria += EvaluarFuncion(parametro.Funcion,X);
+                sumatoria += EvaluarFuncion(parametro.Funcion, X);
             }
 
             double resultado = (h / 2) * (FValorA + (2 * sumatoria) + FValorB);
@@ -50,6 +46,56 @@ namespace AnalisisNumerico.Logica
             {
                 Valor = resultado
             };
+        }
+
+        public ResultadoIntegracionNumerica SimpsonUnTercio(ParametroSimpsonUnTercio parametro)
+        {
+            double puntoMedio = (parametro.ValorA + parametro.ValorB) / 2;
+            double h = parametro.ValorB - parametro.ValorA / 2;
+            double area = 0;
+            area = EvaluarFuncion(parametro.Funcion, parametro.ValorA) + (EvaluarFuncion(parametro.Funcion, puntoMedio) * 4) + EvaluarFuncion(parametro.Funcion, parametro.ValorB);
+            area = area * (h / 3);
+
+            return new ResultadoIntegracionNumerica
+            {
+                Valor = area
+            };
+        }
+
+        public ResultadoIntegracionNumerica SimpsonUnTercioMultiple(ParametroSimpsonUnTercioMultiple parametro)
+        {
+            double h = (parametro.ValorB - parametro.ValorA) / parametro.CantIntervalos;
+
+            double sumatoriaX1 = 0;
+            double sumatoriaX2 = 0;
+            double valorX = parametro.ValorA + h;
+
+            for (int i = 1; i < (parametro.CantIntervalos-1);  i += 2)
+            {
+                sumatoriaX1 += EvaluarFuncion(parametro.Funcion, valorX);
+
+                valorX += h;
+            }
+
+            valorX = parametro.ValorA + h;
+
+            for (int i = 1; i < (parametro.CantIntervalos-2); i += 2)
+            {
+                sumatoriaX2 += EvaluarFuncion(parametro.Funcion,valorX);
+
+                valorX += h;
+            }
+
+            double area = 0;
+            area = EvaluarFuncion(parametro.Funcion,parametro.ValorA) + (4 * sumatoriaX1) + (sumatoriaX2 * 2) + EvaluarFuncion(parametro.Funcion,parametro.ValorB);
+            area = area * (h / 3);
+
+            return new ResultadoIntegracionNumerica
+            {
+                Valor = area;
+            };
+
+            throw new NotImplementedException();
         }
 
         private double EvaluarFuncion(string funcionParametro, double valor)
