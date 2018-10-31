@@ -46,15 +46,8 @@
             this.gaussSeidelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uNIDAD3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regresionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.polinomiosDeInterpolacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uNIDAD4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trapeciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.simpleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.multipleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.simpson13ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.simpleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.multipleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.simpson38ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tEORIAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unidad1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.unidad2ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -219,8 +212,7 @@
             // uNIDAD3ToolStripMenuItem
             // 
             this.uNIDAD3ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.regresionToolStripMenuItem,
-            this.polinomiosDeInterpolacionToolStripMenuItem});
+            this.regresionToolStripMenuItem});
             this.uNIDAD3ToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uNIDAD3ToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.uNIDAD3ToolStripMenuItem.Name = "uNIDAD3ToolStripMenuItem";
@@ -231,23 +223,14 @@
             // 
             this.regresionToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.regresionToolStripMenuItem.Name = "regresionToolStripMenuItem";
-            this.regresionToolStripMenuItem.Size = new System.Drawing.Size(305, 22);
+            this.regresionToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.regresionToolStripMenuItem.Text = "Regresión";
             this.regresionToolStripMenuItem.Click += new System.EventHandler(this.regresionToolStripMenuItem_Click);
-            // 
-            // polinomiosDeInterpolacionToolStripMenuItem
-            // 
-            this.polinomiosDeInterpolacionToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.polinomiosDeInterpolacionToolStripMenuItem.Name = "polinomiosDeInterpolacionToolStripMenuItem";
-            this.polinomiosDeInterpolacionToolStripMenuItem.Size = new System.Drawing.Size(305, 22);
-            this.polinomiosDeInterpolacionToolStripMenuItem.Text = "Polinomios de Interpolación";
             // 
             // uNIDAD4ToolStripMenuItem
             // 
             this.uNIDAD4ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.trapeciosToolStripMenuItem,
-            this.simpson13ToolStripMenuItem,
-            this.simpson38ToolStripMenuItem});
+            this.trapeciosToolStripMenuItem});
             this.uNIDAD4ToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uNIDAD4ToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.uNIDAD4ToolStripMenuItem.Name = "uNIDAD4ToolStripMenuItem";
@@ -256,56 +239,11 @@
             // 
             // trapeciosToolStripMenuItem
             // 
-            this.trapeciosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.simpleToolStripMenuItem,
-            this.multipleToolStripMenuItem});
             this.trapeciosToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trapeciosToolStripMenuItem.Name = "trapeciosToolStripMenuItem";
-            this.trapeciosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.trapeciosToolStripMenuItem.Text = "Trapecios";
-            // 
-            // simpleToolStripMenuItem
-            // 
-            this.simpleToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleToolStripMenuItem.Name = "simpleToolStripMenuItem";
-            this.simpleToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.simpleToolStripMenuItem.Text = "Simple ";
-            // 
-            // multipleToolStripMenuItem
-            // 
-            this.multipleToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.multipleToolStripMenuItem.Name = "multipleToolStripMenuItem";
-            this.multipleToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.multipleToolStripMenuItem.Text = "Multiple";
-            // 
-            // simpson13ToolStripMenuItem
-            // 
-            this.simpson13ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.simpleToolStripMenuItem1,
-            this.multipleToolStripMenuItem1});
-            this.simpson13ToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpson13ToolStripMenuItem.Name = "simpson13ToolStripMenuItem";
-            this.simpson13ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.simpson13ToolStripMenuItem.Text = "Simpson 1/3";
-            // 
-            // simpleToolStripMenuItem1
-            // 
-            this.simpleToolStripMenuItem1.Name = "simpleToolStripMenuItem1";
-            this.simpleToolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
-            this.simpleToolStripMenuItem1.Text = "Simple ";
-            // 
-            // multipleToolStripMenuItem1
-            // 
-            this.multipleToolStripMenuItem1.Name = "multipleToolStripMenuItem1";
-            this.multipleToolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
-            this.multipleToolStripMenuItem1.Text = "Multiple";
-            // 
-            // simpson38ToolStripMenuItem
-            // 
-            this.simpson38ToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpson38ToolStripMenuItem.Name = "simpson38ToolStripMenuItem";
-            this.simpson38ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.simpson38ToolStripMenuItem.Text = "Simpson 3/8";
+            this.trapeciosToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
+            this.trapeciosToolStripMenuItem.Text = "Integración Numerica";
+            this.trapeciosToolStripMenuItem.Click += new System.EventHandler(this.trapeciosToolStripMenuItem_Click);
             // 
             // tEORIAToolStripMenuItem
             // 
@@ -401,15 +339,8 @@
         private System.Windows.Forms.ToolStripMenuItem gaussSeidelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uNIDAD3ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem regresionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem polinomiosDeInterpolacionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uNIDAD4ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trapeciosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem simpleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem multipleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem simpson13ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem simpleToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem multipleToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem simpson38ToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolStripMenuItem tEORIAToolStripMenuItem;

@@ -81,6 +81,12 @@
     <Compile Include="Gauss-Jordan\Frm_ParametrosGaussJordan.Designer.cs">
       <DependentUpon>Frm_ParametrosGaussJordan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Integracion Numerica\Frm_IntegracionNumerica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Integracion Numerica\Frm_IntegracionNumerica.Designer.cs">
+      <DependentUpon>Frm_IntegracionNumerica.cs</DependentUpon>
+    </Compile>
     <Compile Include="Raices\Frm_MetodosSimple.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gauss-Jordan\Frm_ParametrosGaussJordan.resx">
       <DependentUpon>Frm_ParametrosGaussJordan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Integracion Numerica\Frm_IntegracionNumerica.resx">
+      <DependentUpon>Frm_IntegracionNumerica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raices\Frm_MetodosSimple.resx">
       <DependentUpon>Frm_MetodosSimple.cs</DependentUpon>
@@ -347,5 +356,6 @@
     <Content Include="docs\stylesheet.css" />
     <Content Include="docs\type-search-index.js" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

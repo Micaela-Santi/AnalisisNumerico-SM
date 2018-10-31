@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using AnalisisNumerico.UI.Gauss_Jordan;
 using AnalisisNumerico.UI.Gauss_Seidel;
+using AnalisisNumerico.UI.Integracion_Numerica;
 using AnalisisNumerico.UI.Regresion;
 using AnalisisNumerico.UI.Teoria;
 
@@ -87,6 +88,12 @@ namespace AnalisisNumerico.UI
         private void regresionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Program.container.GetInstance<Frm_MinimosCuadrados>();
+            form.Show();
+        }
+
+        private void trapeciosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Program.container.GetInstance<Frm_IntegracionNumerica>();
             form.Show();
         }
     }

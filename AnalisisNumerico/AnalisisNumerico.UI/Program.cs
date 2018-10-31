@@ -9,6 +9,7 @@ using AnalisisNumerico.Entidades.Regresion;
 using AnalisisNumerico.UI.Regresion;
 using AnalisisNumerico.Entidades.Ecuaciones;
 using AnalisisNumerico.Entidades.IntegracionNumerica;
+using AnalisisNumerico.UI.Integracion_Numerica;
 
 namespace AnalisisNumerico.UI
 {
@@ -39,6 +40,7 @@ namespace AnalisisNumerico.UI
             container.Register<Frm_MetodosSimple>();
             container.Register<Frm_ParametroGaussSeidel>();
             container.Register<Frm_MinimosCuadrados>();
+            container.Register<Frm_IntegracionNumerica>();
         }
     }
 }
