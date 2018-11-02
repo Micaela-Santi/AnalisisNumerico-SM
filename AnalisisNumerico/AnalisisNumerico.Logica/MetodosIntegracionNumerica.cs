@@ -125,11 +125,16 @@ namespace AnalisisNumerico.Logica
 
             double ValorX1 = ValorAPrima + h;
             double valorX2 = ValorX1 + h;
-            double area = Utilidad.EvaluarFuncion(parametro.Funcion, ValorAPrima)
+            double Suma = Utilidad.EvaluarFuncion(parametro.Funcion, ValorAPrima)
                             + (3 * Utilidad.EvaluarFuncion(parametro.Funcion, ValorX1))
                             + (3 * Utilidad.EvaluarFuncion(parametro.Funcion, valorX2))
                             + Utilidad.EvaluarFuncion(parametro.Funcion, parametro.ValorB);
-            area = area * (h * (3/8));
+            double area = Suma * (h * 3/8);
+
+            if (double.IsNaN(resultadoUnTercio.Valor))
+            {
+                resultadoUnTercio.Valor = 0;
+            }
 
             return new ResultadoIntegracionNumerica
             {
