@@ -82,36 +82,27 @@ namespace AnalisisNumerico.Logica
             double sumatoriaX2 = 0;
             double valorX = parametro.ValorA + h;
 
-            //for (int i = 0; i < (parametro.CantIntervalos - 1); i += 2)
-            //{
-            //    sumatoriaX1 += Utilidad.EvaluarFuncion(parametro.Funcion, valorX);
-            //    valorX += h;
-            //}
-            while (valorX < (parametro.ValorB-h))
+            while (valorX <= (parametro.ValorB - h))
             {
                 sumatoriaX1 += Utilidad.EvaluarFuncion(parametro.Funcion, valorX);
-                valorX += h;
+                valorX += (h * 2);
             }
 
-            valorX = parametro.ValorA + h;
+            valorX = parametro.ValorA + (h * 2);
 
-            while (valorX < (parametro.ValorB - (h*2)))
+            while (valorX <= (parametro.ValorB - (h*2)))
             {
                 sumatoriaX2 += Utilidad.EvaluarFuncion(parametro.Funcion, valorX);
-                valorX += h;
+                valorX += (h * 2);
             }
-            //for (int i = 0; i < (parametro.CantIntervalos - 2); i += 2)
-            //{
-            //    sumatoriaX2 += Utilidad.EvaluarFuncion(parametro.Funcion, valorX);
-            //    valorX += h;
-            //}
 
-            double area = 0;
-            area = Utilidad.EvaluarFuncion(parametro.Funcion, parametro.ValorA) 
+            double SUMA = 0;
+            SUMA = Utilidad.EvaluarFuncion(parametro.Funcion, parametro.ValorA) 
                 + (4 * sumatoriaX1) 
                 + (sumatoriaX2 * 2) 
                 + Utilidad.EvaluarFuncion(parametro.Funcion, parametro.ValorB);
-            area = area * (h / 3);
+
+            var area = SUMA * (h / 3);
 
             return new ResultadoIntegracionNumerica
             {
@@ -138,7 +129,7 @@ namespace AnalisisNumerico.Logica
                             + (3 * Utilidad.EvaluarFuncion(parametro.Funcion, ValorX1))
                             + (3 * Utilidad.EvaluarFuncion(parametro.Funcion, valorX2))
                             + Utilidad.EvaluarFuncion(parametro.Funcion, parametro.ValorB);
-            area = area * (3 / 8 * h);
+            area = area * (h * (3/8));
 
             return new ResultadoIntegracionNumerica
             {

@@ -18,6 +18,7 @@ namespace AnalisisNumerico.UI.Integracion_Numerica
         {
             InitializeComponent();
             integracionNumerica = integracionNumetica;
+            txt_Funcion.Text = "F(x)=";
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -41,7 +42,7 @@ namespace AnalisisNumerico.UI.Integracion_Numerica
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message);    
+                MessageBox.Show(exception.Message);
             }
         }
 
