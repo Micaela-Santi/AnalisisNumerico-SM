@@ -105,5 +105,25 @@ namespace AnalisisNumerico.UI.Integracion_Numerica
                 MessageBox.Show(exception.Message);
             }
         }
+
+        private void btn_Simpsontresoctavos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ParametroSimpsonUnTercioMultiple parametro = new ParametroSimpsonUnTercioMultiple
+                {
+                    Funcion = txt_Funcion.Text,
+                    CantIntervalos = Convert.ToInt32(txt_CantIntervalos.Text),
+                    ValorA = Convert.ToDouble(txt_ValorA.Text),
+                    ValorB = Convert.ToDouble(txt_ValorB.Text)
+                };
+                var resultado = integracionNumerica.SimpsonUnTercioMultiple(parametro);
+                txt_Resultado.Text = resultado.Valor.ToString("0.000000");
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
     }
 }

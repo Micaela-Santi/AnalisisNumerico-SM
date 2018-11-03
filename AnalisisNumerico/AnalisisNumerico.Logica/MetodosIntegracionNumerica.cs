@@ -20,7 +20,7 @@ namespace AnalisisNumerico.Logica
             double X = parametro.ValorA + h;
             double sumatoria = 0;
 
-            while (X < parametro.ValorB)
+            while (X < (parametro.ValorB - h))
             {
                 sumatoria += Utilidad.EvaluarFuncion(parametro.Funcion, X);
                 X += h;
@@ -58,11 +58,11 @@ namespace AnalisisNumerico.Logica
         {
             double puntoMedio = (parametro.ValorA + parametro.ValorB) / 2;
             double h = (parametro.ValorB - parametro.ValorA) / 2;
-            double area = 0;
-            area = Utilidad.EvaluarFuncion(parametro.Funcion, parametro.ValorA)
+            double SUMA = 0;
+            SUMA = Utilidad.EvaluarFuncion(parametro.Funcion, parametro.ValorA)
                     + (Utilidad.EvaluarFuncion(parametro.Funcion, puntoMedio) * 4)
-                    +  Utilidad.EvaluarFuncion(parametro.Funcion, parametro.ValorB);
-            area = area * (h / 3);
+                    + Utilidad.EvaluarFuncion(parametro.Funcion, parametro.ValorB);
+            double area = SUMA * (h / 3);
 
             return new ResultadoIntegracionNumerica
             {
@@ -72,7 +72,7 @@ namespace AnalisisNumerico.Logica
 
         public ResultadoIntegracionNumerica SimpsonUnTercioMultiple(ParametroSimpsonUnTercioMultiple parametro)
         {
-            if (Math.Pow(-1,parametro.CantIntervalos) < 0)
+            if (Math.Pow(-1, parametro.CantIntervalos) < 0)
             {
                 return SimpsonTresOctavos(parametro);
             }
@@ -90,16 +90,16 @@ namespace AnalisisNumerico.Logica
 
             valorX = parametro.ValorA + (h * 2);
 
-            while (valorX <= (parametro.ValorB - (h*2)))
+            while (valorX <= (parametro.ValorB - (h * 2)))
             {
                 sumatoriaX2 += Utilidad.EvaluarFuncion(parametro.Funcion, valorX);
                 valorX += (h * 2);
             }
 
             double SUMA = 0;
-            SUMA = Utilidad.EvaluarFuncion(parametro.Funcion, parametro.ValorA) 
-                + (4 * sumatoriaX1) 
-                + (sumatoriaX2 * 2) 
+            SUMA = Utilidad.EvaluarFuncion(parametro.Funcion, parametro.ValorA)
+                + (4 * sumatoriaX1)
+                + (sumatoriaX2 * 2)
                 + Utilidad.EvaluarFuncion(parametro.Funcion, parametro.ValorB);
 
             var area = SUMA * (h / 3);
@@ -123,13 +123,15 @@ namespace AnalisisNumerico.Logica
                 Funcion = parametro.Funcion
             });
 
+
             double ValorX1 = ValorAPrima + h;
             double valorX2 = ValorX1 + h;
-            double Suma = Utilidad.EvaluarFuncion(parametro.Funcion, ValorAPrima)
-                            + (3 * Utilidad.EvaluarFuncion(parametro.Funcion, ValorX1))
-                            + (3 * Utilidad.EvaluarFuncion(parametro.Funcion, valorX2))
-                            + Utilidad.EvaluarFuncion(parametro.Funcion, parametro.ValorB);
-            double area = Suma * (h * 3/8);
+            double Suma = 0;
+            Suma += Utilidad.EvaluarFuncion(parametro.Funcion, ValorAPrima);
+            Suma += (3 * Utilidad.EvaluarFuncion(parametro.Funcion, ValorX1));
+            Suma += (3 * Utilidad.EvaluarFuncion(parametro.Funcion, valorX2));
+            Suma += Utilidad.EvaluarFuncion(parametro.Funcion, parametro.ValorB);
+            double area = Suma * (h * 3 / 8);
 
             if (double.IsNaN(resultadoUnTercio.Valor))
             {

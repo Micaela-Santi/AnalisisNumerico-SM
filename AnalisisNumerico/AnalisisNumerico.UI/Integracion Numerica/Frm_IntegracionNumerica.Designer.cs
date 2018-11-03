@@ -48,6 +48,7 @@
             this.btn_TrapercioMultiple = new System.Windows.Forms.Button();
             this.btn_SimpsonUnTercioMultiple = new System.Windows.Forms.Button();
             this.btn_SimpsonUnTercio = new System.Windows.Forms.Button();
+            this.btn_Simpsontresoctavos = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -58,8 +59,8 @@
             this.btn_TrapecioSimple.Location = new System.Drawing.Point(552, 54);
             this.btn_TrapecioSimple.Name = "btn_TrapecioSimple";
             this.btn_TrapecioSimple.Size = new System.Drawing.Size(182, 45);
-            this.btn_TrapecioSimple.TabIndex = 23;
-            this.btn_TrapecioSimple.Text = "Trapecio Simple";
+            this.btn_TrapecioSimple.TabIndex = 5;
+            this.btn_TrapecioSimple.Text = "Trapezoidal Simple";
             this.btn_TrapecioSimple.UseVisualStyleBackColor = true;
             this.btn_TrapecioSimple.Click += new System.EventHandler(this.btn_TrapecioSimple_Click);
             // 
@@ -68,8 +69,8 @@
             this.txt_Resultado.Location = new System.Drawing.Point(282, 343);
             this.txt_Resultado.Multiline = true;
             this.txt_Resultado.Name = "txt_Resultado";
-            this.txt_Resultado.Size = new System.Drawing.Size(138, 20);
-            this.txt_Resultado.TabIndex = 25;
+            this.txt_Resultado.Size = new System.Drawing.Size(191, 20);
+            this.txt_Resultado.TabIndex = 10;
             // 
             // lbl_Resultado
             // 
@@ -85,8 +86,8 @@
             // 
             this.txt_Funcion.Location = new System.Drawing.Point(282, 64);
             this.txt_Funcion.Name = "txt_Funcion";
-            this.txt_Funcion.Size = new System.Drawing.Size(138, 20);
-            this.txt_Funcion.TabIndex = 19;
+            this.txt_Funcion.Size = new System.Drawing.Size(191, 20);
+            this.txt_Funcion.TabIndex = 1;
             // 
             // lbl_Funcion
             // 
@@ -102,8 +103,8 @@
             // 
             this.txt_ValorB.Location = new System.Drawing.Point(282, 208);
             this.txt_ValorB.Name = "txt_ValorB";
-            this.txt_ValorB.Size = new System.Drawing.Size(138, 20);
-            this.txt_ValorB.TabIndex = 21;
+            this.txt_ValorB.Size = new System.Drawing.Size(191, 20);
+            this.txt_ValorB.TabIndex = 3;
             // 
             // lbl_ValorInicial
             // 
@@ -119,8 +120,8 @@
             // 
             this.txt_ValorA.Location = new System.Drawing.Point(282, 138);
             this.txt_ValorA.Name = "txt_ValorA";
-            this.txt_ValorA.Size = new System.Drawing.Size(138, 20);
-            this.txt_ValorA.TabIndex = 20;
+            this.txt_ValorA.Size = new System.Drawing.Size(191, 20);
+            this.txt_ValorA.TabIndex = 2;
             // 
             // panel3
             // 
@@ -181,8 +182,8 @@
             this.txt_CantIntervalos.Location = new System.Drawing.Point(282, 273);
             this.txt_CantIntervalos.Multiline = true;
             this.txt_CantIntervalos.Name = "txt_CantIntervalos";
-            this.txt_CantIntervalos.Size = new System.Drawing.Size(138, 20);
-            this.txt_CantIntervalos.TabIndex = 32;
+            this.txt_CantIntervalos.Size = new System.Drawing.Size(191, 20);
+            this.txt_CantIntervalos.TabIndex = 4;
             // 
             // label3
             // 
@@ -199,9 +200,9 @@
             this.btn_TrapercioMultiple.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_TrapercioMultiple.Location = new System.Drawing.Point(552, 127);
             this.btn_TrapercioMultiple.Name = "btn_TrapercioMultiple";
-            this.btn_TrapercioMultiple.Size = new System.Drawing.Size(182, 45);
-            this.btn_TrapercioMultiple.TabIndex = 34;
-            this.btn_TrapercioMultiple.Text = "Trapercio Multiple";
+            this.btn_TrapercioMultiple.Size = new System.Drawing.Size(182, 49);
+            this.btn_TrapercioMultiple.TabIndex = 6;
+            this.btn_TrapercioMultiple.Text = "Trapezoidal Multiple";
             this.btn_TrapercioMultiple.UseVisualStyleBackColor = true;
             this.btn_TrapercioMultiple.Click += new System.EventHandler(this.btn_TrapercioMultiple_Click);
             // 
@@ -211,7 +212,7 @@
             this.btn_SimpsonUnTercioMultiple.Location = new System.Drawing.Point(552, 288);
             this.btn_SimpsonUnTercioMultiple.Name = "btn_SimpsonUnTercioMultiple";
             this.btn_SimpsonUnTercioMultiple.Size = new System.Drawing.Size(182, 51);
-            this.btn_SimpsonUnTercioMultiple.TabIndex = 36;
+            this.btn_SimpsonUnTercioMultiple.TabIndex = 8;
             this.btn_SimpsonUnTercioMultiple.Text = "Simpson 1/3 Multiple";
             this.btn_SimpsonUnTercioMultiple.UseVisualStyleBackColor = true;
             this.btn_SimpsonUnTercioMultiple.Click += new System.EventHandler(this.btn_SimpsonUnTercioMultiple_Click);
@@ -222,16 +223,28 @@
             this.btn_SimpsonUnTercio.Location = new System.Drawing.Point(552, 197);
             this.btn_SimpsonUnTercio.Name = "btn_SimpsonUnTercio";
             this.btn_SimpsonUnTercio.Size = new System.Drawing.Size(182, 56);
-            this.btn_SimpsonUnTercio.TabIndex = 35;
+            this.btn_SimpsonUnTercio.TabIndex = 7;
             this.btn_SimpsonUnTercio.Text = "Simpson 1/3 Simple";
             this.btn_SimpsonUnTercio.UseVisualStyleBackColor = true;
             this.btn_SimpsonUnTercio.Click += new System.EventHandler(this.btn_SimpsonUnTercio_Click);
+            // 
+            // btn_Simpsontresoctavos
+            // 
+            this.btn_Simpsontresoctavos.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Simpsontresoctavos.Location = new System.Drawing.Point(552, 374);
+            this.btn_Simpsontresoctavos.Name = "btn_Simpsontresoctavos";
+            this.btn_Simpsontresoctavos.Size = new System.Drawing.Size(182, 51);
+            this.btn_Simpsontresoctavos.TabIndex = 9;
+            this.btn_Simpsontresoctavos.Text = "Simpson 3/8";
+            this.btn_Simpsontresoctavos.UseVisualStyleBackColor = true;
+            this.btn_Simpsontresoctavos.Click += new System.EventHandler(this.btn_Simpsontresoctavos_Click);
             // 
             // Frm_IntegracionNumerica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 497);
+            this.Controls.Add(this.btn_Simpsontresoctavos);
             this.Controls.Add(this.btn_SimpsonUnTercioMultiple);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_SimpsonUnTercio);
@@ -283,5 +296,6 @@
         private System.Windows.Forms.Button btn_TrapercioMultiple;
         private System.Windows.Forms.Button btn_SimpsonUnTercioMultiple;
         private System.Windows.Forms.Button btn_SimpsonUnTercio;
+        private System.Windows.Forms.Button btn_Simpsontresoctavos;
     }
 }
