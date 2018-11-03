@@ -123,7 +123,6 @@ namespace AnalisisNumerico.Logica
                 Funcion = parametro.Funcion
             });
 
-
             double ValorX1 = ValorAPrima + h;
             double valorX2 = ValorX1 + h;
             double Suma = 0;
