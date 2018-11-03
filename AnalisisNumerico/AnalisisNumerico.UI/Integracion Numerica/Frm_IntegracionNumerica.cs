@@ -39,6 +39,7 @@ namespace AnalisisNumerico.UI.Integracion_Numerica
 
                 var resultado = integracionNumerica.MetodoDelTrapecioSimple(parametro);
                 txt_Resultado.Text = resultado.Valor.ToString("0.000000");
+                lbl_NomMetodo.Text = btn_TrapecioSimple.Text;
             }
             catch (Exception exception)
             {
@@ -60,6 +61,7 @@ namespace AnalisisNumerico.UI.Integracion_Numerica
 
                 var resultado = integracionNumerica.MetodoDelTrapecioMultiple(parametro);
                 txt_Resultado.Text = resultado.Valor.ToString("0.000000");
+                lbl_NomMetodo.Text = btn_TrapercioMultiple.Text;
             }
             catch (Exception exception)
             {
@@ -79,6 +81,7 @@ namespace AnalisisNumerico.UI.Integracion_Numerica
                 };
                 var resultado = integracionNumerica.SimpsonUnTercio(parametro);
                 txt_Resultado.Text = resultado.Valor.ToString("0.000000");
+                lbl_NomMetodo.Text = btn_SimpsonUnTercio.Text;
             }
             catch (Exception exception)
             {
@@ -99,6 +102,7 @@ namespace AnalisisNumerico.UI.Integracion_Numerica
                 };
                 var resultado = integracionNumerica.SimpsonUnTercioMultiple(parametro);
                 txt_Resultado.Text = resultado.Valor.ToString("0.000000");
+                lbl_NomMetodo.Text = btn_SimpsonUnTercioMultiple.Text;
             }
             catch (Exception exception)
             {
@@ -119,6 +123,7 @@ namespace AnalisisNumerico.UI.Integracion_Numerica
                 };
                 var resultado = integracionNumerica.SimpsonUnTercioMultiple(parametro);
                 txt_Resultado.Text = resultado.Valor.ToString("0.000000");
+                lbl_NomMetodo.Text = btn_Simpsontresoctavos.Text;
             }
             catch (Exception exception)
             {

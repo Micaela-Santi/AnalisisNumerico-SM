@@ -77,23 +77,34 @@ namespace AnalisisNumerico.Logica
                 return SimpsonTresOctavos(parametro);
             }
 
-            double h = (parametro.ValorB - parametro.ValorA) / parametro.CantIntervalos;
+            if (parametro.CantIntervalos == 0)
+            {
+                return new ResultadoIntegracionNumerica { Valor = 0 };
+            }
+
+            double h = 0;
+            decimal Hprima = Convert.ToDecimal(parametro.ValorB - parametro.ValorA) / parametro.CantIntervalos;
+            h = Convert.ToDouble(Hprima);
             double sumatoriaX1 = 0;
             double sumatoriaX2 = 0;
+            decimal valorXprima = Convert.ToDecimal(parametro.ValorA) + Hprima;
             double valorX = parametro.ValorA + h;
 
-            while (valorX <= (parametro.ValorB - h))
+            while (valorXprima <= Convert.ToDecimal(parametro.ValorB) - Hprima)
             {
-                sumatoriaX1 += Utilidad.EvaluarFuncion(parametro.Funcion, valorX);
+                sumatoriaX1 += Utilidad.EvaluarFuncion(parametro.Funcion, Convert.ToDouble(valorXprima));
                 valorX += (h * 2);
+                valorXprima += (Hprima * 2);
             }
 
             valorX = parametro.ValorA + (h * 2);
+            valorXprima = Convert.ToDecimal(parametro.ValorA) + (Hprima * 2);
 
-            while (valorX <= (parametro.ValorB - (h * 2)))
+            while (valorXprima <= Convert.ToDecimal(parametro.ValorB) - (Hprima * 2))
             {
-                sumatoriaX2 += Utilidad.EvaluarFuncion(parametro.Funcion, valorX);
+                sumatoriaX2 += Utilidad.EvaluarFuncion(parametro.Funcion, Convert.ToDouble(valorXprima));
                 valorX += (h * 2);
+                valorXprima += (Hprima * 2);
             }
 
             double SUMA = 0;
@@ -122,13 +133,12 @@ namespace AnalisisNumerico.Logica
                 CantIntervalos = parametro.CantIntervalos - 3,
                 Funcion = parametro.Funcion
             });
-
             double ValorX1 = ValorAPrima + h;
             double valorX2 = ValorX1 + h;
             double Suma = 0;
             Suma += Utilidad.EvaluarFuncion(parametro.Funcion, ValorAPrima);
-            Suma += (3 * Utilidad.EvaluarFuncion(parametro.Funcion, ValorX1));
-            Suma += (3 * Utilidad.EvaluarFuncion(parametro.Funcion, valorX2));
+            Suma += 3 * Utilidad.EvaluarFuncion(parametro.Funcion, ValorX1);
+            Suma += 3 * Utilidad.EvaluarFuncion(parametro.Funcion, valorX2);
             Suma += Utilidad.EvaluarFuncion(parametro.Funcion, parametro.ValorB);
             double area = Suma * (h * 3 / 8);
 
