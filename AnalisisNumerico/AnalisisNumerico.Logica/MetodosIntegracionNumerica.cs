@@ -82,29 +82,24 @@ namespace AnalisisNumerico.Logica
                 return new ResultadoIntegracionNumerica { Valor = 0 };
             }
 
-            double h = 0;
-            decimal Hprima = Convert.ToDecimal(parametro.ValorB - parametro.ValorA) / parametro.CantIntervalos;
-            h = Convert.ToDouble(Hprima);
+            decimal h = Convert.ToDecimal(parametro.ValorB - parametro.ValorA) / parametro.CantIntervalos;
             double sumatoriaX1 = 0;
             double sumatoriaX2 = 0;
-            decimal valorXprima = Convert.ToDecimal(parametro.ValorA) + Hprima;
-            double valorX = parametro.ValorA + h;
+            decimal valorXprima = Convert.ToDecimal(parametro.ValorA) + h;
 
-            while (valorXprima <= Convert.ToDecimal(parametro.ValorB) - Hprima)
+
+            while (valorXprima <= Convert.ToDecimal(parametro.ValorB) - h)
             {
                 sumatoriaX1 += Utilidad.EvaluarFuncion(parametro.Funcion, Convert.ToDouble(valorXprima));
-                valorX += (h * 2);
-                valorXprima += (Hprima * 2);
+                valorXprima += (h * 2);
             }
 
-            valorX = parametro.ValorA + (h * 2);
-            valorXprima = Convert.ToDecimal(parametro.ValorA) + (Hprima * 2);
+            valorXprima = Convert.ToDecimal(parametro.ValorA) + (h * 2);
 
-            while (valorXprima <= Convert.ToDecimal(parametro.ValorB) - (Hprima * 2))
+            while (valorXprima <= Convert.ToDecimal(parametro.ValorB) - (h * 2))
             {
                 sumatoriaX2 += Utilidad.EvaluarFuncion(parametro.Funcion, Convert.ToDouble(valorXprima));
-                valorX += (h * 2);
-                valorXprima += (Hprima * 2);
+                valorXprima += (h * 2);
             }
 
             double SUMA = 0;
@@ -113,7 +108,7 @@ namespace AnalisisNumerico.Logica
                 + (sumatoriaX2 * 2)
                 + Utilidad.EvaluarFuncion(parametro.Funcion, parametro.ValorB);
 
-            var area = SUMA * (h / 3);
+            var area = SUMA * Convert.ToDouble(h / 3);
 
             return new ResultadoIntegracionNumerica
             {
