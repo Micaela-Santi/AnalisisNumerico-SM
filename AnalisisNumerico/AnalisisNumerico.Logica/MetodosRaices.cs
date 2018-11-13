@@ -6,6 +6,12 @@ namespace AnalisisNumerico.Logica
 {
     public class MetodosRaices : IMetodosRaices
     {
+        private readonly IUtilidad Utilidad;
+        public MetodosRaices(IUtilidad utilidad)
+        {
+            Utilidad = utilidad;
+        }
+
         private delegate double MetodoCerradoDelegate(double xi, double xd, string funcion);
 
         private double CalcularXrBiseccion(double xi, double xd, string funcion)
@@ -15,18 +21,9 @@ namespace AnalisisNumerico.Logica
 
         private double CalcularXrReglaFalsa(double xi, double xd, string funcion)
         {
-            var resultadoxi = this.EvaluarFuncion(funcion, xi);
-            var resultadoxd = this.EvaluarFuncion(funcion, xd);
+            var resultadoxi = Utilidad.EvaluarFuncion(funcion, xi);
+            var resultadoxd = Utilidad.EvaluarFuncion(funcion, xd);
             return ((resultadoxd * xi) - (resultadoxi * xd)) / (resultadoxd - resultadoxi);
-        }
-
-        private double EvaluarFuncion(string funcionParametro, double valor)
-        {
-            var funcion = new Function(funcionParametro);
-            var argumento = new Argument("x", valor);
-            var nombre = funcionParametro.Split('=')[0].Trim();
-            var expresion = new Expression(nombre, funcion, argumento);
-            return expresion.calculate();
         }
 
         public ResultadoRegresion Biseccion(ParametroCompuesto parametros)
@@ -42,8 +39,8 @@ namespace AnalisisNumerico.Logica
         private ResultadoRegresion MetodosCerrados(ParametroCompuesto parametros, MetodoCerradoDelegate calcularXr)
         {
             ResultadoRegresion resultado = new ResultadoRegresion();
-            var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
-            var resultadoxd = EvaluarFuncion(parametros.Funcion, parametros.Xd);
+            var resultadoxi = Utilidad.EvaluarFuncion(parametros.Funcion, parametros.Xi);
+            var resultadoxd = Utilidad.EvaluarFuncion(parametros.Funcion, parametros.Xd);
 
             if (resultadoxi.Equals(double.NaN) || resultadoxd.Equals(double.NaN))
             {
@@ -94,11 +91,11 @@ namespace AnalisisNumerico.Logica
                 errorRelativo = (xr - anterior) / xr;
             }
 
-            var resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
+            var resultadoXR = Utilidad.EvaluarFuncion(parametros.Funcion, xr);
 
             while ((Math.Abs(errorRelativo) > parametros.Tolerancia || xr == 0) && contador < parametros.Iteraciones && Math.Abs(resultadoXR) > parametros.Tolerancia)
             {
-                if (EvaluarFuncion(parametros.Funcion, XI) * EvaluarFuncion(parametros.Funcion, xr) > 0)
+                if (Utilidad.EvaluarFuncion(parametros.Funcion, XI) * Utilidad.EvaluarFuncion(parametros.Funcion, xr) > 0)
                 {
                     XI = xr;
                 }
@@ -116,7 +113,7 @@ namespace AnalisisNumerico.Logica
                     errorRelativo = (xr - anterior) / xr;
                 }
 
-                resultadoXR = this.EvaluarFuncion(parametros.Funcion, xr);
+                resultadoXR = Utilidad.EvaluarFuncion(parametros.Funcion, xr);
             }
 
             resultado.Iteraciones = contador;
@@ -134,7 +131,7 @@ namespace AnalisisNumerico.Logica
                 ErrorRelativo = 0
             };
 
-            double resultadoXr = EvaluarFuncion(parametros.Funcion, parametros.Xi);
+            double resultadoXr = Utilidad.EvaluarFuncion(parametros.Funcion, parametros.Xi);
 
             if (resultadoXr.Equals(Double.NaN))
             {
@@ -152,8 +149,8 @@ namespace AnalisisNumerico.Logica
             double ValorX = parametros.Xi;
             double Tolerancia = parametros.Tolerancia;
             double ValorXTole = (ValorX + Tolerancia);
-            double ValorFXTole = EvaluarFuncion(parametros.Funcion, ValorXTole);
-            double ValorXfun = EvaluarFuncion(parametros.Funcion, ValorX);
+            double ValorFXTole = Utilidad.EvaluarFuncion(parametros.Funcion, ValorXTole);
+            double ValorXfun = Utilidad.EvaluarFuncion(parametros.Funcion, ValorX);
             double ValorNumerador = ValorFXTole - ValorXfun;
             double Derivada = ValorNumerador / Tolerancia;
             double xr = 0;
@@ -166,8 +163,8 @@ namespace AnalisisNumerico.Logica
                     throw new NoRaizException(ValorX, "La Recta TG en este punto es horizontal", Contador);
                 }
 
-                xr = ValorX - (EvaluarFuncion(parametros.Funcion, ValorX) / Derivada);
-                resultadoXr = EvaluarFuncion(parametros.Funcion, xr);
+                xr = ValorX - (Utilidad.EvaluarFuncion(parametros.Funcion, ValorX) / Derivada);
+                resultadoXr = Utilidad.EvaluarFuncion(parametros.Funcion, xr);
 
                 if (resultadoXr.Equals(double.NaN))
                 {
@@ -180,8 +177,8 @@ namespace AnalisisNumerico.Logica
                 Anterior = xr;
                 ValorX = xr;
                 ValorXTole = (ValorX + Tolerancia);
-                ValorFXTole = EvaluarFuncion(parametros.Funcion, ValorXTole);
-                ValorXfun = EvaluarFuncion(parametros.Funcion, ValorX);
+                ValorFXTole = Utilidad.EvaluarFuncion(parametros.Funcion, ValorXTole);
+                ValorXfun = Utilidad.EvaluarFuncion(parametros.Funcion, ValorX);
                 ValorNumerador = ValorFXTole - ValorXfun;
                 Derivada = ValorNumerador / Tolerancia;
 
@@ -210,8 +207,8 @@ namespace AnalisisNumerico.Logica
 
             VerificaParametros(parametros);
 
-            var resultadoxi = EvaluarFuncion(parametros.Funcion, parametros.Xi);
-            var resultadoxd = EvaluarFuncion(parametros.Funcion, parametros.Xd);
+            var resultadoxi = Utilidad.EvaluarFuncion(parametros.Funcion, parametros.Xi);
+            var resultadoxd = Utilidad.EvaluarFuncion(parametros.Funcion, parametros.Xd);
 
             if (resultadoxd * resultadoxi == 0)
             {
@@ -237,13 +234,13 @@ namespace AnalisisNumerico.Logica
 
             do
             {
-                if ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)) == 0)
+                if ((Utilidad.EvaluarFuncion(parametros.Funcion, Xi) - Utilidad.EvaluarFuncion(parametros.Funcion, Xd)) == 0)
                 {
                     throw new DivideByZeroException("División por 0");
                 }
 
-                Xr = ((EvaluarFuncion(parametros.Funcion, Xi) * Xd) - (EvaluarFuncion(parametros.Funcion, Xd) * Xi)) / ((EvaluarFuncion(parametros.Funcion, Xi) - EvaluarFuncion(parametros.Funcion, Xd)));
-                resultadoXr = EvaluarFuncion(parametros.Funcion, Xr);
+                Xr = ((Utilidad.EvaluarFuncion(parametros.Funcion, Xi) * Xd) - (Utilidad.EvaluarFuncion(parametros.Funcion, Xd) * Xi)) / ((Utilidad.EvaluarFuncion(parametros.Funcion, Xi) - Utilidad.EvaluarFuncion(parametros.Funcion, Xd)));
+                resultadoXr = Utilidad.EvaluarFuncion(parametros.Funcion, Xr);
                 contador += 0;
 
                 if (resultadoXr.Equals(double.NaN))
@@ -283,8 +280,8 @@ namespace AnalisisNumerico.Logica
 
         private void VerificaParametros(ParametroCompuesto parametro)
         {
-            var resultadoxi = EvaluarFuncion(parametro.Funcion, parametro.Xi);
-            var resultadoxd = EvaluarFuncion(parametro.Funcion, parametro.Xd);
+            var resultadoxi = Utilidad.EvaluarFuncion(parametro.Funcion, parametro.Xi);
+            var resultadoxd = Utilidad.EvaluarFuncion(parametro.Funcion, parametro.Xd);
 
             if (resultadoxi.Equals(double.NaN) && resultadoxd.Equals(double.NaN))
             {

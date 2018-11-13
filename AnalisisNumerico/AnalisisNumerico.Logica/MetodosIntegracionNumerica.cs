@@ -11,6 +11,7 @@ namespace AnalisisNumerico.Logica
         {
             Utilidad = utilidad;
         }
+
         public ResultadoIntegracionNumerica MetodoDelTrapecioMultiple(ParametroTrapecioMultiple parametro)
         {
             var h = (parametro.ValorB - parametro.ValorA) / parametro.CantSubIntervalos;
